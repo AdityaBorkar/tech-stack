@@ -1,0 +1,30 @@
+{
+    "$schema": "machine-blueprint.json",
+    "description": "Primary developer machine with full tooling.",
+    "exclude": [],
+    "name": "Main Primary Machine",
+    "presets": [
+        "adb",
+        "aws",
+        "biome",
+        "caddy",
+        "cockpit",
+        "dnsmasq",
+        "docker",
+        "eas",
+        "gh",
+        "git",
+        "htop",
+        "npm",
+        "opencode",
+        "psql",
+        "shell",
+        "ssh",
+        "systemd",
+        "vscode",
+        "wakatime",
+        "wsl",
+        "zed"
+    ],
+    "type": "machine.blueprint"
+}

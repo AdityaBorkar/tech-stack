@@ -1,0 +1,10 @@
+{
+    "$schema": "project-blueprint.json",
+    "description": "Project blueprint for CLI App.",
+    "exclude": [],
+    "name": "CLI App",
+    "presets": [
+        "oxlint"
+    ],
+    "type": "project.blueprint"
+}

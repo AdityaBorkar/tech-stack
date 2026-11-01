@@ -1,0 +1,19 @@
+{
+    "$schema": "registry.json",
+    "machine": {
+        "blueprints": [
+            "./machine/blueprints"
+        ],
+        "presets": [
+            "./machine/presets"
+        ]
+    },
+    "project": {
+        "blueprints": [
+            "./project/blueprints"
+        ],
+        "presets": [
+            "./project/presets"
+        ]
+    }
+}

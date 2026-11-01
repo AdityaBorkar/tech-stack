@@ -1,0 +1,13 @@
+[Unit]
+Description=OpenUsage Telemetry Daemon
+After=default.target
+
+[Service]
+Type=simple
+ExecStart=/home/linuxbrew/.linuxbrew/Cellar/openusage/0.6.12/bin/openusage telemetry daemon run --socket-path /home/aditya/.local/state/openusage/telemetry.sock
+Restart=always
+RestartSec=2
+WorkingDirectory=%h
+
+[Install]
+WantedBy=default.target

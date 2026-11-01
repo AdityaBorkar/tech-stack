@@ -1,0 +1,27 @@
+{
+    "$schema": "machine-blueprint.json",
+    "description": "Headless worker machine without desktop editors.",
+    "exclude": [],
+    "name": "Worker Machine",
+    "presets": [
+        "adb",
+        "aws",
+        "biome",
+        "caddy",
+        "cockpit",
+        "dnsmasq",
+        "docker",
+        "eas",
+        "gh",
+        "git",
+        "htop",
+        "npm",
+        "opencode",
+        "psql",
+        "shell",
+        "ssh",
+        "systemd",
+        "wakatime"
+    ],
+    "type": "machine.blueprint"
+}

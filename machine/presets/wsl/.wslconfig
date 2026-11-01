@@ -1,0 +1,12 @@
+[wsl2]
+vmIdleTimeout=6000000 # 1 hr before timeout
+networkingMode=Mirrored
+defaultVhdSize=314572800000
+swap=10485760000
+memory=20971520000
+
+[experimental]
+hostAddressLoopback=true
+bestEffortDnsParsing=true
+sparseVhd=true
+autoMemoryReclaim=Gradual

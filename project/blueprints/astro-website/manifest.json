@@ -1,0 +1,10 @@
+{
+    "$schema": "project-blueprint.json",
+    "description": "Project blueprint for Astro Website.",
+    "exclude": [],
+    "name": "Astro Website",
+    "presets": [
+        "oxlint"
+    ],
+    "type": "project.blueprint"
+}

@@ -1,0 +1,10 @@
+{
+    "$schema": "project-blueprint.json",
+    "description": "Project blueprint for TanStack Website.",
+    "exclude": [],
+    "name": "TanStack Website",
+    "presets": [
+        "oxlint"
+    ],
+    "type": "project.blueprint"
+}

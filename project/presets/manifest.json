@@ -1,0 +1,17 @@
+{
+    "$schema": "project-preset.json",
+    "packages": [
+        {
+            "files": [
+                {
+                    "name": "config.json",
+                    "path": "project/presets/oxlint/config.json",
+                    "target": "./.oxlintrc.json"
+                }
+            ],
+            "name": "oxlint",
+            "reference": "project/presets/oxlint"
+        }
+    ],
+    "type": "project.presets"
+}

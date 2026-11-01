@@ -1,0 +1,14 @@
+[Unit]
+Description=uma-machine device agent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+ExecStart=/home/aditya/.bun/bin/bun /home/aditya/projects/uma-machine/tests/sync.test.ts daemon
+Environment=UMA_MACHINE_ROOT=/tmp/uma-sync-Yh6wOK/config
+
+[Install]
+WantedBy=default.target
