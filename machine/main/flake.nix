@@ -31,7 +31,6 @@
           ./home.nix
           ./packages.nix
           ./programs.nix
-          ./secrets.nix
           ./services.nix
           sops-nix.homeManagerModules.sops
         ];
