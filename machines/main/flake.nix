@@ -37,6 +37,7 @@
           ./packages.nix
           ./programs.nix
           ./services.nix
+          ./bun.nix
           sops-nix.homeManagerModules.sops
         ];
       };

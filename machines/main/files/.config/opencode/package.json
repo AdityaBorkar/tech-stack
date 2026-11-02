@@ -1,0 +1,11 @@
+{
+    "dependencies": {
+        "@dietrichgebert/ponytail": "^5.3.3"
+    },
+    "allowScripts": {},
+    "devDependencies": {
+        "@opentui/core": "^0.8.1",
+        "@opentui/solid": "^0.8.1",
+        "solid-js": "^1.9.18"
+    }
+}
