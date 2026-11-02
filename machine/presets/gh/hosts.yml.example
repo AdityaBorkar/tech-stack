@@ -1,6 +1,0 @@
-github.com:
-  users:
-    YOUR_GITHUB_USER:
-      oauth_token: REDACTED_RUN_gh_auth_login
-  git_protocol: https
-  user: YOUR_GITHUB_USER

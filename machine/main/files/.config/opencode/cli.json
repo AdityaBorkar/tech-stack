@@ -1,0 +1,35 @@
+{
+    "theme": {
+        "name": "vercel",
+        "mode": "system"
+    },
+    "keybinds": {
+        "command.palette.show": [
+            "ctrl+k",
+            "ctrl+p"
+        ]
+    },
+    "scroll": {
+        "acceleration": true
+    },
+    "attention": {
+        "enabled": true,
+        "notifications": true,
+        "sound": true,
+        "volume": 0.7,
+        "sound_pack": "opencode.default"
+    },
+    "diffs": {
+        "wrap": "word"
+    },
+    "session": {
+        "sidebar": "auto",
+        "scrollbar": false,
+        "thinking": "show",
+        "markdown": "rendered"
+    },
+    "animations": true,
+    "hints": {
+        "onboarding": false
+    }
+}

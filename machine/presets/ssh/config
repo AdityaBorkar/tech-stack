@@ -1,4 +1,0 @@
-Host *
-  HashKnownHosts yes
-  AddKeysToAgent yes
-  IdentitiesOnly no

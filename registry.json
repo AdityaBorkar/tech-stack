@@ -1,11 +1,11 @@
 {
-    "$schema": "registry.json",
+    "$schema": "https://stack.adityab.tech/conform/<VERSION>/schemas/registry.json",
     "machine": {
         "blueprints": [
-            "./machine/blueprints"
-        ],
-        "presets": [
-            "./machine/presets"
+            {
+                "name": "Primary Developer Machine",
+                "path": "./machine/main/"
+            }
         ]
     },
     "project": {
