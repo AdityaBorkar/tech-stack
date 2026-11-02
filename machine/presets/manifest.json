@@ -4,7 +4,6 @@
     "packages": [
         {
             "name": "aws",
-            "reference": "machine/presets/aws",
             "files": [
                 {
                     "path": "machine/presets/aws/config",
@@ -20,7 +19,6 @@
         },
         {
             "name": "docker",
-            "reference": "machine/presets/docker",
             "files": [
                 {
                     "path": "machine/presets/docker/config.json",
@@ -31,7 +29,6 @@
         },
         {
             "name": "eas",
-            "reference": "machine/presets/eas",
             "files": [
                 {
                     "path": "machine/presets/eas/user-settings.json.example",
@@ -42,7 +39,6 @@
         },
         {
             "name": "gh",
-            "reference": "machine/presets/gh",
             "files": [
                 {
                     "path": "machine/presets/gh/config.yml",
@@ -58,7 +54,6 @@
         },
         {
             "name": "git",
-            "reference": "machine/presets/git",
             "files": [
                 {
                     "path": "machine/presets/git/gitconfig",
@@ -69,7 +64,6 @@
         },
         {
             "name": "htop",
-            "reference": "machine/presets/htop",
             "files": [
                 {
                     "path": "machine/presets/htop/htoprc",
@@ -80,7 +74,6 @@
         },
         {
             "name": "npm",
-            "reference": "machine/presets/npm",
             "files": [
                 {
                     "path": "machine/presets/npm/npmrc.example",
@@ -91,7 +84,6 @@
         },
         {
             "name": "opencode",
-            "reference": "machine/presets/opencode",
             "files": [
                 {
                     "path": "machine/presets/opencode/agents/ask.md",
@@ -137,7 +129,6 @@
         },
         {
             "name": "psql",
-            "reference": "machine/presets/psql",
             "files": [
                 {
                     "path": "machine/presets/psql/pg_service.conf.example",
@@ -148,7 +139,6 @@
         },
         {
             "name": "shell",
-            "reference": "machine/presets/shell",
             "files": [
                 {
                     "path": "machine/presets/shell/bash_logout",
@@ -169,7 +159,6 @@
         },
         {
             "name": "ssh",
-            "reference": "machine/presets/ssh",
             "files": [
                 {
                     "path": "machine/presets/ssh/config",
@@ -185,7 +174,6 @@
         },
         {
             "name": "systemd",
-            "reference": "machine/presets/systemd",
             "files": [
                 {
                     "path": "machine/presets/systemd/openusage-telemetry.service",
@@ -201,7 +189,6 @@
         },
         {
             "name": "vscode",
-            "reference": "machine/presets/vscode",
             "files": [
                 {
                     "path": "machine/presets/vscode/settings.json",
@@ -212,7 +199,6 @@
         },
         {
             "name": "wakatime",
-            "reference": "machine/presets/wakatime",
             "files": [
                 {
                     "path": "machine/presets/wakatime/wakatime.cfg.example",
@@ -223,7 +209,6 @@
         },
         {
             "name": "wsl",
-            "reference": "machine/presets/wsl",
             "files": [
                 {
                     "path": "machine/presets/wsl/.wslconfig",
@@ -239,7 +224,6 @@
         },
         {
             "name": "zed",
-            "reference": "machine/presets/zed",
             "files": [
                 {
                     "path": "machine/presets/zed/settings.json",

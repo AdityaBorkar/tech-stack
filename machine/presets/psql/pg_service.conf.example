@@ -1,8 +1,0 @@
-# Template — source had no ~/.pgpass / ~/.psql_history (psql 16.15).
-# Copy to ~/.pg_service.conf or ~/.pgpass and fill in (chmod 600 for pgpass).
-# [myservice]
-# host=localhost
-# port=5432
-# dbname=mydb
-# user=myuser
-# password=REDACTED

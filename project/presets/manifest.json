@@ -9,8 +9,7 @@
                     "target": "./bunfig.toml"
                 }
             ],
-            "name": "bun",
-            "reference": "project/presets/bun"
+            "name": "bun"
         },
         {
             "files": [
@@ -20,8 +19,7 @@
                     "target": "docs: bun CLI app layout — flat src modules, scripts, generated schemas (adapt names)"
                 }
             ],
-            "name": "cli-structure",
-            "reference": "project/presets/cli-structure"
+            "name": "cli-structure"
         },
         {
             "files": [
@@ -31,8 +29,7 @@
                     "target": "./.commitlintrc.json"
                 }
             ],
-            "name": "commitlint",
-            "reference": "project/presets/commitlint"
+            "name": "commitlint"
         },
         {
             "files": [
@@ -42,8 +39,7 @@
                     "target": "./.gitignore"
                 }
             ],
-            "name": "gitignore",
-            "reference": "project/presets/gitignore"
+            "name": "gitignore"
         },
         {
             "files": [
@@ -58,8 +54,7 @@
                     "target": "./.husky/pre-commit"
                 }
             ],
-            "name": "husky",
-            "reference": "project/presets/husky"
+            "name": "husky"
         },
         {
             "files": [
@@ -69,8 +64,7 @@
                     "target": "./knip.json"
                 }
             ],
-            "name": "knip",
-            "reference": "project/presets/knip"
+            "name": "knip"
         },
         {
             "files": [
@@ -80,8 +74,7 @@
                     "target": "./.oxfmtrc.json"
                 }
             ],
-            "name": "oxfmt",
-            "reference": "project/presets/oxfmt"
+            "name": "oxfmt"
         },
         {
             "files": [
@@ -91,8 +84,7 @@
                     "target": "./.oxlintrc.json"
                 }
             ],
-            "name": "oxlint",
-            "reference": "project/presets/oxlint"
+            "name": "oxlint"
         },
         {
             "files": [
@@ -102,8 +94,7 @@
                     "target": "docs: package.json conventions for bun CLI apps (adapt name/version/bin; keep scripts, imports, files)"
                 }
             ],
-            "name": "package",
-            "reference": "project/presets/package"
+            "name": "package"
         },
         {
             "files": [
@@ -113,8 +104,7 @@
                     "target": "./tsconfig.json"
                 }
             ],
-            "name": "tsconfig",
-            "reference": "project/presets/tsconfig"
+            "name": "tsconfig"
         },
         {
             "files": [
@@ -124,8 +114,7 @@
                     "target": "./.zed/settings.json"
                 }
             ],
-            "name": "zed",
-            "reference": "project/presets/zed"
+            "name": "zed"
         }
     ],
     "type": "project.presets"
