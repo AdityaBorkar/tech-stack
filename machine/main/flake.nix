@@ -26,6 +26,7 @@
       # Apply with: nix run home-manager -- switch --flake ./machine/blueprints/main#adityab
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+        extraSpecialArgs = { inherit username; };
         modules = [
           ./home.nix
           ./packages.nix

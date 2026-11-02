@@ -19,9 +19,9 @@
       GOPATH = "$HOME/go";
       DENO_DIR = "$HOME/.cache/deno";
     };
-    bashrcExtra = builtins.readFile ../files/shell/bashrc-extra.sh;
-    profileExtra = builtins.readFile ../files/shell/profile-extra.sh;
-    logoutExtra = builtins.readFile ../files/shell/bash-logout.sh;
+    bashrcExtra = builtins.readFile ./files/shell/bashrc-extra.sh;
+    profileExtra = builtins.readFile ./files/shell/profile-extra.sh;
+    logoutExtra = builtins.readFile ./files/shell/bash-logout.sh;
   };
 
   programs.zsh = {
@@ -29,14 +29,14 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    initExtra = builtins.readFile ../files/shell/zsh-init-extra.zsh;
+    initContent = builtins.readFile ./files/shell/zsh-init-extra.zsh;
   };
 
   programs.git = {
     enable = true;
-    userName = "Aditya Borkar";
-    userEmail = "aditya.borkar.programs@gmail.com";
-    extraConfig = {
+    settings = {
+      user.name = "Aditya Borkar";
+      user.email = "aditya.borkar.programs@gmail.com";
       init.defaultBranch = "main";
       pull.rebase = false;
       credential."https://github.com".helper = "!/usr/bin/gh auth git-credential";
