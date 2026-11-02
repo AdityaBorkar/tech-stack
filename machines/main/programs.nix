@@ -36,10 +36,10 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks."*" = {
-      hashKnownHosts = true;
-      addKeysToAgent = "yes";
-      identitiesOnly = false;
+    settings."*" = {
+      HashKnownHosts = true;
+      AddKeysToAgent = "yes";
+      IdentitiesOnly = false;
     };
   };
 }

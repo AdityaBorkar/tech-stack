@@ -54,7 +54,7 @@
     jdk17
     jdk8
     gradle
-    python
+    python3
     docker
     rustup
     awscli2
