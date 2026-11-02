@@ -5,7 +5,18 @@
   home.homeDirectory = "/home/${username}";
   home.stateVersion = "25.05";
 
+  home.sessionVariables = {
+    JAVA_HOME = "${pkgs.jdk17}/lib/openjdk";
+    ANDROID_HOME = "$HOME/android";
+    ANDROID_SDK_ROOT = "$HOME/android";
+    GOPATH = "$HOME/go";
+  };
+
   home.file = {
+    ".bashrc".source = ./files/.bashrc;
+    ".profile".source = ./files/.profile;
+    ".bash_logout".source = ./files/.bash_logout;
+    ".zshrc".source = ./files/.zshrc;
     ".aws/config".source = ./files/.aws/config;
     ".docker/config.json".source = ./files/.docker/config.json;
     ".config/htop/htoprc".source = ./files/.config/htop/htoprc;

@@ -21,12 +21,17 @@
         inherit system;
         config.allowUnfree = true;
       };
+      gitName =
+        let v = builtins.getEnv "GIT_NAME";
+        in if v == "" then throw "GIT_NAME is not set. Run with GIT_NAME=\"Your Name\" GIT_EMAIL=\"you@example.com\" (requires --impure for getEnv)." else v;
+      gitEmail =
+        let v = builtins.getEnv "GIT_EMAIL";
+        in if v == "" then throw "GIT_EMAIL is not set. Run with GIT_NAME=\"Your Name\" GIT_EMAIL=\"you@example.com\" (requires --impure for getEnv)." else v;
     in
     {
-      # Apply with: nix run home-manager -- switch --flake ./machine/blueprints/main#adityab
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit username; };
+        extraSpecialArgs = { inherit username gitName gitEmail; };
         modules = [
           ./home.nix
           ./packages.nix

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, gitName, gitEmail, ... }:
 
 {
   programs.home-manager = {
@@ -10,34 +10,12 @@
     nix-direnv.enable = true;
   };
 
-  programs.bash = {
-    enable = true;
-    sessionVariables = {
-      JAVA_HOME = "${pkgs.jdk17}/lib/openjdk";
-      ANDROID_HOME = "$HOME/android";
-      ANDROID_SDK_ROOT = "$HOME/android";
-      GOPATH = "$HOME/go";
-      DENO_DIR = "$HOME/.cache/deno";
-    };
-    bashrcExtra = builtins.readFile ./files/shell/bashrc-extra.sh;
-    profileExtra = builtins.readFile ./files/shell/profile-extra.sh;
-    logoutExtra = builtins.readFile ./files/shell/bash-logout.sh;
-  };
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-    initContent = builtins.readFile ./files/shell/zsh-init-extra.zsh;
-  };
-
   programs.git = {
     enable = true;
     settings = {
-      user.name = "Aditya Borkar";
-      user.email = "aditya.borkar.programs@gmail.com";
-      init.defaultBranch = "main";
+      user.name = gitName;
+      user.email = gitEmail;
+      init.defaultBranch = "dev";
       pull.rebase = false;
       credential."https://github.com".helper = "!/usr/bin/gh auth git-credential";
       credential."https://gist.github.com".helper = "!/usr/bin/gh auth git-credential";

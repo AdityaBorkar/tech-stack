@@ -1,15 +1,12 @@
-There must be a validate command to validate all configs
-
 # TODO
+
+There must be a validate command to validate all configs
 
 NOTE: EAS/Expo, agent-browser, context7-mcp, githits, expect-cli,
 pi-coding-agents are NOT in nixpkgs — reinstall via bun/npm per HOW_TO §4.
 pacman-contrib is Arch-only (paccache etc.) — no nixpkgs equivalent; skip on NixOS/Ubuntu.
 
-Secrets are deployed by modules/secrets.nix from encrypted secrets.yaml
-(age key at ~/.config/sops/age/keys.txt). No re-auth needed on a machine
-that already has the key — activation decrypts in place.
-Manual post-steps this config deliberately does NOT automate (see HOW_TO.md):
+age key at ~/.config/sops/age/keys.txt
 
 - `rustup default stable` (source had no toolchain)
 - nvm install 24.15.0 / bun add -g ... / npm i -g agent-browser
