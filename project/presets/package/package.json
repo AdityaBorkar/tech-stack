@@ -1,0 +1,61 @@
+{
+	"_template": "Adapt name/version/description/bin/files/exports to your CLI, then keep scripts/imports/toolchain deps in sync with the cli-app presets (oxlint, oxfmt, knip, commitlint, tsconfig, bun).",
+	"bin": {
+		"<binary-name>": "./.output/<binary-name>"
+	},
+	"dependencies": {
+		"@clack/prompts": "1.8.1",
+		"commander": "15.0.0",
+		"diff": "9.0.0",
+		"env-paths": "4.0.0",
+		"es-toolkit": "1.53.0",
+		"fs-extra": "11.4.1",
+		"picocolors": "1.1.1",
+		"tar": "7.5.22",
+		"tinyglobby": "0.2.17",
+		"untildify": "6.0.0",
+		"zod": "4.6.7"
+	},
+	"description": "<one-line description>",
+	"devDependencies": {
+		"@commitlint/cli": "21.2.4",
+		"@commitlint/config-conventional": "21.2.4",
+		"@types/bun": "1.4.4",
+		"@types/fs-extra": "11.4.1",
+		"@types/node": "26.6.5",
+		"husky": "9.1.7",
+		"knip": "6.43.0",
+		"oxfmt": "0.75.0",
+		"oxlint": "1.90.0",
+		"tsrs": "0.20.1-ts7.1.0-beta",
+		"typescript": "7.0.2"
+	},
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"files": [
+		".output",
+		"package.json",
+		"configuration_schema",
+		"README.md",
+		"skills"
+	],
+	"imports": {
+		"#/*": "./src/*"
+	},
+	"name": "<package-name>",
+	"scripts": {
+		"build": "bun ./scripts/build.ts",
+		"check:lint": "oxlint",
+		"check:types": "tsrs",
+		"clean": "bunx rimraf --glob \"**/{node_modules,dist,bun.lockb}\"",
+		"dev": "bun ./src/index.ts",
+		"format": "oxfmt",
+		"gen:json-schema": "bun ./scripts/generate-json-schema.ts",
+		"prepare": "husky",
+		"review:knip": "knip",
+		"verify": "bun format && bun check:lint && bun check:types && bun run build"
+	},
+	"type": "module",
+	"version": "0.1.0"
+}

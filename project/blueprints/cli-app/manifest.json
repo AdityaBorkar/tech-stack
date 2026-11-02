@@ -4,7 +4,17 @@
     "exclude": [],
     "name": "CLI App",
     "presets": [
-        "oxlint"
+        "bun",
+        "cli-structure",
+        "commitlint",
+        "gitignore",
+        "husky",
+        "knip",
+        "oxfmt",
+        "oxlint",
+        "package",
+        "tsconfig",
+        "zed"
     ],
     "type": "project.blueprint"
 }

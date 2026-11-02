@@ -3,17 +3,6 @@
     "type": "machine.presets",
     "packages": [
         {
-            "name": "adb",
-            "reference": "machine/presets/adb",
-            "files": [
-                {
-                    "path": "machine/presets/adb/README.md",
-                    "target": "docs: adb pair/connect commands (no live file)",
-                    "name": "README.md"
-                }
-            ]
-        },
-        {
             "name": "aws",
             "reference": "machine/presets/aws",
             "files": [
@@ -26,50 +15,6 @@
                     "path": "machine/presets/aws/credentials.example",
                     "target": "~/.aws/credentials",
                     "name": "credentials.example"
-                }
-            ]
-        },
-        {
-            "name": "biome",
-            "reference": "machine/presets/biome",
-            "files": [
-                {
-                    "path": "machine/presets/biome/settings.json",
-                    "target": "desired-state: biome settings (per-project / editor)",
-                    "name": "settings.json"
-                }
-            ]
-        },
-        {
-            "name": "caddy",
-            "reference": "machine/presets/caddy",
-            "files": [
-                {
-                    "path": "machine/presets/caddy/Caddyfile",
-                    "target": "/etc/caddy/Caddyfile",
-                    "name": "Caddyfile"
-                }
-            ]
-        },
-        {
-            "name": "cockpit",
-            "reference": "machine/presets/cockpit",
-            "files": [
-                {
-                    "path": "machine/presets/cockpit/disallowed-users",
-                    "target": "/etc/cockpit/disallowed-users",
-                    "name": "disallowed-users"
-                }
-            ]
-        },
-        {
-            "name": "dnsmasq",
-            "reference": "machine/presets/dnsmasq",
-            "files": [
-                {
-                    "path": "machine/presets/dnsmasq/dnsmasq.conf",
-                    "target": "/etc/dnsmasq.conf",
-                    "name": "dnsmasq.conf"
                 }
             ]
         },
