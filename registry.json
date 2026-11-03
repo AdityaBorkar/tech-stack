@@ -17,15 +17,15 @@
         },
         {
             "name": "CLI + Web App (Tanstack Start)",
-            "path": "./projects/cli-tanstack-webapp"
+            "path": "./projects/cli-tanstack-webapp/"
         },
         {
             "name": "Web App (Tanstack Start)",
-            "path": "./projects/tanstack-webapp"
+            "path": "./projects/tanstack-webapp/"
         },
         {
             "name": "Website (Tanstack Start)",
-            "path": "./projects/tanstack-website"
+            "path": "./projects/tanstack-website/"
         }
     ]
 }

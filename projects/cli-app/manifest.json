@@ -1,16 +1,11 @@
 {
-    "$schema": "project-manifest.json",
+    "$schema": "https://stack.adityab.tech/conform/<VERSION>/schemas/project-manifest.json",
     "description": "CLI Application using Commander",
     "files": [
         {
             "name": "Bun Config",
             "source": "../$presets/bunfig.toml",
             "target": "bunfig.toml"
-        },
-        {
-            "name": "CLI Structure",
-            "source": "project/presets/cli-structure/STRUCTURE.md",
-            "target": "docs: bun CLI app layout — flat src modules, scripts, generated schemas (adapt names)"
         },
         {
             "name": "Commitlint Config",
@@ -46,11 +41,6 @@
             "name": "Oxlint Config",
             "source": "../$presets/oxlint.json",
             "target": ".oxlintrc.json"
-        },
-        {
-            "name": "Package Conventions",
-            "source": "../$presets/package.json",
-            "target": "docs: package.json conventions for bun CLI apps (adapt name/version/bin; keep scripts, imports, files)"
         },
         {
             "name": "TypeScript Config",

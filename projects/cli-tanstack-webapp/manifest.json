@@ -1,10 +1,1 @@
-{
-    "$schema": "project-blueprint.json",
-    "description": "Project blueprint for CLI TanStack Webapp.",
-    "exclude": [],
-    "name": "CLI TanStack Webapp",
-    "presets": [
-        "oxlint"
-    ],
-    "type": "project.blueprint"
-}
+{}
