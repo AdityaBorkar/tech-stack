@@ -23,16 +23,13 @@
                 ]
             },
             "codebase-memory-mcp": {
-                "command": [
-                    "/home/aditya/.local/bin/codebase-memory-mcp"
-                ],
+                "command": ["~/.local/bin/codebase-memory-mcp"],
                 "type": "local"
             }
         }
     },
     "update": "auto",
     "share": "disabled",
-    "username": "adityaborkar",
     "permissions": [
         {
             "action": "external_directory",
@@ -44,5 +41,10 @@
             "resource": "/tmp/*",
             "effect": "allow"
         }
-    ]
+    ],
+    "experimental": {
+      "todo": true,
+      "subagent_depth": 3,
+      "background_compaction": true,
+    },
 }

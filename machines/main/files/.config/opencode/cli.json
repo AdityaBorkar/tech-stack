@@ -1,5 +1,6 @@
 {
-    "theme": {
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "theme": {
         "name": "vercel",
         "mode": "system"
     },
@@ -13,7 +14,6 @@
         "acceleration": true
     },
     "attention": {
-        "enabled": true,
         "notifications": true,
         "sound": true,
         "volume": 0.7,
@@ -28,8 +28,5 @@
         "thinking": "show",
         "markdown": "rendered"
     },
-    "animations": true,
-    "hints": {
-        "onboarding": false
-    }
+    "animations": true
 }
