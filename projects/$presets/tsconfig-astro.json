@@ -10,7 +10,7 @@
 		"jsxImportSource": "react"
 	},
 	"include": [".astro/types.d.ts", "**/*"],
-	"exclude": [".output"],
+	"exclude": [".output", "node_modules",".astro",".wrangler"],
 	"contentMappers": [
 		{
 			"package": "@astrojs/ts-content-mapper",
