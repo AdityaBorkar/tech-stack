@@ -1,6 +1,12 @@
 {
     "$schema": "https://stack.adityab.tech/conform/<VERSION>/schemas/project-manifest.json",
     "description": "Web App using TanStack Start",
+    "directories": [
+        {
+            "name": "Source Dir",
+            "target": "src/"
+        }
+    ],
     "files": [
         {
             "name": "Bun Config",
@@ -28,11 +34,21 @@
             "target": ".husky/pre-commit"
         },
         {
+            "compare": {
+                "ignore": [
+                    "overrides"
+                ]
+            },
             "name": "Oxfmt Config",
             "source": "../$presets/oxfmt.json",
             "target": ".oxfmtrc.json"
         },
         {
+            "compare": {
+                "ignore": [
+                    "overrides"
+                ]
+            },
             "name": "Oxlint Config",
             "source": "../$presets/oxlint-tanstack.json",
             "target": ".oxlintrc.json"
@@ -61,6 +77,43 @@
             "name": "shadcn Components Config",
             "source": "../$presets/components.json",
             "target": "components.json"
+        },
+        {
+            "compare": {
+                "pinned": [
+                    "scripts",
+                    "imports",
+                    "type"
+                ],
+                "strip": [
+                    "_template"
+                ],
+                "versioned": [
+                    "dependencies",
+                    "devDependencies"
+                ]
+            },
+            "name": "Package JSON",
+            "source": "../$presets/package.json",
+            "target": "package.json"
         }
+    ],
+    "js": {
+        "dependencies": [],
+        "devDependencies": [
+            "@commitlint/cli",
+            "@commitlint/config-conventional",
+            "husky",
+            "oxfmt",
+            "oxlint",
+            "typescript",
+            "tsrs"
+        ],
+        "peerDependencies": [],
+        "pm": "bun"
+    },
+    "required": [
+        "AGENTS.md",
+        "README.md"
     ]
 }
