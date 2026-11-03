@@ -15,7 +15,6 @@ Data-only registry. No root `package.json`, no test/lint/build runner, no CI. On
 
 - `registry.json` `machines[0].path` says `./machine/main/` (singular); real dir is `machines/main/` (plural). Project paths also mix trailing slashes.
 - `projects/cli-app/manifest-2.json` `path` fields still say `project/presets/<group>/<file>`; real files are flat under `projects/$presets/<file>`. `target: "docs: ..."` entries are docs-only, not file copies.
-- `machines/main/home.nix` `defaultSopsFile = ../secrets.yaml` resolves to `machines/secrets.yaml`, which does not exist; real file is `machines/main/secrets.yaml`.
 
 ## Editing project presets/blueprints
 
@@ -27,7 +26,7 @@ Data-only registry. No root `package.json`, no test/lint/build runner, no CI. On
 - `files/` is source of truth for `home.file` in `home.nix`. New dotfiles: add file under `files/` + entry in `home.nix`.
 - Secrets: `files/` templates use `@@PLACEHOLDER@@`; values live only in sops-encrypted `machines/main/secrets.yaml`, wired via `sops.templates` in `home.nix`. Never commit real tokens. Rotate with `sops secrets.yaml` from `machines/main` (age key at `~/.config/sops/age/keys.txt`, recipients in `.sops.yaml`); keep `secrets.yaml` keys, `home.nix` template names, and `files/` placeholders in sync.
 - Apply from `machines/main` requires `--impure` plus env vars — `flake.nix` throws without `GIT_NAME`/`GIT_EMAIL` (`builtins.getEnv`), username comes from `$USER`.
-- `programs.nix` sets git `init.defaultBranch = "dev"` and hardcodes the gh credential helper to `/usr/bin/gh`.
+- `programs.nix` sets git `init.defaultBranch = "dev"`; git credential helpers come from the `gh` module default (`gitCredentialHelper`, nix-store `gh`).
 - `TODO.md` lists steps Nix does not cover: `rustup default stable`, nvm/bun/npm globals (`agent-browser`, EAS/Expo, context7-mcp, githits, expect-cli), pip ML stack, Android SDK, `mkcert -install`, system units, `docker login`, cloudflared/ssh setup.
 
 ## Commits

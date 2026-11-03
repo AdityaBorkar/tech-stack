@@ -1,121 +1,66 @@
 {
-    "$schema": "project-blueprint.json",
+    "$schema": "project-manifest.json",
     "description": "CLI Application using Commander",
-    "packages": [
+    "files": [
         {
-            "files": [
-                {
-                    "name": "bunfig.toml",
-                    "path": "project/presets/bun/bunfig.toml",
-                    "target": "./bunfig.toml"
-                }
-            ],
-            "name": "bun"
+            "name": "Bun Config",
+            "source": "../$presets/bunfig.toml",
+            "target": "bunfig.toml"
         },
         {
-            "files": [
-                {
-                    "name": "STRUCTURE.md",
-                    "path": "project/presets/cli-structure/STRUCTURE.md",
-                    "target": "docs: bun CLI app layout — flat src modules, scripts, generated schemas (adapt names)"
-                }
-            ],
-            "name": "cli-structure"
+            "name": "CLI Structure",
+            "source": "project/presets/cli-structure/STRUCTURE.md",
+            "target": "docs: bun CLI app layout — flat src modules, scripts, generated schemas (adapt names)"
         },
         {
-            "files": [
-                {
-                    "name": "config.json",
-                    "path": "project/presets/commitlint/config.json",
-                    "target": "./.commitlintrc.json"
-                }
-            ],
-            "name": "commitlint"
+            "name": "Commitlint Config",
+            "source": "../$presets/commitlint.config.json",
+            "target": ".commitlintrc.json"
         },
         {
-            "files": [
-                {
-                    "name": "gitignore",
-                    "path": "project/presets/gitignore/gitignore",
-                    "target": "./.gitignore"
-                }
-            ],
-            "name": "gitignore"
+            "name": "Gitignore",
+            "source": "../$presets/gitignore",
+            "target": ".gitignore"
         },
         {
-            "files": [
-                {
-                    "name": "commit-msg",
-                    "path": "project/presets/husky/commit-msg",
-                    "target": "./.husky/commit-msg"
-                },
-                {
-                    "name": "pre-commit",
-                    "path": "project/presets/husky/pre-commit",
-                    "target": "./.husky/pre-commit"
-                }
-            ],
-            "name": "husky"
+            "name": "Husky Commit-Msg Hook",
+            "source": "../$presets/husky-commit-msg",
+            "target": ".husky/commit-msg"
         },
         {
-            "files": [
-                {
-                    "name": "knip.json",
-                    "path": "project/presets/knip/knip.json",
-                    "target": "./knip.json"
-                }
-            ],
-            "name": "knip"
+            "name": "Husky Pre-Commit Hook",
+            "source": "../$presets/husky-pre-commit",
+            "target": ".husky/pre-commit"
         },
         {
-            "files": [
-                {
-                    "name": "config.json",
-                    "path": "project/presets/oxfmt/config.json",
-                    "target": "./.oxfmtrc.json"
-                }
-            ],
-            "name": "oxfmt"
+            "name": "Knip Config",
+            "source": "../$presets/knip.json",
+            "target": "knip.json"
         },
         {
-            "files": [
-                {
-                    "name": "config.json",
-                    "path": "project/presets/oxlint/config.json",
-                    "target": "./.oxlintrc.json"
-                }
-            ],
-            "name": "oxlint"
+            "name": "Oxfmt Config",
+            "source": "../$presets/oxfmt.json",
+            "target": ".oxfmtrc.json"
         },
         {
-            "files": [
-                {
-                    "name": "package.json",
-                    "path": "project/presets/package/package.json",
-                    "target": "docs: package.json conventions for bun CLI apps (adapt name/version/bin; keep scripts, imports, files)"
-                }
-            ],
-            "name": "package"
+            "name": "Oxlint Config",
+            "source": "../$presets/oxlint.json",
+            "target": ".oxlintrc.json"
         },
         {
-            "files": [
-                {
-                    "name": "tsconfig.json",
-                    "path": "project/presets/tsconfig/tsconfig.json",
-                    "target": "./tsconfig.json"
-                }
-            ],
-            "name": "tsconfig"
+            "name": "Package Conventions",
+            "source": "../$presets/package.json",
+            "target": "docs: package.json conventions for bun CLI apps (adapt name/version/bin; keep scripts, imports, files)"
         },
         {
-            "files": [
-                {
-                    "name": "settings.json",
-                    "path": "project/presets/zed/settings.json",
-                    "target": "./.zed/settings.json"
-                }
-            ],
-            "name": "zed"
+            "name": "TypeScript Config",
+            "source": "../$presets/tsconfig.json",
+            "target": "tsconfig.json"
+        },
+        {
+            "name": "Zed Settings",
+            "source": "../$presets/zed.json",
+            "target": ".zed/settings.json"
         }
     ]
 }

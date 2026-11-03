@@ -12,7 +12,7 @@
     patch
     libtool
     gnome-keyring
-    xorg.xvfb
+    xvfb
 
     # CLI essentials
     curl
