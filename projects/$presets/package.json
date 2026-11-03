@@ -1,5 +1,4 @@
 {
-	"_template": "Adapt name/version/description/bin/files/exports to your CLI, then keep scripts/imports/toolchain deps in sync with the cli-app presets (oxlint, oxfmt, knip, commitlint, tsconfig, bun).",
 	"bin": {
 		"<binary-name>": "./.output/<binary-name>"
 	},

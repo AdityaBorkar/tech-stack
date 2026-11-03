@@ -1,10 +1,21 @@
 {
     "$schema": "https://stack.adityab.tech/conform/<VERSION>/schemas/project-manifest.json",
     "description": "Website using Astro",
-    "directories": [
+    "file_structure": [
         {
             "name": "Source Dir",
-            "target": "src/"
+            "target": "src/",
+            "kind": "dir"
+        },
+        {
+            "name": "AGENTS.md",
+            "target": "AGENTS.md",
+            "kind": "file"
+        },
+        {
+            "name": "README.md",
+            "target": "README.md",
+            "kind": "file"
         }
     ],
     "files": [
@@ -110,9 +121,6 @@
                     "imports",
                     "type"
                 ],
-                "strip": [
-                    "_template"
-                ],
                 "versioned": [
                     "dependencies",
                     "devDependencies"
@@ -137,9 +145,5 @@
         ],
         "peerDependencies": [],
         "pm": "bun"
-    },
-    "required": [
-        "AGENTS.md",
-        "README.md"
-    ]
+    }
 }

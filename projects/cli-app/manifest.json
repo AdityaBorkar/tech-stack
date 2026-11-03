@@ -1,10 +1,21 @@
 {
     "$schema": "https://stack.adityab.tech/conform/<VERSION>/schemas/project-manifest.json",
     "description": "CLI Application using Commander",
-    "directories": [
+    "file_structure": [
         {
             "name": "Source Dir",
-            "target": "src/"
+            "target": "src/",
+            "kind": "dir"
+        },
+        {
+            "name": "AGENTS.md",
+            "target": "AGENTS.md",
+            "kind": "file"
+        },
+        {
+            "name": "README.md",
+            "target": "README.md",
+            "kind": "file"
         }
     ],
     "files": [
@@ -74,13 +85,6 @@
                     "scripts",
                     "imports",
                     "type"
-                ],
-                "strip": [
-                    "_template"
-                ],
-                "versioned": [
-                    "dependencies",
-                    "devDependencies"
                 ]
             },
             "name": "Package JSON",
@@ -103,8 +107,5 @@
         "peerDependencies": [],
         "pm": "bun"
     },
-    "required": [
-        "AGENTS.md",
-        "README.md"
-    ]
+    "github": "../$presets/github-configs/npm-package.json"
 }
