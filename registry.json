@@ -3,7 +3,7 @@
     "machines": [
         {
             "name": "Primary Developer Machine",
-            "path": "./machine/main/"
+            "path": "./machines/main/"
         }
     ],
     "projects": [

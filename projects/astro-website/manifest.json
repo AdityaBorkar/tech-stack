@@ -34,7 +34,7 @@
         },
         {
             "name": "Oxfmt Config",
-            "source": "../$presets/oxfmt-astro.json",
+            "source": "../$presets/oxfmt.json",
             "target": ".oxfmtrc.json"
         },
         {

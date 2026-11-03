@@ -32,4 +32,4 @@ Data-only registry. No root `package.json`, no test/lint/build runner, no CI her
 ## Editing project presets
 
 - Blueprint `files[]` entries use `source` relative to the manifest dir (`../$presets/<file>`) and `target` as the destination path in the generated project.
-- Template husky hooks: `husky-commit-msg` runs `bun commitlint --edit $1`, `husky-pre-commit` runs `bun fmt --staged`. Commit types allowed by `$presets/commitlintrc.json`: `build/chore/ci/docs/feat/fix/perf/refactor/revert/test/wip`.
+- Template husky hooks: `husky-commit-msg` runs `bun commitlint --edit $1`, `husky-pre-commit` runs `bun fmt --staged`. Commit types allowed by `$presets/commitlintrc.json`: `release/chore/docs/feat/fix/refactor/revert/test`.

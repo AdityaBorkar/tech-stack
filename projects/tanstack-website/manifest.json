@@ -29,7 +29,7 @@
         },
         {
             "name": "Oxfmt Config",
-            "source": "../$presets/oxfmt-tanstack.json",
+            "source": "../$presets/oxfmt.json",
             "target": ".oxfmtrc.json"
         },
         {
