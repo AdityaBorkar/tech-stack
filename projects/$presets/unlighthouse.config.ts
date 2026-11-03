@@ -1,6 +1,5 @@
 import { defineUnlighthouseConfig } from "unlighthouse/config";
 
-// Replace with your production URL.
 const SITE_URL = "https://example.com";
 
 export default defineUnlighthouseConfig({

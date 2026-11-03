@@ -7,12 +7,11 @@ depth = 10
 [install]
 auto = "disable"
 minimumReleaseAge = "3d"
-saveTextLockfile = false
 ignore-scripts = true
 exact = true
 
 [run]
-bun = false # Astro is not compatible with `bun`. Commands `dev` and `build` stay hanged.
+bun = false # Cloudflare Adapter is not compatible with `bun`. Commands `dev` and `build` stay hanged.
 shell = "bun"
 silent = false
 noOrphans = true

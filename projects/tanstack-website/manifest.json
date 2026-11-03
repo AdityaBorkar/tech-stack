@@ -39,12 +39,12 @@
         },
         {
             "name": "TypeScript Config",
-            "source": "../$presets/tsconfig-tanstack.json",
+            "source": "../$presets/tsconfig.json",
             "target": "tsconfig.json"
         },
         {
             "name": "Zed Settings",
-            "source": "../$presets/zed-tanstack.json",
+            "source": "../$presets/zed.json",
             "target": ".zed/settings.json"
         },
         {

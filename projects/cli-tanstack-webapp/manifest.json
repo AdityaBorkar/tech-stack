@@ -54,7 +54,7 @@
         },
         {
             "name": "Vite Config",
-            "source": "../$presets/vite-cli-tanstack.config.ts",
+            "source": "../$presets/vite.config.ts",
             "target": "vite.config.ts"
         },
         {
