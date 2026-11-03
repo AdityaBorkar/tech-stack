@@ -127,7 +127,7 @@
                 ]
             },
             "name": "Package JSON",
-            "source": "../$presets/package.json",
+            "source": "../$presets/_package.json",
             "target": "package.json"
         }
     ],
