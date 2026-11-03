@@ -9,7 +9,7 @@
         },
         {
             "name": "Commitlint Config",
-            "source": "../$presets/commitlint.config.json",
+            "source": "../$presets/commitlintrc.json",
             "target": ".commitlintrc.json"
         },
         {

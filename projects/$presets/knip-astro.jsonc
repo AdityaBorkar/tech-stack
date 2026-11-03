@@ -1,0 +1,63 @@
+{
+	"$schema": "https://unpkg.com/knip@6/schema-jsonc.json",
+	"cycles": {
+		"dynamicImports": true
+	},
+	"entry": [
+		".tools/**/*.mjs",
+		"astro.config.mjs",
+		"src/content.config.ts",
+		"src/pages/**/*.{astro,mdx,js,ts,tsx}",
+		"!src/pages/**/_*",
+		"!src/pages/**/_*/**",
+		"unlighthouse.config.ts"
+	],
+	"ignoreExportsUsedInFile": false,
+	"ignoreGlobalBinaries": false,
+	"include": [
+		"binaries",
+		"catalog",
+		"catalogReferences",
+		"cycles",
+		"dependencies",
+		"devDependencies",
+		"duplicates",
+		"enumMembers",
+		"exports",
+		"files",
+		"namespaceMembers",
+		"nsExports",
+		"nsTypes",
+		"optionalPeerDependencies",
+		"types",
+		"unlisted",
+		"unresolved"
+	],
+	"includeEntryExports": true,
+	"project": [
+		".tools/**/*.mjs",
+		"cms/**/*.ts",
+		"src/**/*.{astro,mdx,js,cjs,mjs,ts,cts,mts,tsx,css}"
+	],
+	"rules": {
+		"binaries": "error",
+		"catalog": "error",
+		"catalogReferences": "error",
+		"cycles": "error",
+		"dependencies": "error",
+		"devDependencies": "error",
+		"duplicates": "error",
+		"enumMembers": "error",
+		"exports": "error",
+		"files": "error",
+		"namespaceMembers": "error",
+		"nsExports": "error",
+		"nsTypes": "error",
+		"optionalPeerDependencies": "error",
+		"types": "error",
+		"unlisted": "error",
+		"unresolved": "error"
+	},
+	"treatConfigHintsAsErrors": true,
+	"treatTagHintsAsErrors": true
+}

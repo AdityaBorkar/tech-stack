@@ -1,0 +1,20 @@
+{
+	"extends": "astro/tsconfigs/strict",
+	"compilerOptions": {
+		"paths": {
+			"#/*": ["./src/*"],
+			"#assets/*": ["./assets/*"],
+			"#cms/*": ["./cms/*"]
+		},
+		"jsx": "react-jsx",
+		"jsxImportSource": "react"
+	},
+	"include": [".astro/types.d.ts", "**/*"],
+	"exclude": [".output"],
+	"contentMappers": [
+		{
+			"package": "@astrojs/ts-content-mapper",
+			"extensions": [".astro"]
+		}
+	]
+}

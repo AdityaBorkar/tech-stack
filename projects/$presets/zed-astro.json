@@ -1,0 +1,67 @@
+{
+	"file_scan_exclusions": [
+		"**/.git",
+		"**/.astro",
+		"**/.output",
+		"**/.link-check",
+		"**/.wrangler",
+		"**/node_modules",
+		"codedb.snapshot",
+		"tsconfig.tsbuildinfo"
+	],
+	"format_on_save": "on",
+	"formatter": [
+		{ "code_action": "source.fixAll" },
+		{ "code_action": "source.fixAll.oxc" },
+		{ "language_server": { "name": "oxfmt" } }
+	],
+	"languages": {
+		"CSS": {
+			"formatter": "language_server",
+			"language_servers": ["!vscode-css-language-server", "..."]
+		}
+	},
+	"lsp": {
+		"markdownlint": {
+			"binary": {
+				"path": "bun",
+				"arguments": ["./node_modules/.bin/markdownlint-lsp-server", "--stdio"]
+			}
+		},
+		"oxlint": {
+			"binary": {
+				"path": "bun",
+				"arguments": ["./node_modules/.bin/oxlint", "--lsp"]
+			},
+			"initialization_options": {
+				"settings": {
+					"run": "onType",
+					"unusedDisableDirectives": "deny"
+				}
+			}
+		},
+		"oxfmt": {
+			"binary": {
+				"path": "bun",
+				"arguments": ["./node_modules/.bin/oxfmt", "--lsp"]
+			},
+			"initialization_options": {
+				"settings": {
+					"run": "onSave"
+				}
+			}
+		},
+		"tailwindcss-language-server": {
+			"binary": {
+				"arguments": ["./node_modules/.bin/tailwindcss-language-server", "--stdio"],
+				"path": "bun"
+			}
+		},
+		"typescript-ls": {
+			"binary": {
+				"arguments": ["./node_modules/.bin/tsrs", "--lsp", "--stdio"],
+				"path": "bun"
+			}
+		}
+	}
+}

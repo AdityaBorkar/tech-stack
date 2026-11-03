@@ -1,1 +1,71 @@
-{}
+{
+    "$schema": "https://stack.adityab.tech/conform/<VERSION>/schemas/project-manifest.json",
+    "description": "CLI + Web App using TanStack Start",
+    "files": [
+        {
+            "name": "Bun Config",
+            "source": "../$presets/bunfig.toml",
+            "target": "bunfig.toml"
+        },
+        {
+            "name": "Commitlint Config",
+            "source": "../$presets/commitlintrc.json",
+            "target": ".commitlintrc.json"
+        },
+        {
+            "name": "Gitignore",
+            "source": "../$presets/gitignore",
+            "target": ".gitignore"
+        },
+        {
+            "name": "Husky Commit-Msg Hook",
+            "source": "../$presets/husky-commit-msg",
+            "target": ".husky/commit-msg"
+        },
+        {
+            "name": "Husky Pre-Commit Hook",
+            "source": "../$presets/husky-pre-commit",
+            "target": ".husky/pre-commit"
+        },
+        {
+            "name": "Knip Config",
+            "source": "../$presets/knip-cli-tanstack.json",
+            "target": "knip.json"
+        },
+        {
+            "name": "Oxfmt Config",
+            "source": "../$presets/oxfmt-tanstack.json",
+            "target": ".oxfmtrc.json"
+        },
+        {
+            "name": "Oxlint Config",
+            "source": "../$presets/oxlint-cli-tanstack.json",
+            "target": ".oxlintrc.json"
+        },
+        {
+            "name": "TypeScript Config",
+            "source": "../$presets/tsconfig-cli-tanstack.json",
+            "target": "tsconfig.json"
+        },
+        {
+            "name": "Zed Settings",
+            "source": "../$presets/zed.json",
+            "target": ".zed/settings.json"
+        },
+        {
+            "name": "Vite Config",
+            "source": "../$presets/vite-cli-tanstack.config.ts",
+            "target": "vite.config.ts"
+        },
+        {
+            "name": "TanStack Router Config",
+            "source": "../$presets/tsr.config.json",
+            "target": "tsr.config.json"
+        },
+        {
+            "name": "shadcn Components Config",
+            "source": "../$presets/components.json",
+            "target": "components.json"
+        }
+    ]
+}

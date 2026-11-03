@@ -7,7 +7,7 @@ Data-only registry. No root `package.json`, no test/lint/build runner, no CI her
 - `registry.json` — entrypoint listing `machines[]` + `projects[]`.
 - `machines/main/` — home-manager flake (`flake.nix`, `home.nix`, `packages.nix`, `programs.nix`, `bun.nix`, `services.nix` empty stub, `files/` dotfile payloads, sops-encrypted `secrets.yaml`).
 - `machines/wsl/` — Windows-side `wsl.conf` / `.wslconfig`, not Nix.
-- `projects/cli-app/manifest.json` — only non-empty blueprint: `description` + `files[]` (10 entries, `source: "../$presets/..."`). The other four manifests (`astro-website`, `cli-tanstack-webapp`, `tanstack-webapp`, `tanstack-website`) are `{}` stubs.
+- `projects/cli-app/manifest.json` — CLI blueprint: `description` + `files[]` (10 entries, `source: "../$presets/..."`). `projects/astro-website/manifest.json` (17 entries, Astro + Cloudflare + QA configs) and `projects/tanstack-webapp/manifest.json` (12 entries, Vite + TanStack Start + shadcn) and `projects/cli-tanstack-webapp/manifest.json` (13 entries, CLI + TanStack Start) follow the same shape. The remaining stub is `tanstack-website` (`{}`).
 - `projects/$presets/` — flat payload files copied to new projects. Literal `$` in dirname: quote in shell (`"projects/\$presets/..."`). `package.json` is a template with `<placeholders>`.
 - `TODO.md` — validate-command wishlist + manual steps Nix doesn't cover (docker login, cloudflared cert, ssh key copy).
 
@@ -32,4 +32,4 @@ Data-only registry. No root `package.json`, no test/lint/build runner, no CI her
 ## Editing project presets
 
 - Blueprint `files[]` entries use `source` relative to the manifest dir (`../$presets/<file>`) and `target` as the destination path in the generated project.
-- Template husky hooks: `husky-commit-msg` runs `bun commitlint --edit $1`, `husky-pre-commit` runs `bun fmt --staged`. Commit types allowed by `$presets/commitlint.config.json`: `build/chore/ci/docs/feat/fix/perf/refactor/revert/test/wip`.
+- Template husky hooks: `husky-commit-msg` runs `bun commitlint --edit $1`, `husky-pre-commit` runs `bun fmt --staged`. Commit types allowed by `$presets/commitlintrc.json`: `build/chore/ci/docs/feat/fix/perf/refactor/revert/test/wip`.
