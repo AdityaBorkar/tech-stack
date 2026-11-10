@@ -25,9 +25,29 @@
 			"target": "bunfig.toml"
 		},
 		{
+			"name": "Changeset Config",
+			"source": "../$presets/changeset/config.json",
+			"target": ".changeset/config.json"
+		},
+		{
 			"name": "Commitlint Config",
 			"source": "../$presets/commitlintrc.json",
 			"target": ".commitlintrc.json"
+		},
+		{
+			"name": "GitHub CODEOWNERS",
+			"source": "../$presets/github/CODEOWNERS",
+			"target": ".github/CODEOWNERS"
+		},
+		{
+			"name": "GitHub PR Workflow",
+			"source": "../$presets/github/workflows/pr.yml",
+			"target": ".github/workflows/pr.yml"
+		},
+		{
+			"name": "GitHub Publish Workflow",
+			"source": "../$presets/github/workflows/publish.yml",
+			"target": ".github/workflows/publish.yml"
 		},
 		{
 			"name": "Gitignore",
@@ -90,6 +110,7 @@
 			"zod": "any"
 		},
 		"devDependencies": {
+			"@changesets/cli": "any",
 			"@commitlint/cli": "any",
 			"@commitlint/config-conventional": "any",
 			"@types/bun": "any",
