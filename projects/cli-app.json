@@ -21,52 +21,52 @@
 	"files": [
 		{
 			"name": "Bun Config",
-			"source": "../$presets/bunfig.toml",
+			"source": "projects/files/bunfig/base.toml",
 			"target": "bunfig.toml"
 		},
 		{
 			"name": "Changeset Config",
-			"source": "../$presets/changeset/config.json",
+			"source": "projects/files/changeset/config.json",
 			"target": ".changeset/config.json"
 		},
 		{
 			"name": "Commitlint Config",
-			"source": "../$presets/commitlintrc.json",
+			"source": "projects/files/commitlintrc.json",
 			"target": ".commitlintrc.json"
 		},
 		{
 			"name": "GitHub CODEOWNERS",
-			"source": "../$presets/github/CODEOWNERS",
+			"source": "projects/files/github/CODEOWNERS",
 			"target": ".github/CODEOWNERS"
 		},
 		{
 			"name": "GitHub PR Workflow",
-			"source": "../$presets/github/workflows/pr.yml",
+			"source": "projects/files/github/workflows/pr.yml",
 			"target": ".github/workflows/pr.yml"
 		},
 		{
 			"name": "GitHub Publish Workflow",
-			"source": "../$presets/github/workflows/publish.yml",
+			"source": "projects/files/github/workflows/publish.yml",
 			"target": ".github/workflows/publish.yml"
 		},
 		{
 			"name": "Gitignore",
-			"source": "../$presets/gitignore",
+			"source": "projects/files/gitignore/base.gitignore",
 			"target": ".gitignore"
 		},
 		{
 			"name": "Husky Commit-Msg Hook",
-			"source": "../$presets/husky-commit-msg",
+			"source": "projects/files/husky/commit-msg",
 			"target": ".husky/commit-msg"
 		},
 		{
 			"name": "Husky Pre-Commit Hook",
-			"source": "../$presets/husky-pre-commit",
+			"source": "projects/files/husky/pre-commit",
 			"target": ".husky/pre-commit"
 		},
 		{
 			"name": "Knip Config",
-			"source": "../$presets/knip.json",
+			"source": "projects/files/knip/base.json",
 			"target": "knip.json"
 		},
 		{
@@ -74,7 +74,7 @@
 				"ignore": ["overrides"]
 			},
 			"name": "Oxfmt Config",
-			"source": "../$presets/oxfmt.json",
+			"source": "projects/files/oxfmt/base.json",
 			"target": ".oxfmtrc.json"
 		},
 		{
@@ -82,22 +82,45 @@
 				"ignore": ["overrides"]
 			},
 			"name": "Oxlint Config",
-			"source": "../$presets/oxlint.json",
+			"source": "projects/files/oxlint/base.json",
 			"target": ".oxlintrc.json"
 		},
 		{
 			"name": "TypeScript Config",
-			"source": "../$presets/tsconfig.json",
+			"source": "projects/files/tsconfig/base.json",
 			"target": "tsconfig.json"
 		},
 		{
 			"name": "Zed Settings",
-			"source": "../$presets/zed.json",
+			"source": "projects/files/zed/base.json",
 			"target": ".zed/settings.json"
 		},
 		{
+			"compare": {
+				"pinned": [
+					"type",
+					"imports",
+					"exports",
+					"license",
+					"files",
+					"scripts",
+					"author",
+					"maintainers",
+					"contributors"
+				],
+				"required": [
+					"name",
+					"version",
+					"description",
+					"keywords",
+					"homepage",
+					"bugs",
+					"repository",
+					"bin"
+				]
+			},
 			"name": "Package JSON",
-			"source": "../$presets/_package.json",
+			"source": "projects/files/package/cli.json",
 			"target": "package.json"
 		}
 	],
@@ -126,5 +149,5 @@
 		"peerDependencies": {},
 		"pm": "bun"
 	},
-	"github": "../$presets/github-configs/npm-package.json"
+	"github": "projects/files/github-config/npm-package.json"
 }

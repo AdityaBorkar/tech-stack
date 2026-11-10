@@ -9,27 +9,31 @@
 	"projects": [
 		{
 			"name": "Website (Astro)",
-			"path": "./projects/astro-website/"
+			"path": "./projects/astro-website.json"
 		},
 		{
 			"name": "CLI",
-			"path": "./projects/cli-app/"
+			"path": "./projects/cli-app.json"
 		},
 		{
 			"name": "CLI + Web App (Tanstack Start)",
-			"path": "./projects/cli-tanstack-webapp/"
+			"path": "./projects/cli-tanstack-webapp.json"
+		},
+		{
+			"name": "RPC Contract",
+			"path": "./projects/rpc-contract.json"
 		},
 		{
 			"name": "Web App (Tanstack Start)",
-			"path": "./projects/tanstack-webapp/"
+			"path": "./projects/tanstack-webapp.json"
 		},
 		{
 			"name": "Website (Tanstack Start)",
-			"path": "./projects/tanstack-website/"
+			"path": "./projects/tanstack-website.json"
 		},
 		{
 			"name": "Web Extension (WXT)",
-			"path": "./projects/web-extension/"
+			"path": "./projects/web-extension.json"
 		}
 	]
 }

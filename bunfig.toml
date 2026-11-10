@@ -19,7 +19,6 @@ noOrphans = true
 [fmt]
 printWidth = 100
 useTabs = true
-ignorePatterns = ["hosts.yml"]
 sortPackageJson = { sortScripts = true }
 
 [fmt.sortImports]

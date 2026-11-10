@@ -1,26 +1,25 @@
 # AGENTS.md
 
-Data-only registry of machine + project blueprints. No app source, tests, or CI here. `registry.json` is the entrypoint; `projects/*/manifest.json` files are blueprints; `projects/$presets/` holds flat payload files copied into generated projects (templates, not runnable here).
+Data-only registry of machine + project blueprints. No app source, tests, or CI here. `registry.json` is the entrypoint; `projects/*.json` files are blueprints; `projects/files/` holds grouped payload files copied into generated projects (templates, not runnable here).
 
 ## Layout
 
-- `registry.json` — lists `machines[]` + `projects[]`. Every project dir must have an entry here.
-- `projects/<name>/manifest.json` — blueprint: `description` + `files[]` (what gets copied) + `file_structure[]` (empty dirs/files to create, e.g. `src/`, `AGENTS.md`, `README.md`) + `js` (package manager + deps) + optional `github` (only `cli-app` sets one → `github-configs/npm-package.json`; `github-cli/` is unreferenced).
-- `projects/$presets/` — payload files. Base name = CLI default; suffixed variants per stack (`-astro`, `-tanstack`, `-cli-tanstack`, `-webext`). Manifests are source of truth for what gets copied — e.g. `biome.json` exists but no manifest references it (dead file, toolchain is oxlint + oxfmt).
+- `registry.json` — lists `machines[]` + `projects[]`. Every project file must have an entry here.
+- `projects/<name>.json` — blueprint: `description` + `files[]` (what gets copied) + `file_structure[]` (empty dirs/files to create, e.g. `src/`, `AGENTS.md`, `README.md`) + `js` (package manager + deps) + optional `github` (only `cli-app` sets one → `files/github-config/npm-package.json`).
+- `projects/files/` — payload files grouped by tool (`bunfig/`, `gitignore/`, `husky/`, `knip/`, `oxfmt/`, `oxlint/`, `tsconfig/`, `zed/` subdirs + flat files). Base variant = CLI default; grouped variants per stack (`astro`, `tanstack`, `cli-tanstack`, `webext`). Manifests are source of truth for what gets copied — e.g. `biome.json` exists but no manifest references it (dead file, toolchain is oxlint + oxfmt).
 - `machines/main/` — standalone home-manager flake for one Linux user home (packages, dotfiles, `bun` CLIs, sops-rendered secrets). No NixOS system config. See `HOW_TO.md` for bootstrap.
 - `machines/wsl/` — Windows/WSL-side config, not Nix-managed.
 
 ## Editing blueprints
 
-- Quote the `$` in shell: `"projects/\$presets/..."`.
-- `files[]` entries: `source` is relative to the manifest dir (`../$presets/<file>`), `target` is the destination path in the generated project. After adding/renaming a preset file, update every manifest that references it and confirm each `source` exists — a missing source silently breaks scaffolding.
-- `projects/$presets/_package.json` is a template with `<...>` placeholders (`name`, `description`, `keywords`, owner/repo URLs, binary name) — never copy verbatim; every placeholder must be replaced per project.
-- `files[]` entries may declare `compare`: `ignore["overrides"]` on oxlint/oxfmt configs, `pinned["scripts","imports","type"]` on `package.json`. No other `compare` keys are in use — don't invent any.
+- `files[]` entries: `source` is root-relative (`projects/files/<group>/<variant>`), `target` is the destination path in the generated project. After adding/renaming a preset file, update every manifest that references it and confirm each `source` exists — a missing source silently breaks scaffolding.
+- `projects/files/package/cli.json` is a template with `<...>` placeholders (`name`, `version`, `description`, `keywords`, owner/repo URLs, binary name) — never copy verbatim; every placeholder must be replaced per project.
+- `files[]` entries may declare `compare`: `ignore["overrides"]` on oxlint/oxfmt configs, `pinned` + `required` on `package.json` (`pinned` = exact-match stable keys like `type`/`scripts`/`files`; `required` = per-project keys like `name`/`version`/`bin` that must be defined with appropriate values, never placeholders). Keep `compare` groups disjoint.
 - `js.pm` is `bun` for all blueprints. `bunfig.toml` sets `install.exact = true` and `install.ignore-scripts = true` — deps pin exact versions.
 
 ## Conventions baked into presets
 
-- Generated-project verification order (`verify` script in `_package.json`): `format` → `check:lint` (`oxlint`) → `check:types` (`tsrs`) → `build` (`bun ./scripts/build.ts`). Husky hooks enforce `bun fmt --staged` on pre-commit and `commitlint` on commit-msg.
+- Generated-project verification order (`verify` script in `package/cli.json`): `format` → `check:lint` (`oxlint`) → `check:types` (`tsrs`) → `test` (`bun test`) → `build` (`bun ./scripts/build.ts`). Husky hooks enforce `bun fmt --staged` on pre-commit and `commitlint` on commit-msg.
 - `oxlint` bans URL imports (`http(s)://`) and package-protocol imports (`npm:*`, `jsr:*`), and enforces `sort-keys` ascending. `oxfmt`: tabs, width 100, sorted imports (`builtin`/`bun` first), sorted `scripts`.
 - Commit messages must follow conventional-commits (commitlint).
 
@@ -32,4 +31,4 @@ Data-only registry of machine + project blueprints. No app source, tests, or CI 
 ## Verify here
 
 - `bun install`, then `bun run lint` (`oxlint`) and `bun run format` (`bun fmt` builtin here — `oxfmt` is not a root dep, only generated projects use the `oxfmt` binary). No test runner in this repo.
-- After touching JSON: parse-check it, e.g. `bun -e 'for (const f of ["registry.json","projects/cli-app/manifest.json"]) JSON.parse(await Bun.file(f).text())'`.
+- After touching JSON: parse-check it, e.g. `bun -e 'for (const f of ["registry.json","projects/cli-app.json"]) JSON.parse(await Bun.file(f).text())'`.

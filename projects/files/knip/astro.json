@@ -1,7 +1,7 @@
 {
 	"$schema": "https://unpkg.com/knip@6/schema-jsonc.json",
 	"cycles": {
-		"dynamicImports": true,
+		"dynamicImports": true
 	},
 	"entry": [
 		".tools/**/*.mjs",
@@ -10,7 +10,7 @@
 		"src/pages/**/*.{astro,mdx,js,ts,tsx}",
 		"!src/pages/**/_*",
 		"!src/pages/**/_*/**",
-		"unlighthouse.config.ts",
+		"unlighthouse.config.ts"
 	],
 	"ignoreExportsUsedInFile": false,
 	"ignoreGlobalBinaries": false,
@@ -31,13 +31,13 @@
 		"optionalPeerDependencies",
 		"types",
 		"unlisted",
-		"unresolved",
+		"unresolved"
 	],
 	"includeEntryExports": true,
 	"project": [
 		".tools/**/*.mjs",
 		"cms/**/*.ts",
-		"src/**/*.{astro,mdx,js,cjs,mjs,ts,cts,mts,tsx,css}",
+		"src/**/*.{astro,mdx,js,cjs,mjs,ts,cts,mts,tsx,css}"
 	],
 	"rules": {
 		"binaries": "error",
@@ -56,8 +56,8 @@
 		"optionalPeerDependencies": "error",
 		"types": "error",
 		"unlisted": "error",
-		"unresolved": "error",
+		"unresolved": "error"
 	},
 	"treatConfigHintsAsErrors": true,
-	"treatTagHintsAsErrors": true,
+	"treatTagHintsAsErrors": true
 }

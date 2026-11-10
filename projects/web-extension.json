@@ -1,10 +1,20 @@
 {
 	"$schema": "https://raw.githubusercontent.com/AdityaBorkar/adistack-conform/refs/heads/main/configuration_schema/project-manifest.json",
-	"description": "RPC Contract using oRPC + Zod",
+	"description": "Web Extension using WXT",
 	"file_structure": [
 		{
 			"name": "Source Dir",
 			"target": "src/",
+			"kind": "dir"
+		},
+		{
+			"name": "Entrypoints Dir",
+			"target": "entrypoints/",
+			"kind": "dir"
+		},
+		{
+			"name": "Public Dir",
+			"target": "public/",
 			"kind": "dir"
 		},
 		{
@@ -21,27 +31,27 @@
 	"files": [
 		{
 			"name": "Bun Config",
-			"source": "../$presets/bunfig.toml",
+			"source": "projects/files/bunfig/base.toml",
 			"target": "bunfig.toml"
 		},
 		{
 			"name": "Commitlint Config",
-			"source": "../$presets/commitlintrc-rpc.json",
+			"source": "projects/files/commitlintrc.json",
 			"target": ".commitlintrc.json"
 		},
 		{
 			"name": "Gitignore",
-			"source": "../$presets/gitignore-rpc",
+			"source": "projects/files/gitignore/webext.gitignore",
 			"target": ".gitignore"
 		},
 		{
 			"name": "Husky Commit-Msg Hook",
-			"source": "../$presets/husky-commit-msg",
+			"source": "projects/files/husky/commit-msg",
 			"target": ".husky/commit-msg"
 		},
 		{
 			"name": "Husky Pre-Commit Hook",
-			"source": "../$presets/husky-pre-commit",
+			"source": "projects/files/husky/pre-commit",
 			"target": ".husky/pre-commit"
 		},
 		{
@@ -49,7 +59,7 @@
 				"ignore": ["overrides"]
 			},
 			"name": "Oxfmt Config",
-			"source": "../$presets/oxfmt-rpc.json",
+			"source": "projects/files/oxfmt/webext.json",
 			"target": ".oxfmtrc.json"
 		},
 		{
@@ -57,46 +67,65 @@
 				"ignore": ["overrides"]
 			},
 			"name": "Oxlint Config",
-			"source": "../$presets/oxlint-rpc.json",
+			"source": "projects/files/oxlint/webext.json",
 			"target": ".oxlintrc.json"
 		},
 		{
 			"name": "TypeScript Config",
-			"source": "../$presets/tsconfig-rpc.json",
+			"source": "projects/files/tsconfig/webext.json",
 			"target": "tsconfig.json"
 		},
 		{
-			"name": "TypeScript Build Config",
-			"source": "../$presets/tsconfig.build-rpc.json",
-			"target": "tsconfig.build.json"
-		},
-		{
 			"name": "Zed Settings",
-			"source": "../$presets/zed-rpc.json",
+			"source": "projects/files/zed/webext.json",
 			"target": ".zed/settings.json"
 		},
 		{
+			"name": "WXT Config",
+			"source": "projects/files/wxt.config.ts",
+			"target": "wxt.config.ts"
+		},
+		{
 			"compare": {
-				"pinned": ["scripts", "imports", "type"]
+				"pinned": [
+					"type",
+					"imports",
+					"exports",
+					"license",
+					"files",
+					"scripts",
+					"author",
+					"maintainers",
+					"contributors"
+				],
+				"required": [
+					"name",
+					"version",
+					"description",
+					"keywords",
+					"homepage",
+					"bugs",
+					"repository",
+					"bin"
+				]
 			},
 			"name": "Package JSON",
-			"source": "../$presets/_package.json",
+			"source": "projects/files/package/cli.json",
 			"target": "package.json"
 		}
 	],
 	"js": {
-		"dependencies": {
-			"@orpc/contract": "1.16.2",
-			"zod": "4.6.7",
-			"zod-compiler": "2.0.8"
-		},
+		"dependencies": {},
 		"devDependencies": {
+			"@changesets/cli": "3.0.3",
 			"@commitlint/cli": "21.2.4",
 			"@commitlint/config-conventional": "21.2.4",
 			"@types/bun": "1.4.4",
 			"husky": "9.1.7",
 			"oxlint": "1.92.0",
-			"typescript": "7.0.2"
+			"typescript": "7.0.2",
+			"web-ext": "10.8.0",
+			"wxt": "0.21.5"
 		},
 		"peerDependencies": {},
 		"pm": "bun"

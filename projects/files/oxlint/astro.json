@@ -4,44 +4,44 @@
 		"correctness": "error",
 		"pedantic": "error",
 		"perf": "error",
-		"suspicious": "error",
+		"suspicious": "error"
 	},
 	"env": {
 		"browser": true,
 		"es2022": true,
-		"node": true,
+		"node": true
 	},
 	"overrides": [
 		{
 			"files": [".tools/**/*.mjs"],
 			"rules": {
-				"security/detect-non-literal-fs-filename": "off",
-			},
+				"security/detect-non-literal-fs-filename": "off"
+			}
 		},
 		{
 			"files": [".tools/check-axe.mjs", ".tools/with-preview.mjs"],
 			"rules": {
-				"eslint/no-await-in-loop": "off",
-			},
+				"eslint/no-await-in-loop": "off"
+			}
 		},
 		{
 			"files": [".tools/eslint-local-rules.mjs"],
 			"rules": {
-				"security/detect-child-process": "off",
-			},
+				"security/detect-child-process": "off"
+			}
 		},
 		{
 			"files": ["src/components/ui/**/*"],
 			"rules": {
-				"jsx-a11y/label-has-associated-control": "off",
-			},
+				"jsx-a11y/label-has-associated-control": "off"
+			}
 		},
 		{
 			"files": ["src/env.d.ts"],
 			"rules": {
-				"typescript/triple-slash-reference": "off",
-			},
-		},
+				"typescript/triple-slash-reference": "off"
+			}
+		}
 	],
 	"plugins": [
 		"eslint",
@@ -54,16 +54,16 @@
 		"react",
 		"react-perf",
 		"typescript",
-		"unicorn",
+		"unicorn"
 	],
 	"jsPlugins": [
 		"oxlint-tailwindcss",
-		{ "name": "security", "specifier": "eslint-plugin-security" },
+		{ "name": "security", "specifier": "eslint-plugin-security" }
 	],
 	"settings": {
 		"tailwindcss": {
-			"entryPoint": "src/layouts/global.css",
-		},
+			"entryPoint": "src/layouts/global.css"
+		}
 	},
 	"rules": {
 		"import/max-dependencies": "off",
@@ -76,14 +76,14 @@
 				"patterns": [
 					{
 						"group": ["https://**", "http://**"],
-						"message": "URL imports are banned.",
+						"message": "URL imports are banned."
 					},
 					{
 						"group": ["{npm,jsr}:*", "{npm,jsr}:*/**"],
-						"message": "Package-protocol imports are banned.",
-					},
-				],
-			},
+						"message": "Package-protocol imports are banned."
+					}
+				]
+			}
 		],
 		"sort-keys": [
 			"error",
@@ -92,8 +92,8 @@
 				"caseSensitive": true,
 				"natural": true,
 				"minKeys": 2,
-				"allowLineSeparatedGroups": false,
-			},
+				"allowLineSeparatedGroups": false
+			}
 		],
 		"no-warning-comments": "off",
 		"no-underscore-dangle": "off",
@@ -149,6 +149,6 @@
 		"tailwindcss/no-borrowed-component-styles": "error",
 		"tailwindcss/no-default-palette": "off",
 		"tailwindcss/no-hardcoded-colors": "error",
-		"tailwindcss/no-restricted-classes": "error",
-	},
+		"tailwindcss/no-restricted-classes": "error"
+	}
 }

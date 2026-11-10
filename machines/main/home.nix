@@ -74,7 +74,7 @@
         path = "${config.home.homeDirectory}/.config/gh/hosts.yml";
         mode = "0600";
         content = builtins.replaceStrings
-          [ "@@GH_OAUTH_TOKEN@@" ]
+          [ '"@@GH_OAUTH_TOKEN@@"' ]
           [ config.sops.placeholder.gh_oauth_token ]
           (builtins.readFile ./files/.config/gh/hosts.yml);
       };

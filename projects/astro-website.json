@@ -1,6 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/AdityaBorkar/adistack-conform/refs/heads/main/configuration_schema/project-manifest.json",
-	"description": "CLI + Web App using TanStack Start",
+	"description": "Website using Astro",
 	"file_structure": [
 		{
 			"name": "Source Dir",
@@ -21,32 +21,32 @@
 	"files": [
 		{
 			"name": "Bun Config",
-			"source": "../$presets/bunfig.toml",
+			"source": "projects/files/bunfig/astro.toml",
 			"target": "bunfig.toml"
 		},
 		{
 			"name": "Commitlint Config",
-			"source": "../$presets/commitlintrc.json",
+			"source": "projects/files/commitlintrc.json",
 			"target": ".commitlintrc.json"
 		},
 		{
 			"name": "Gitignore",
-			"source": "../$presets/gitignore",
+			"source": "projects/files/gitignore/astro.gitignore",
 			"target": ".gitignore"
 		},
 		{
 			"name": "Husky Commit-Msg Hook",
-			"source": "../$presets/husky-commit-msg",
+			"source": "projects/files/husky/commit-msg",
 			"target": ".husky/commit-msg"
 		},
 		{
 			"name": "Husky Pre-Commit Hook",
-			"source": "../$presets/husky-pre-commit",
+			"source": "projects/files/husky/pre-commit",
 			"target": ".husky/pre-commit"
 		},
 		{
 			"name": "Knip Config",
-			"source": "../$presets/knip-cli-tanstack.json",
+			"source": "projects/files/knip/astro.json",
 			"target": "knip.json"
 		},
 		{
@@ -54,7 +54,7 @@
 				"ignore": ["overrides"]
 			},
 			"name": "Oxfmt Config",
-			"source": "../$presets/oxfmt.json",
+			"source": "projects/files/oxfmt/base.json",
 			"target": ".oxfmtrc.json"
 		},
 		{
@@ -62,40 +62,80 @@
 				"ignore": ["overrides"]
 			},
 			"name": "Oxlint Config",
-			"source": "../$presets/oxlint-cli-tanstack.json",
+			"source": "projects/files/oxlint/astro.json",
 			"target": ".oxlintrc.json"
 		},
 		{
 			"name": "TypeScript Config",
-			"source": "../$presets/tsconfig-cli-tanstack.json",
+			"source": "projects/files/tsconfig/astro.json",
 			"target": "tsconfig.json"
 		},
 		{
 			"name": "Zed Settings",
-			"source": "../$presets/zed.json",
+			"source": "projects/files/zed/astro.json",
 			"target": ".zed/settings.json"
 		},
 		{
-			"name": "Vite Config",
-			"source": "../$presets/vite.config.ts",
-			"target": "vite.config.ts"
+			"name": "Astro Config",
+			"source": "projects/files/astro.config.mjs",
+			"target": "astro.config.mjs"
 		},
 		{
-			"name": "TanStack Router Config",
-			"source": "../$presets/tsr.config.json",
-			"target": "tsr.config.json"
+			"name": "Wrangler Config",
+			"source": "projects/files/wrangler.json",
+			"target": "wrangler.json"
 		},
 		{
-			"name": "shadcn Components Config",
-			"source": "../$presets/components.json",
-			"target": "components.json"
+			"name": "CSpell Config",
+			"source": "projects/files/cspell.json",
+			"target": "cspell.json"
+		},
+		{
+			"name": "HTML-Validate Config",
+			"source": "projects/files/htmlvalidate.json",
+			"target": ".htmlvalidate.json"
+		},
+		{
+			"name": "Pa11y CI Config",
+			"source": "projects/files/pa11yci.json",
+			"target": ".pa11yci.json"
+		},
+		{
+			"name": "Vale Config",
+			"source": "projects/files/vale.ini",
+			"target": ".vale.ini"
+		},
+		{
+			"name": "Unlighthouse Config",
+			"source": "projects/files/unlighthouse.config.ts",
+			"target": "unlighthouse.config.ts"
 		},
 		{
 			"compare": {
-				"pinned": ["scripts", "imports", "type"]
+				"pinned": [
+					"type",
+					"imports",
+					"exports",
+					"license",
+					"files",
+					"scripts",
+					"author",
+					"maintainers",
+					"contributors"
+				],
+				"required": [
+					"name",
+					"version",
+					"description",
+					"keywords",
+					"homepage",
+					"bugs",
+					"repository",
+					"bin"
+				]
 			},
 			"name": "Package JSON",
-			"source": "../$presets/_package.json",
+			"source": "projects/files/package/cli.json",
 			"target": "package.json"
 		}
 	],
