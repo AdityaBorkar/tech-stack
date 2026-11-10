@@ -5,8 +5,8 @@
 	"scripts": {
 		"format": "bun fmt",
 		"lint": "oxlint",
-		"validate": "echo '@adistack/conform validate'",
-		"verify": "bun format &&bun lint && bun validate"
+		"validate": "@adistack/conform validate",
+		"verify": "bun format && bun lint && bun validate"
 	},
 	"dependencies": {
 		"@adistack/conform": "latest",

@@ -1,5 +1,5 @@
 {
-	"$schema": "https://stack.adityab.tech/conform/<VERSION>/schemas/project-manifest.json",
+	"$schema": "https://raw.githubusercontent.com/AdityaBorkar/adistack-conform/refs/heads/main/configuration_schema/project-manifest.json",
 	"description": "Web App using TanStack Start",
 	"file_structure": [
 		{

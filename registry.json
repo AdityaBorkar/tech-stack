@@ -1,5 +1,5 @@
 {
-	"$schema": "https://stack.adityab.tech/conform/<VERSION>/schemas/registry.json",
+	"$schema": "https://raw.githubusercontent.com/AdityaBorkar/adistack-conform/refs/heads/main/configuration_schema/registry.json",
 	"machines": [
 		{
 			"name": "Primary Developer Machine",
