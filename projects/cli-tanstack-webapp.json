@@ -92,7 +92,7 @@
 		},
 		{
 			"compare": {
-				"pinned": [
+				"required": [
 					"type",
 					"imports",
 					"exports",
@@ -101,9 +101,7 @@
 					"scripts",
 					"author",
 					"maintainers",
-					"contributors"
-				],
-				"required": [
+					"contributors",
 					"name",
 					"version",
 					"description",

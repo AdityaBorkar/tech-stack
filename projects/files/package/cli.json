@@ -2,7 +2,7 @@
 	"bin": {
 		"<binary-name>": "./.output/<binary-name>"
 	},
-	"description": "<one-line description>",
+	"description": "<one-line-description>",
 	"exports": {
 		".": "./src/index.ts"
 	},
@@ -15,22 +15,22 @@
 	"bugs": "https://github.com/<owner>/<repo>/issues",
 	"license": "MIT",
 	"author": {
-		"name": "Aditya Borkar",
-		"email": "hello@adityab.tech",
-		"url": "https://adityab.tech"
+		"name": "<user-name>",
+		"email": "<user-email>",
+		"url": "<user-website>"
 	},
 	"maintainers": [
 		{
-			"email": "hello@adityab.tech",
-			"name": "Aditya Borkar",
-			"url": "https://adityab.tech"
+			"name": "<user-name>",
+			"email": "<user-email>",
+			"url": "<user-website>"
 		}
 	],
 	"contributors": [
 		{
-			"email": "hello@adityab.tech",
-			"name": "Aditya Borkar",
-			"url": "https://adityab.tech"
+			"name": "<user-name>",
+			"email": "<user-email>",
+			"url": "<user-website>"
 		}
 	],
 	"repository": {
@@ -42,14 +42,36 @@
 		"build": "bun ./scripts/build.ts",
 		"check:lint": "oxlint",
 		"check:types": "tsrs",
-		"clean": "bunx rimraf --glob \"**/{node_modules,dist,bun.lockb}\"",
+		"clean": "bun rimraf --glob \"**/{node_modules,dist,bun.lockb}\"",
 		"dev": "bun ./src/index.ts",
 		"format": "oxfmt",
 		"prepare": "husky",
 		"review:knip": "knip",
 		"test": "bun test",
-		"verify": "bun format && bun check:lint && bun check:types && bun test && bun run build"
+		"verify": "bun format && bun check:lint && bun check:types && bun test"
 	},
+	"dependencies": {
+		"@clack/prompts": "<version>",
+		"commander": "<version>",
+		"env-paths": "<version>",
+		"picocolors": "<version>",
+		"zod": "<version>"
+	},
+	"devDependencies": {
+		"@changesets/cli": "<version>",
+		"@commitlint/cli": "<version>",
+		"@commitlint/config-conventional": "<version>",
+		"@types/bun": "<version>",
+		"@types/node": "<version>",
+		"husky": "<version>",
+		"knip": "<version>",
+		"oxfmt": "<version>",
+		"oxlint": "<version>",
+		"rimraf": "<version>",
+		"tsrs": "<version>",
+		"typescript": "<version>"
+	},
+	"peerDependencies": {},
 	"type": "module",
 	"version": "<version>"
 }

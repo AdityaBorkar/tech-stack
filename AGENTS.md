@@ -14,7 +14,7 @@ Data-only registry of machine + project blueprints. No app source, tests, or CI 
 
 - `files[]` entries: `source` is root-relative (`projects/files/<group>/<variant>`), `target` is the destination path in the generated project. After adding/renaming a preset file, update every manifest that references it and confirm each `source` exists — a missing source silently breaks scaffolding.
 - `projects/files/package/cli.json` is a template with `<...>` placeholders (`name`, `version`, `description`, `keywords`, owner/repo URLs, binary name) — never copy verbatim; every placeholder must be replaced per project.
-- `files[]` entries may declare `compare`: `ignore["overrides"]` on oxlint/oxfmt configs, `pinned` + `required` on `package.json` (`pinned` = exact-match stable keys like `type`/`scripts`/`files`; `required` = per-project keys like `name`/`version`/`bin` that must be defined with appropriate values, never placeholders). Keep `compare` groups disjoint.
+- `files[]` entries may declare `compare`: `ignore["overrides"]` on oxlint/oxfmt configs, `required` on `package.json` (listed keys like `type`/`scripts`/`files`/`name`/`version`/`bin` must be defined with per-project values, never placeholders). Keep `compare` groups disjoint.
 - `js.pm` is `bun` for all blueprints. `bunfig.toml` sets `install.exact = true` and `install.ignore-scripts = true` — deps pin exact versions.
 
 ## Conventions baked into presets
