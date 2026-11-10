@@ -15,3 +15,21 @@ bun = true
 shell = "bun"
 silent = false
 noOrphans = true
+
+[fmt]
+printWidth = 100
+useTabs = true
+ignorePatterns = ["hosts.yml"]
+sortPackageJson = { sortScripts = true }
+
+[fmt.sortImports]
+groups = [
+	["builtin", "bun"],
+	"external",
+	"internal",
+	["parent", "sibling", "index", "subpath"],
+	["style", "side_effect_style", "side_effect"],
+	"unknown",
+]
+customGroups = [{ groupName = "bun", elementNamePattern = ["bun", "bun:*", "bun:*/*"] }]
+ignoreCase = false
