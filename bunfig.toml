@@ -1,0 +1,17 @@
+telemetry = false
+logLevel = "warn"
+
+[console]
+depth = 10
+
+[install]
+auto = "disable"
+minimumReleaseAge = "3d"
+ignore-scripts = true
+exact = true
+
+[run]
+bun = true
+shell = "bun"
+silent = false
+noOrphans = true

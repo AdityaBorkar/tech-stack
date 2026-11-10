@@ -1,114 +1,114 @@
 {
-  "$schema": "https://stack.adityab.tech/conform/<VERSION>/schemas/project-manifest.json",
-  "description": "Websites using TanStack Start",
-  "file_structure": [
-    {
-      "name": "Source Dir",
-      "target": "src/",
-      "kind": "dir"
-    },
-    {
-      "name": "AGENTS.md",
-      "target": "AGENTS.md",
-      "kind": "file"
-    },
-    {
-      "name": "README.md",
-      "target": "README.md",
-      "kind": "file"
-    }
-  ],
-  "files": [
-    {
-      "name": "Bun Config",
-      "source": "../$presets/bunfig.toml",
-      "target": "bunfig.toml"
-    },
-    {
-      "name": "Commitlint Config",
-      "source": "../$presets/commitlintrc.json",
-      "target": ".commitlintrc.json"
-    },
-    {
-      "name": "Gitignore",
-      "source": "../$presets/gitignore",
-      "target": ".gitignore"
-    },
-    {
-      "name": "Husky Commit-Msg Hook",
-      "source": "../$presets/husky-commit-msg",
-      "target": ".husky/commit-msg"
-    },
-    {
-      "name": "Husky Pre-Commit Hook",
-      "source": "../$presets/husky-pre-commit",
-      "target": ".husky/pre-commit"
-    },
-    {
-      "compare": {
-        "ignore": ["overrides"]
-      },
-      "name": "Oxfmt Config",
-      "source": "../$presets/oxfmt.json",
-      "target": ".oxfmtrc.json"
-    },
-    {
-      "compare": {
-        "ignore": ["overrides"]
-      },
-      "name": "Oxlint Config",
-      "source": "../$presets/oxlint-tanstack.json",
-      "target": ".oxlintrc.json"
-    },
-    {
-      "name": "TypeScript Config",
-      "source": "../$presets/tsconfig.json",
-      "target": "tsconfig.json"
-    },
-    {
-      "name": "Zed Settings",
-      "source": "../$presets/zed.json",
-      "target": ".zed/settings.json"
-    },
-    {
-      "name": "Vite Config",
-      "source": "../$presets/vite.config.ts",
-      "target": "vite.config.ts"
-    },
-    {
-      "name": "TanStack Router Config",
-      "source": "../$presets/tsr.config.json",
-      "target": "tsr.config.json"
-    },
-    {
-      "name": "shadcn Components Config",
-      "source": "../$presets/components.json",
-      "target": "components.json"
-    },
-    {
-      "compare": {
-        "pinned": ["scripts", "imports", "type"]
-      },
-      "name": "Package JSON",
-      "source": "../$presets/_package.json",
-      "target": "package.json"
-    }
-  ],
-  "js": {
-    "dependencies": {},
-    "devDependencies": {
-      "@commitlint/cli": "21.2.4",
-      "@commitlint/config-conventional": "21.2.4",
-      "@types/bun": "1.4.4",
-      "@types/node": "26.6.5",
-      "husky": "9.1.7",
-      "oxfmt": "0.75.0",
-      "oxlint": "1.90.0",
-      "rimraf": "6.1.3",
-      "tsrs": "0.20.1-ts7.1.0-beta",
-      "typescript": "7.0.2"
-    },
-    "peerDependencies": {},
-    "pm": "bun"
-  }
+	"$schema": "https://stack.adityab.tech/conform/<VERSION>/schemas/project-manifest.json",
+	"description": "Websites using TanStack Start",
+	"file_structure": [
+		{
+			"name": "Source Dir",
+			"target": "src/",
+			"kind": "dir"
+		},
+		{
+			"name": "AGENTS.md",
+			"target": "AGENTS.md",
+			"kind": "file"
+		},
+		{
+			"name": "README.md",
+			"target": "README.md",
+			"kind": "file"
+		}
+	],
+	"files": [
+		{
+			"name": "Bun Config",
+			"source": "../$presets/bunfig.toml",
+			"target": "bunfig.toml"
+		},
+		{
+			"name": "Commitlint Config",
+			"source": "../$presets/commitlintrc.json",
+			"target": ".commitlintrc.json"
+		},
+		{
+			"name": "Gitignore",
+			"source": "../$presets/gitignore",
+			"target": ".gitignore"
+		},
+		{
+			"name": "Husky Commit-Msg Hook",
+			"source": "../$presets/husky-commit-msg",
+			"target": ".husky/commit-msg"
+		},
+		{
+			"name": "Husky Pre-Commit Hook",
+			"source": "../$presets/husky-pre-commit",
+			"target": ".husky/pre-commit"
+		},
+		{
+			"compare": {
+				"ignore": ["overrides"]
+			},
+			"name": "Oxfmt Config",
+			"source": "../$presets/oxfmt.json",
+			"target": ".oxfmtrc.json"
+		},
+		{
+			"compare": {
+				"ignore": ["overrides"]
+			},
+			"name": "Oxlint Config",
+			"source": "../$presets/oxlint-tanstack.json",
+			"target": ".oxlintrc.json"
+		},
+		{
+			"name": "TypeScript Config",
+			"source": "../$presets/tsconfig.json",
+			"target": "tsconfig.json"
+		},
+		{
+			"name": "Zed Settings",
+			"source": "../$presets/zed.json",
+			"target": ".zed/settings.json"
+		},
+		{
+			"name": "Vite Config",
+			"source": "../$presets/vite.config.ts",
+			"target": "vite.config.ts"
+		},
+		{
+			"name": "TanStack Router Config",
+			"source": "../$presets/tsr.config.json",
+			"target": "tsr.config.json"
+		},
+		{
+			"name": "shadcn Components Config",
+			"source": "../$presets/components.json",
+			"target": "components.json"
+		},
+		{
+			"compare": {
+				"pinned": ["scripts", "imports", "type"]
+			},
+			"name": "Package JSON",
+			"source": "../$presets/_package.json",
+			"target": "package.json"
+		}
+	],
+	"js": {
+		"dependencies": {},
+		"devDependencies": {
+			"@commitlint/cli": "21.2.4",
+			"@commitlint/config-conventional": "21.2.4",
+			"@types/bun": "1.4.4",
+			"@types/node": "26.6.5",
+			"husky": "9.1.7",
+			"oxfmt": "0.75.0",
+			"oxlint": "1.90.0",
+			"rimraf": "6.1.3",
+			"tsrs": "0.20.1-ts7.1.0-beta",
+			"typescript": "7.0.2"
+		},
+		"peerDependencies": {},
+		"pm": "bun"
+	}
 }

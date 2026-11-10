@@ -1,10 +1,10 @@
 {
-  "extends": "./.wxt/tsconfig.json",
-  "compilerOptions": {
-    "allowImportingTsExtensions": true,
-    "types": ["bun"],
-    "paths": {
-      "#/*": ["./src/*"]
-    }
-  }
+	"extends": "./.wxt/tsconfig.json",
+	"compilerOptions": {
+		"allowImportingTsExtensions": true,
+		"types": ["bun"],
+		"paths": {
+			"#/*": ["./src/*"]
+		}
+	}
 }

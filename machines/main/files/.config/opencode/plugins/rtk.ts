@@ -24,8 +24,8 @@ let cachedRtkPath: string | null = null;
 let probedBin: { bin: string; capable: boolean } | null = null;
 
 export function _resetCachedRtkPath(): void {
-  cachedRtkPath = null;
-  probedBin = null;
+	cachedRtkPath = null;
+	probedBin = null;
 }
 
 /**
@@ -43,24 +43,22 @@ export function _resetCachedRtkPath(): void {
  * there.
  */
 export function resolveRtkPath(): string | null {
-  if (cachedRtkPath && existsSync(cachedRtkPath)) return cachedRtkPath;
+	if (cachedRtkPath && existsSync(cachedRtkPath)) return cachedRtkPath;
 
-  const dirs = (process.env.PATH ?? "").split(delimiter).filter(Boolean);
-  const exts =
-    process.platform === "win32"
-      ? (process.env.PATHEXT ?? ".EXE;.CMD;.BAT;.COM").split(";")
-      : [""];
+	const dirs = (process.env.PATH ?? "").split(delimiter).filter(Boolean);
+	const exts =
+		process.platform === "win32" ? (process.env.PATHEXT ?? ".EXE;.CMD;.BAT;.COM").split(";") : [""];
 
-  for (const dir of dirs) {
-    for (const ext of exts) {
-      const fullPath = join(dir, `rtk${ext}`);
-      if (existsSync(fullPath) && !statSync(fullPath).isDirectory()) {
-        return (cachedRtkPath = fullPath);
-      }
-    }
-  }
+	for (const dir of dirs) {
+		for (const ext of exts) {
+			const fullPath = join(dir, `rtk${ext}`);
+			if (existsSync(fullPath) && !statSync(fullPath).isDirectory()) {
+				return (cachedRtkPath = fullPath);
+			}
+		}
+	}
 
-  return (cachedRtkPath = null);
+	return (cachedRtkPath = null);
 }
 
 /**
@@ -77,19 +75,19 @@ export function resolveRtkPath(): string | null {
  * Cached per binary — this runs once per OpenCode session, not per tool call.
  */
 export function probeRtkHookOpencode(rtkBin: string): Promise<boolean> {
-  if (probedBin?.bin === rtkBin) return Promise.resolve(probedBin.capable);
-  return new Promise((resolve) => {
-    execFile(
-      rtkBin,
-      ["hook", "opencode", "--help"],
-      { encoding: "utf8", timeout: 3000, windowsHide: true },
-      (error) => {
-        if (error) return resolve(false);
-        probedBin = { bin: rtkBin, capable: true };
-        resolve(true);
-      },
-    );
-  });
+	if (probedBin?.bin === rtkBin) return Promise.resolve(probedBin.capable);
+	return new Promise((resolve) => {
+		execFile(
+			rtkBin,
+			["hook", "opencode", "--help"],
+			{ encoding: "utf8", timeout: 3000, windowsHide: true },
+			(error) => {
+				if (error) return resolve(false);
+				probedBin = { bin: rtkBin, capable: true };
+				resolve(true);
+			},
+		);
+	});
 }
 
 /**
@@ -109,99 +107,88 @@ export function probeRtkHookOpencode(rtkBin: string): Promise<boolean> {
  * blocking the tool call.
  */
 export function runHookOpencode(
-  rtkBin: string,
-  command: string,
-  agent?: string,
-  timeoutMs = 3000,
+	rtkBin: string,
+	command: string,
+	agent?: string,
+	timeoutMs = 3000,
 ): Promise<string | null> {
-  const argv = ["hook", "opencode"];
-  if (agent) argv.push("--agent", agent);
-  argv.push(command);
+	const argv = ["hook", "opencode"];
+	if (agent) argv.push("--agent", agent);
+	argv.push(command);
 
-  return new Promise((resolve) => {
-    execFile(
-      rtkBin,
-      argv,
-      { encoding: "utf8", timeout: timeoutMs, windowsHide: true },
-      (error, stdout) => {
-        if (error) return resolve(null);
+	return new Promise((resolve) => {
+		execFile(
+			rtkBin,
+			argv,
+			{ encoding: "utf8", timeout: timeoutMs, windowsHide: true },
+			(error, stdout) => {
+				if (error) return resolve(null);
 
-        let answer: Answer;
-        try {
-          answer = JSON.parse(String(stdout ?? "").trim() || "{}");
-        } catch {
-          return resolve(null);
-        }
+				let answer: Answer;
+				try {
+					answer = JSON.parse(String(stdout ?? "").trim() || "{}");
+				} catch {
+					return resolve(null);
+				}
 
-        const rewritten =
-          typeof answer?.command === "string" ? answer.command.trim() : "";
-        resolve(rewritten && rewritten !== command ? rewritten : null);
-      },
-    );
-  });
+				const rewritten = typeof answer?.command === "string" ? answer.command.trim() : "";
+				resolve(rewritten && rewritten !== command ? rewritten : null);
+			},
+		);
+	});
 }
 
 export async function tryRewriteCommand(
-  toolName: string,
-  command: unknown,
-  agent?: string,
+	toolName: string,
+	command: unknown,
+	agent?: string,
 ): Promise<string | null> {
-  const tool = String(toolName ?? "").toLowerCase();
-  if (
-    (tool !== "bash" && tool !== "shell") ||
-    typeof command !== "string" ||
-    !command.trim()
-  ) {
-    return null;
-  }
+	const tool = String(toolName ?? "").toLowerCase();
+	if ((tool !== "bash" && tool !== "shell") || typeof command !== "string" || !command.trim()) {
+		return null;
+	}
 
-  // RTK_DISABLED is two different things and only one of them is checked here.
-  // The per-command form (`RTK_DISABLED=1 git status`) is an env prefix inside
-  // the command string, and the Rust rewrite engine handles it — this plugin
-  // passes the string through untouched, so that one already works. What is
-  // checked here is the OpenCode process environment, which switches rewriting
-  // off for the whole session. hooks/pi/rtk.ts:124 checks the same var.
-  //
-  // Per call rather than at setup: the variable is inherited from whatever
-  // launched OpenCode, so it is not known until a hook fires.
-  if (process.env.RTK_DISABLED === "1") return null;
+	// RTK_DISABLED is two different things and only one of them is checked here.
+	// The per-command form (`RTK_DISABLED=1 git status`) is an env prefix inside
+	// the command string, and the Rust rewrite engine handles it — this plugin
+	// passes the string through untouched, so that one already works. What is
+	// checked here is the OpenCode process environment, which switches rewriting
+	// off for the whole session. hooks/pi/rtk.ts:124 checks the same var.
+	//
+	// Per call rather than at setup: the variable is inherited from whatever
+	// launched OpenCode, so it is not known until a hook fires.
+	if (process.env.RTK_DISABLED === "1") return null;
 
-  const rtkBin = resolveRtkPath();
-  if (!rtkBin) return null;
+	const rtkBin = resolveRtkPath();
+	if (!rtkBin) return null;
 
-  try {
-    return await runHookOpencode(rtkBin, command, agent);
-  } catch {
-    return null;
-  }
+	try {
+		return await runHookOpencode(rtkBin, command, agent);
+	} catch {
+		return null;
+	}
 }
 
 async function handleToolHook(tool: unknown, container: any, agent?: string) {
-  if (!container || typeof container !== "object") return;
-  const rewritten = await tryRewriteCommand(
-    String(tool ?? ""),
-    container.command,
-    agent,
-  );
-  if (rewritten) container.command = rewritten;
+	if (!container || typeof container !== "object") return;
+	const rewritten = await tryRewriteCommand(String(tool ?? ""), container.command, agent);
+	if (rewritten) container.command = rewritten;
 }
 
 /**
  * Registers hooks only against an rtk that carries `rtk hook opencode`.
  */
 async function ensureRtkUsable(): Promise<boolean> {
-  const rtkBin = resolveRtkPath();
-  if (!rtkBin) {
-    console.warn("[rtk] no rtk on OpenCode's PATH — plugin disabled");
-    return false;
-  }
-  if (!(await probeRtkHookOpencode(rtkBin))) {
-    console.warn(
-      `[rtk] ${rtkBin} has no \`rtk hook opencode\` subcommand — plugin disabled`,
-    );
-    return false;
-  }
-  return true;
+	const rtkBin = resolveRtkPath();
+	if (!rtkBin) {
+		console.warn("[rtk] no rtk on OpenCode's PATH — plugin disabled");
+		return false;
+	}
+	if (!(await probeRtkHookOpencode(rtkBin))) {
+		console.warn(`[rtk] ${rtkBin} has no \`rtk hook opencode\` subcommand — plugin disabled`);
+		return false;
+	}
+	return true;
 }
 
 /**
@@ -218,29 +205,24 @@ async function ensureRtkUsable(): Promise<boolean> {
  * `opencode --version`, and names the version it found.
  */
 const RtkOpenCodePlugin = {
-  id: "rtk",
+	id: "rtk",
 
-  // OpenCode 2.x entrypoint: `{tool, sessionID, agent, messageID, id, input}`.
-  async setup(ctx: any) {
-    if (!(await ensureRtkUsable())) return;
-    await ctx?.tool?.hook?.("execute.before", (e: any) =>
-      handleToolHook(
-        e?.tool,
-        e?.input,
-        typeof e?.agent === "string" ? e.agent : undefined,
-      ),
-    );
-  },
+	// OpenCode 2.x entrypoint: `{tool, sessionID, agent, messageID, id, input}`.
+	async setup(ctx: any) {
+		if (!(await ensureRtkUsable())) return;
+		await ctx?.tool?.hook?.("execute.before", (e: any) =>
+			handleToolHook(e?.tool, e?.input, typeof e?.agent === "string" ? e.agent : undefined),
+		);
+	},
 
-  // OpenCode 1.x entrypoint: `{tool, sessionID, callID}` — no agent field, so
-  // an agent-scoped ask stays silenced here.
-  async server() {
-    if (!(await ensureRtkUsable())) return {};
-    return {
-      "tool.execute.before": (input: any, output: any) =>
-        handleToolHook(input?.tool, output?.args),
-    };
-  },
+	// OpenCode 1.x entrypoint: `{tool, sessionID, callID}` — no agent field, so
+	// an agent-scoped ask stays silenced here.
+	async server() {
+		if (!(await ensureRtkUsable())) return {};
+		return {
+			"tool.execute.before": (input: any, output: any) => handleToolHook(input?.tool, output?.args),
+		};
+	},
 };
 
 export default RtkOpenCodePlugin;

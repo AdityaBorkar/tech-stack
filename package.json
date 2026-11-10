@@ -1,16 +1,16 @@
 {
-  "name": "tech-stack",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "format": "bun fmt",
-    "lint": "oxlint"
-  },
-  "devDependencies": {
-    "@types/bun": "^1.4.4",
-    "oxlint": "^1.93.0"
-  },
-  "peerDependencies": {
-    "typescript": "^7.0.2"
-  }
+	"name": "tech-stack",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"format": "bun fmt",
+		"lint": "oxlint"
+	},
+	"devDependencies": {
+		"@types/bun": "^1.4.4",
+		"oxlint": "^1.93.0"
+	},
+	"peerDependencies": {
+		"typescript": "^7.0.2"
+	}
 }

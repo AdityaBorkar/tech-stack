@@ -1,6 +1,6 @@
 {
-  "$schema": "./node_modules/knip/schema.json",
-  "entry": ["src/router.tsx!", "src/routes/**/*.{ts,tsx}!"],
-  "ignore": ["skills/**"],
-  "project": ["cli/**/*.ts!", "scripts/**/*.ts", "src/**/*.{css,ts,tsx}!"]
+	"$schema": "./node_modules/knip/schema.json",
+	"entry": ["src/router.tsx!", "src/routes/**/*.{ts,tsx}!"],
+	"ignore": ["skills/**"],
+	"project": ["cli/**/*.ts!", "scripts/**/*.ts", "src/**/*.{css,ts,tsx}!"]
 }
