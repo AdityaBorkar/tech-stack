@@ -53,7 +53,6 @@
 	"dependencies": {
 		"@clack/prompts": "<version>",
 		"commander": "<version>",
-		"env-paths": "<version>",
 		"picocolors": "<version>",
 		"zod": "<version>"
 	},

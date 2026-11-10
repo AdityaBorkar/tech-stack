@@ -1,5 +1,5 @@
 {
-	"$schema": "https://raw.githubusercontent.com/AdityaBorkar/adistack-conform/refs/heads/main/configuration_schema/registry.json",
+	"$schema": "https://raw.githubusercontent.com/AdityaBorkar/adistack-conform/refs/heads/stable/configuration_schema/registry.json",
 	"machines": {
 		"main": {
 			"name": "Primary Developer Machine",

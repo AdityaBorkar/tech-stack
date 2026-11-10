@@ -1,5 +1,5 @@
 {
-	"$schema": "https://raw.githubusercontent.com/AdityaBorkar/adistack-conform/refs/heads/main/configuration_schema/github-manifest.json",
+	"$schema": "https://raw.githubusercontent.com/AdityaBorkar/adistack-conform/refs/heads/stable/configuration_schema/github-manifest.json",
 	"@name": "CLI Projects",
 	"actions": {
 		"allowApprovePRs": false,
