@@ -1,6 +1,7 @@
 {
 	"$schema": "https://raw.githubusercontent.com/AdityaBorkar/adistack-conform/refs/heads/main/configuration_schema/project-manifest.json",
-	"description": "RPC Contract using oRPC + Zod",
+	"@name": "RPC Contract",
+	"@description": "RPC Contract using oRPC + Zod",
 	"file_structure": [
 		{
 			"name": "Source Dir",

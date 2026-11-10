@@ -1,7 +1,4 @@
 {
-	"bin": {
-		"<binary-name>": "./.output/<binary-name>"
-	},
 	"description": "<one-line-description>",
 	"exports": {
 		".": "./src/index.ts"
@@ -10,22 +7,7 @@
 	"imports": {
 		"#/*": "./src/*"
 	},
-	"keywords": ["<keyword>"],
-	"homepage": "https://github.com/<owner>/<repo>#readme",
-	"bugs": "https://github.com/<owner>/<repo>/issues",
 	"license": "MIT",
-	"author": {
-		"name": "<user-name>",
-		"email": "<user-email>",
-		"url": "<user-website>"
-	},
-	"maintainers": [
-		{
-			"name": "<user-name>",
-			"email": "<user-email>",
-			"url": "<user-website>"
-		}
-	],
 	"contributors": [
 		{
 			"name": "<user-name>",
@@ -63,7 +45,6 @@
 		"oxlint": "<version>",
 		"typescript": "<version>"
 	},
-	"peerDependencies": {},
 	"type": "module",
 	"version": "<version>"
 }

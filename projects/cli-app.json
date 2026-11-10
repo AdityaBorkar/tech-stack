@@ -1,6 +1,7 @@
 {
 	"$schema": "https://raw.githubusercontent.com/AdityaBorkar/adistack-conform/refs/heads/main/configuration_schema/project-manifest.json",
-	"description": "CLI Application using Commander",
+	"@name": "CLI",
+	"@description": "CLI Application using Commander",
 	"file_structure": [
 		{
 			"name": "Source Dir",
@@ -100,6 +101,5 @@
 			"source": "projects/files/package/cli.json",
 			"target": "package.json"
 		}
-	],
-	"github": "projects/files/github-config/npm-package.json"
+	]
 }

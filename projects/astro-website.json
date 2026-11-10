@@ -1,6 +1,7 @@
 {
 	"$schema": "https://raw.githubusercontent.com/AdityaBorkar/adistack-conform/refs/heads/main/configuration_schema/project-manifest.json",
-	"description": "Website using Astro",
+	"@name": "Website (Astro)",
+	"@description": "Website using Astro",
 	"file_structure": [
 		{
 			"name": "Source Dir",

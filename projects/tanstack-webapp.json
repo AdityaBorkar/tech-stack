@@ -1,6 +1,7 @@
 {
 	"$schema": "https://raw.githubusercontent.com/AdityaBorkar/adistack-conform/refs/heads/main/configuration_schema/project-manifest.json",
-	"description": "Web App using TanStack Start",
+	"@name": "Web App (Tanstack Start)",
+	"@description": "Web App using TanStack Start",
 	"file_structure": [
 		{
 			"name": "Source Dir",

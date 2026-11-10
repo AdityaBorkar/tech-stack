@@ -1,39 +1,21 @@
 {
 	"$schema": "https://raw.githubusercontent.com/AdityaBorkar/adistack-conform/refs/heads/main/configuration_schema/registry.json",
-	"machines": [
-		{
+	"machines": {
+		"main": {
 			"name": "Primary Developer Machine",
 			"path": "./machines/main/"
 		}
-	],
-	"projects": [
-		{
-			"name": "Website (Astro)",
-			"path": "./projects/astro-website.json"
-		},
-		{
-			"name": "CLI",
-			"path": "./projects/cli-app.json"
-		},
-		{
-			"name": "CLI + Web App (Tanstack Start)",
-			"path": "./projects/cli-tanstack-webapp.json"
-		},
-		{
-			"name": "RPC Contract",
-			"path": "./projects/rpc-contract.json"
-		},
-		{
-			"name": "Web App (Tanstack Start)",
-			"path": "./projects/tanstack-webapp.json"
-		},
-		{
-			"name": "Website (Tanstack Start)",
-			"path": "./projects/tanstack-website.json"
-		},
-		{
-			"name": "Web Extension (WXT)",
-			"path": "./projects/web-extension.json"
-		}
-	]
+	},
+	"projects": {
+		"astro-website": "./projects/astro-website.json",
+		"cli-app": "./projects/cli-app.json",
+		"cli-tanstack-webapp": "./projects/cli-tanstack-webapp.json",
+		"rpc-contract": "./projects/rpc-contract.json",
+		"tanstack-webapp": "./projects/tanstack-webapp.json",
+		"tanstack-website": "./projects/tanstack-website.json",
+		"web-extension": "./projects/web-extension.json"
+	},
+	"github_configs": {
+		"npm-package": "./github-configs/npm-package.json"
+	}
 }
