@@ -1,31 +1,35 @@
 {
-    "$schema": "https://stack.adityab.tech/conform/<VERSION>/schemas/registry.json",
-    "machines": [
-        {
-            "name": "Primary Developer Machine",
-            "path": "./machines/main/"
-        }
-    ],
-    "projects": [
-        {
-            "name": "Website (Astro)",
-            "path": "./projects/astro-website/"
-        },
-        {
-            "name": "CLI",
-            "path": "./projects/cli-app/"
-        },
-        {
-            "name": "CLI + Web App (Tanstack Start)",
-            "path": "./projects/cli-tanstack-webapp/"
-        },
-        {
-            "name": "Web App (Tanstack Start)",
-            "path": "./projects/tanstack-webapp/"
-        },
-        {
-            "name": "Website (Tanstack Start)",
-            "path": "./projects/tanstack-website/"
-        }
-    ]
+  "$schema": "https://stack.adityab.tech/conform/<VERSION>/schemas/registry.json",
+  "machines": [
+    {
+      "name": "Primary Developer Machine",
+      "path": "./machines/main/"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Website (Astro)",
+      "path": "./projects/astro-website/"
+    },
+    {
+      "name": "CLI",
+      "path": "./projects/cli-app/"
+    },
+    {
+      "name": "CLI + Web App (Tanstack Start)",
+      "path": "./projects/cli-tanstack-webapp/"
+    },
+    {
+      "name": "Web App (Tanstack Start)",
+      "path": "./projects/tanstack-webapp/"
+    },
+    {
+      "name": "Website (Tanstack Start)",
+      "path": "./projects/tanstack-website/"
+    },
+    {
+      "name": "Web Extension (WXT)",
+      "path": "./projects/web-extension/"
+    }
+  ]
 }

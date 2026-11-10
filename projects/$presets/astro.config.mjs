@@ -19,60 +19,60 @@ import { visualizer } from "rollup-plugin-visualizer";
 const SITE_URL = "https://example.com";
 
 export default defineConfig({
-	adapter: cloudflare({
-		imageService: "compile",
-	}),
-	compressHTML: true,
-	integrations: [
-		react(),
-		mdx(),
-		// og(),
-		// sitemap(),
-		// robotsTxt({
-		// 	policy: [{ allow: ["/"], disallow: ["/api/"], userAgent: "*" }],
-		// 	sitemap: `${SITE_URL}/sitemap-index.xml`,
-		// }),
-		// checks(),
-		// astroBrokenLinksChecker({
-		// 	cacheExternalLinks: true,
-		// 	checkExternalLinks: true,
-		// 	throwError: true,
-		// }),
-		astroGrab({
-			holdDuration: 300,
-		}),
-	],
-	outDir: ".output",
-	output: "server",
-	prefetch: {
-		defaultStrategy: "hover",
-		prefetchAll: false,
-	},
-	redirects: {
-		// "/portfolio": "/work",
-	},
-	site: SITE_URL,
-	vite: {
-		plugins: [
-			tailwindcss(),
-			basicSsl(),
-			visualizer({
-				emitFile: true,
-				filename: "stats.html",
-			}),
-		],
-		ssr: {
-			external: [
-				"node:fs",
-				"node:path",
-				"fs",
-				"node:crypto",
-				"child_process",
-				"node:os",
-				"node:events",
-				"node:stream",
-				"node:util",
-			],
-		},
-	},
+  adapter: cloudflare({
+    imageService: "compile",
+  }),
+  compressHTML: true,
+  integrations: [
+    react(),
+    mdx(),
+    // og(),
+    // sitemap(),
+    // robotsTxt({
+    // 	policy: [{ allow: ["/"], disallow: ["/api/"], userAgent: "*" }],
+    // 	sitemap: `${SITE_URL}/sitemap-index.xml`,
+    // }),
+    // checks(),
+    // astroBrokenLinksChecker({
+    // 	cacheExternalLinks: true,
+    // 	checkExternalLinks: true,
+    // 	throwError: true,
+    // }),
+    astroGrab({
+      holdDuration: 300,
+    }),
+  ],
+  outDir: ".output",
+  output: "server",
+  prefetch: {
+    defaultStrategy: "hover",
+    prefetchAll: false,
+  },
+  redirects: {
+    // "/portfolio": "/work",
+  },
+  site: SITE_URL,
+  vite: {
+    plugins: [
+      tailwindcss(),
+      basicSsl(),
+      visualizer({
+        emitFile: true,
+        filename: "stats.html",
+      }),
+    ],
+    ssr: {
+      external: [
+        "node:fs",
+        "node:path",
+        "fs",
+        "node:crypto",
+        "child_process",
+        "node:os",
+        "node:events",
+        "node:stream",
+        "node:util",
+      ],
+    },
+  },
 });

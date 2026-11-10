@@ -1,9 +1,9 @@
 {
-	"$schema": "https://github.com/pa11y/pa11y-ci/raw/main/schema.json",
-	"defaults": {
-		"concurrency": 1,
-		"runners": ["axe", "htmlcs"],
-		"standard": "WCAG2AA",
-		"timeout": 30000
-	}
+  "$schema": "https://github.com/pa11y/pa11y-ci/raw/main/schema.json",
+  "defaults": {
+    "concurrency": 1,
+    "runners": ["axe", "htmlcs"],
+    "standard": "WCAG2AA",
+    "timeout": 30000
+  }
 }

@@ -96,14 +96,14 @@ What this does: builds `homeConfigurations.<username>`
 (`bun.nix:4-30`), and decrypts `secrets.yaml` into 6 files
 (`home.nix:37-118`):
 
-| secret(s) | rendered file | mode |
-|---|---|---|
-| `aws_*` (4) | `~/.aws/credentials` | 0600 |
-| `gh_oauth_token` | `~/.config/gh/hosts.yml` | 0600 |
-| `npm_auth_token` | `~/.npmrc` | 0600 |
-| `eas_analytics_device_id` | `~/.config/eas-cli-nodejs/user-settings.json` | 0644 |
-| `opencode_context7_api_key` | `~/.config/opencode/opencode.json` | 0644 |
-| `wakatime_api_key` | `~/.wakatime.cfg` | 0644 |
+| secret(s)                   | rendered file                                 | mode |
+| --------------------------- | --------------------------------------------- | ---- |
+| `aws_*` (4)                 | `~/.aws/credentials`                          | 0600 |
+| `gh_oauth_token`            | `~/.config/gh/hosts.yml`                      | 0600 |
+| `npm_auth_token`            | `~/.npmrc`                                    | 0600 |
+| `eas_analytics_device_id`   | `~/.config/eas-cli-nodejs/user-settings.json` | 0644 |
+| `opencode_context7_api_key` | `~/.config/opencode/opencode.json`            | 0644 |
+| `wakatime_api_key`          | `~/.wakatime.cfg`                             | 0644 |
 
 Source templates with `@@PLACEHOLDERS@@` live under `files/` next to them.
 
@@ -142,14 +142,14 @@ re-switches are safe offline except for `nix` fetches.
 
 ## Troubleshooting
 
-| symptom | cause / fix |
-|---|---|
-| `error: GIT_NAME is not set` | `export GIT_NAME/GIT_EMAIL` and keep `--impure` (`flake.nix:26,30`). |
-| `attribute 'homeConfigurations."root"'` | ran with `sudo` — `$USER=root`. Run as the real user. |
-| `experimental feature 'flakes' is disabled` | missing `/etc/nix/nix.conf` line from §2. |
-| `sops … failed to decrypt` / empty credential files | wrong/missing `~/.config/sops/age/keys.txt` (§3), must be `600`. |
-| `bun … installing` hangs | network needed once for 9 globals; re-run the switch, it resumes. |
-| dirty-tree warning | normal when the repo has uncommitted edits; commit before switching on a new box. |
+| symptom                                             | cause / fix                                                                       |
+| --------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `error: GIT_NAME is not set`                        | `export GIT_NAME/GIT_EMAIL` and keep `--impure` (`flake.nix:26,30`).              |
+| `attribute 'homeConfigurations."root"'`             | ran with `sudo` — `$USER=root`. Run as the real user.                             |
+| `experimental feature 'flakes' is disabled`         | missing `/etc/nix/nix.conf` line from §2.                                         |
+| `sops … failed to decrypt` / empty credential files | wrong/missing `~/.config/sops/age/keys.txt` (§3), must be `600`.                  |
+| `bun … installing` hangs                            | network needed once for 9 globals; re-run the switch, it resumes.                 |
+| dirty-tree warning                                  | normal when the repo has uncommitted edits; commit before switching on a new box. |
 
 ## File map
 

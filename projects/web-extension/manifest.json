@@ -1,0 +1,113 @@
+{
+  "$schema": "https://stack.adityab.tech/conform/<VERSION>/schemas/project-manifest.json",
+  "description": "Web Extension using WXT",
+  "file_structure": [
+    {
+      "name": "Source Dir",
+      "target": "src/",
+      "kind": "dir"
+    },
+    {
+      "name": "Entrypoints Dir",
+      "target": "entrypoints/",
+      "kind": "dir"
+    },
+    {
+      "name": "Public Dir",
+      "target": "public/",
+      "kind": "dir"
+    },
+    {
+      "name": "AGENTS.md",
+      "target": "AGENTS.md",
+      "kind": "file"
+    },
+    {
+      "name": "README.md",
+      "target": "README.md",
+      "kind": "file"
+    }
+  ],
+  "files": [
+    {
+      "name": "Bun Config",
+      "source": "../$presets/bunfig.toml",
+      "target": "bunfig.toml"
+    },
+    {
+      "name": "Commitlint Config",
+      "source": "../$presets/commitlintrc.json",
+      "target": ".commitlintrc.json"
+    },
+    {
+      "name": "Gitignore",
+      "source": "../$presets/gitignore-webext",
+      "target": ".gitignore"
+    },
+    {
+      "name": "Husky Commit-Msg Hook",
+      "source": "../$presets/husky-commit-msg",
+      "target": ".husky/commit-msg"
+    },
+    {
+      "name": "Husky Pre-Commit Hook",
+      "source": "../$presets/husky-pre-commit",
+      "target": ".husky/pre-commit"
+    },
+    {
+      "compare": {
+        "ignore": ["overrides"]
+      },
+      "name": "Oxfmt Config",
+      "source": "../$presets/oxfmt-webext.json",
+      "target": ".oxfmtrc.json"
+    },
+    {
+      "compare": {
+        "ignore": ["overrides"]
+      },
+      "name": "Oxlint Config",
+      "source": "../$presets/oxlint-webext.json",
+      "target": ".oxlintrc.json"
+    },
+    {
+      "name": "TypeScript Config",
+      "source": "../$presets/tsconfig-webext.json",
+      "target": "tsconfig.json"
+    },
+    {
+      "name": "Zed Settings",
+      "source": "../$presets/zed-webext.json",
+      "target": ".zed/settings.json"
+    },
+    {
+      "name": "WXT Config",
+      "source": "../$presets/wxt.config.ts",
+      "target": "wxt.config.ts"
+    },
+    {
+      "compare": {
+        "pinned": ["scripts", "imports", "type"]
+      },
+      "name": "Package JSON",
+      "source": "../$presets/_package.json",
+      "target": "package.json"
+    }
+  ],
+  "js": {
+    "dependencies": {},
+    "devDependencies": {
+      "@changesets/cli": "3.0.3",
+      "@commitlint/cli": "21.2.4",
+      "@commitlint/config-conventional": "21.2.4",
+      "@types/bun": "1.4.4",
+      "husky": "9.1.7",
+      "oxlint": "1.92.0",
+      "typescript": "7.0.2",
+      "web-ext": "10.8.0",
+      "wxt": "0.21.5"
+    },
+    "peerDependencies": {},
+    "pm": "bun"
+  }
+}

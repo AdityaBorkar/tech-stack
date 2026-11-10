@@ -1,33 +1,61 @@
 {
-	"bin": {
-		"<binary-name>": "./.output/<binary-name>"
-	},
-	"description": "<one-line description>",
-	"exports": {
-		".": "./src/index.ts"
-	},
-	"files": [
-		".output",
-		"package.json",
-		"configuration_schema",
-		"README.md",
-		"skills"
-	],
-	"imports": {
-		"#/*": "./src/*"
-	},
-	"name": "<package-name>",
-	"scripts": {
-		"build": "bun ./scripts/build.ts",
-		"check:lint": "oxlint",
-		"check:types": "tsrs",
-		"clean": "rimraf --glob \"**/{node_modules,dist,bun.lockb}\"",
-		"dev": "bun ./src/index.ts",
-		"format": "oxfmt",
-		"prepare": "husky",
-		"review:knip": "knip",
-		"verify": "bun format && bun check:lint && bun check:types && bun run build"
-	},
-	"type": "module",
-	"version": "0.1.0"
+  "bin": {
+    "<binary-name>": "./.output/<binary-name>"
+  },
+  "description": "<one-line description>",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    ".output",
+    "package.json",
+    "configuration_schema",
+    "README.md",
+    "skills",
+    "www"
+  ],
+  "imports": {
+    "#/*": "./src/*"
+  },
+  "keywords": ["<keyword>"],
+  "homepage": "https://github.com/<owner>/<repo>#readme",
+  "bugs": "https://github.com/<owner>/<repo>/issues",
+  "license": "MIT",
+  "author": {
+    "name": "Aditya Borkar",
+    "email": "hello@adityab.tech",
+    "url": "https://adityab.tech"
+  },
+  "maintainers": [
+    {
+      "email": "hello@adityab.tech",
+      "name": "Aditya Borkar",
+      "url": "https://adityab.tech"
+    }
+  ],
+  "contributors": [
+    {
+      "email": "hello@adityab.tech",
+      "name": "Aditya Borkar",
+      "url": "https://adityab.tech"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/<owner>/<repo>.git"
+  },
+  "name": "<package-name>",
+  "scripts": {
+    "build": "bun ./scripts/build.ts",
+    "check:lint": "oxlint",
+    "check:types": "tsrs",
+    "clean": "rimraf --glob \"**/{node_modules,dist,bun.lockb}\"",
+    "dev": "bun ./src/index.ts",
+    "format": "oxfmt",
+    "prepare": "husky",
+    "review:knip": "knip",
+    "verify": "bun format && bun check:lint && bun check:types && bun run build"
+  },
+  "type": "module",
+  "version": "TEXT"
 }

@@ -1,100 +1,78 @@
 {
-    "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-    "assist": {
-        "actions": {
-            "source": {
-                "organizeImports": {
-                    "level": "on",
-                    "options": {
-                        "groups": [
-                            [
-                                ":URL:"
-                            ],
-                            ":BLANK_LINE:",
-                            [
-                                ":NODE:",
-                                ":BUN:",
-                                ":PACKAGE_WITH_PROTOCOL:"
-                            ],
-                            ":BLANK_LINE:",
-                            [
-                                ":PACKAGE:"
-                            ],
-                            ":BLANK_LINE:",
-                            [
-                                ":ALIAS:",
-                                ":PATH:"
-                            ]
-                        ],
-                        "sortBareImports": true
-                    }
-                },
-                "preset": "all"
-            }
-        }
-    },
-    "css": {
-        "parser": {
-            "cssModules": true,
-            "tailwindDirectives": true
-        }
-    },
-    "files": {
-        "ignoreUnknown": true,
-        "includes": [
-            "**"
-        ]
-    },
-    "formatter": {
-        "enabled": true,
-        "indentStyle": "space",
-    },
-    "html": {
-        "formatter": {
-            "selfCloseVoidElements": "always"
-        }
-    },
-    "linter": {
-        "domains": {
-            "react": "all",
-            "tailwind": "all",
-            "types": "all"
-        },
-        "enabled": true,
-        "rules": {
-            "nursery": {
-                "useSortedClasses": {
-                    "fix": "safe",
-                    "level": "error",
-                    "options": {
-                        "attributes": [
-                            "classList"
-                        ],
-                        "functions": [
-                            "clsx",
-                            "cva",
-                            "tw",
-                            "tw.*"
-                        ]
-                    }
-                }
-            },
-            "preset": "recommended"
-        }
-    },
-    "overrides": [
-        {
-            "includes": [
-                "src/components/ui/**"
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              [":URL:"],
+              ":BLANK_LINE:",
+              [":NODE:", ":BUN:", ":PACKAGE_WITH_PROTOCOL:"],
+              ":BLANK_LINE:",
+              [":PACKAGE:"],
+              ":BLANK_LINE:",
+              [":ALIAS:", ":PATH:"]
             ],
-            "linter": {
-                "enabled": false
-            }
-        }
-    ],
-    "vcs": {
-        "clientKind": "git",
-        "enabled": true,
-        "useIgnoreFile": true
+            "sortBareImports": true
+          }
+        },
+        "preset": "all"
+      }
     }
+  },
+  "css": {
+    "parser": {
+      "cssModules": true,
+      "tailwindDirectives": true
+    }
+  },
+  "files": {
+    "ignoreUnknown": true,
+    "includes": ["**"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space"
+  },
+  "html": {
+    "formatter": {
+      "selfCloseVoidElements": "always"
+    }
+  },
+  "linter": {
+    "domains": {
+      "react": "all",
+      "tailwind": "all",
+      "types": "all"
+    },
+    "enabled": true,
+    "rules": {
+      "nursery": {
+        "useSortedClasses": {
+          "fix": "safe",
+          "level": "error",
+          "options": {
+            "attributes": ["classList"],
+            "functions": ["clsx", "cva", "tw", "tw.*"]
+          }
+        }
+      },
+      "preset": "recommended"
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["src/components/ui/**"],
+      "linter": {
+        "enabled": false
+      }
+    }
+  ],
+  "vcs": {
+    "clientKind": "git",
+    "enabled": true,
+    "useIgnoreFile": true
+  }
 }

@@ -9,31 +9,33 @@
 // tier routing (carried on the first tool result of each session, since
 // OpenCode documents no context-output lifecycle hook), and reinjection
 // after compaction via the documented experimental surface.
-import { spawn } from 'node:child_process';
+import { spawn } from "node:child_process";
 
-const BIN = '/home/aditya/.local/bin/codebase-memory-mcp';
+const BIN = "/home/aditya/.local/bin/codebase-memory-mcp";
 
 function augment(payload) {
   return new Promise((resolve) => {
-    const child = spawn(BIN, ['hook-augment'], {
-      stdio: ['pipe', 'pipe', 'ignore'],
-      env: { ...process.env, CBM_LOG_LEVEL: 'error' },
+    const child = spawn(BIN, ["hook-augment"], {
+      stdio: ["pipe", "pipe", "ignore"],
+      env: { ...process.env, CBM_LOG_LEVEL: "error" },
     });
-    let out = '';
-    child.stdout.on('data', (d) => (out += d.toString()));
-    child.on('error', () => resolve(''));
-    child.on('close', () => {
+    let out = "";
+    child.stdout.on("data", (d) => (out += d.toString()));
+    child.on("error", () => resolve(""));
+    child.on("close", () => {
       try {
         const ctx = JSON.parse(out)?.hookSpecificOutput?.additionalContext;
-        resolve(typeof ctx === 'string' ? ctx : '');
-      } catch { resolve(''); }
+        resolve(typeof ctx === "string" ? ctx : "");
+      } catch {
+        resolve("");
+      }
     });
     child.stdin.end(JSON.stringify(payload));
   });
 }
 
 export default {
-  id: 'codebase-memory-augment',
+  id: "codebase-memory-augment",
   // V2 config loader: requires id + setup|effect; no tool domain yet
   // at this point, so there is nothing to register here.
   setup() {},
@@ -42,45 +44,53 @@ export default {
     const dir = ctx?.directory;
     const seen = new Set();
     const lifecycle = () =>
-      augment({ hook_event_name: 'SessionStart', cwd: dir });
+      augment({ hook_event_name: "SessionStart", cwd: dir });
     return {
-      'tool.execute.after': async (input, output) => {
-        if (typeof output?.output !== 'string') return;
+      "tool.execute.after": async (input, output) => {
+        if (typeof output?.output !== "string") return;
         const pieces = [];
         const sid = input?.sessionID;
-        if (typeof sid === 'string' && !seen.has(sid)) {
+        if (typeof sid === "string" && !seen.has(sid)) {
           seen.add(sid);
           pieces.push(await lifecycle());
         }
         const args = input?.args ?? {};
         const search =
-          input?.tool === 'grep' ? 'Grep' : input?.tool === 'glob' ? 'Glob' : null;
+          input?.tool === "grep"
+            ? "Grep"
+            : input?.tool === "glob"
+              ? "Glob"
+              : null;
         if (search) {
-          pieces.push(await augment({
-            hook_event_name: 'PreToolUse',
-            tool_name: search,
-            tool_input: args,
-            cwd: dir,
-          }));
-        } else if (input?.tool === 'read') {
-          const filePath = args.filePath ?? args.file_path ?? args.path;
-          if (typeof filePath === 'string' && filePath) {
-            pieces.push(await augment({
-              hook_event_name: 'PostToolUse',
-              tool_name: 'Read',
-              tool_input: { file_path: filePath },
+          pieces.push(
+            await augment({
+              hook_event_name: "PreToolUse",
+              tool_name: search,
+              tool_input: args,
               cwd: dir,
-            }));
+            }),
+          );
+        } else if (input?.tool === "read") {
+          const filePath = args.filePath ?? args.file_path ?? args.path;
+          if (typeof filePath === "string" && filePath) {
+            pieces.push(
+              await augment({
+                hook_event_name: "PostToolUse",
+                tool_name: "Read",
+                tool_input: { file_path: filePath },
+                cwd: dir,
+              }),
+            );
           }
         }
-        const extra = pieces.filter(Boolean).join('\n');
+        const extra = pieces.filter(Boolean).join("\n");
         if (extra) {
-          output.output += '\n' + extra;
+          output.output += "\n" + extra;
         }
       },
       // Documented (experimental) compaction surface: output.context is the
       // mutable array of context strings for the rebuilt session.
-      'experimental.session.compacting': async (_input, output) => {
+      "experimental.session.compacting": async (_input, output) => {
         const note = await lifecycle();
         if (note && Array.isArray(output?.context)) {
           output.context.push(note);

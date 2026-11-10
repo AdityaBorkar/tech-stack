@@ -1,70 +1,62 @@
 {
-    "$schema": "https://stack.adityab.tech/conform/<VERSION>/schemas/github.json",
-    "actions": {
-        "allowApprovePRs": false,
-        "allowed": "all",
-        "approvalForExternal": true,
-        "defaultWorkflowPermissions": "read",
-        "oidcImmutableSubject": true,
-        "retentionDays": 90,
-        "shaPinningRequired": true
-    },
-    "agentSuggestions": "full-control",
-    "archiveSettings": {
-        "commitComments": false,
-        "includeLfsInArchives": false
-    },
-    "checks": [
-        "lint",
-        "format",
-        "types",
-        "conform"
-    ],
-    "codeowners": ".github/CODEOWNERS",
-    "defaultBranch": "stable",
-    "environments": [
-        "stable",
-        "beta"
-    ],
-    "features": {
-        "discussions": false,
-        "issueTemplates": true,
-        "issues": true,
-        "projects": false,
-        "wiki": false
-    },
-    "merge": {
-        "autoMerge": true,
-        "deleteHeadBranches": true,
-        "mergeCommit": true,
-        "mergeMessage": "pr-body",
-        "mergeTitle": "pr-title",
-        "rebaseMerge": false,
-        "squashMerge": true,
-        "squashMessage": "pr-body",
-        "squashTitle": "pr-title"
-    },
-    "releasesImmutable": true,
-    "reviews": {
-        "dismissStale": true,
-        "requireCodeOwner": true,
-        "requireConversationResolution": true,
-        "requiredApprovals": 1,
-        "requireSignedCommits": false,
-        "restrictPushes": true
-    },
-    "rulesets": [],
-    "secrets": [],
-    "security": {
-        "copilotAutofix": false,
-        "dependabot": true,
-        "dependencyAutoSubmit": true,
-        "dependencyGraph": true,
-        "privateVulnerabilityReporting": true,
-        "pushProtection": true,
-        "secretProtection": true
-    },
-    "signoffRequired": false,
-    "socialPreview": true,
-    "variables": []
+  "$schema": "https://stack.adityab.tech/conform/<VERSION>/schemas/github.json",
+  "actions": {
+    "allowApprovePRs": false,
+    "allowed": "all",
+    "approvalForExternal": true,
+    "defaultWorkflowPermissions": "read",
+    "oidcImmutableSubject": true,
+    "retentionDays": 90,
+    "shaPinningRequired": true
+  },
+  "agentSuggestions": "full-control",
+  "archiveSettings": {
+    "commitComments": false,
+    "includeLfsInArchives": false
+  },
+  "checks": ["lint", "format", "types", "conform"],
+  "codeowners": ".github/CODEOWNERS",
+  "defaultBranch": "stable",
+  "environments": ["stable", "beta"],
+  "features": {
+    "discussions": false,
+    "issueTemplates": true,
+    "issues": true,
+    "projects": false,
+    "wiki": false
+  },
+  "merge": {
+    "autoMerge": true,
+    "deleteHeadBranches": true,
+    "mergeCommit": true,
+    "mergeMessage": "pr-body",
+    "mergeTitle": "pr-title",
+    "rebaseMerge": false,
+    "squashMerge": true,
+    "squashMessage": "pr-body",
+    "squashTitle": "pr-title"
+  },
+  "releasesImmutable": true,
+  "reviews": {
+    "dismissStale": true,
+    "requireCodeOwner": true,
+    "requireConversationResolution": true,
+    "requiredApprovals": 1,
+    "requireSignedCommits": false,
+    "restrictPushes": true
+  },
+  "rulesets": [],
+  "secrets": [],
+  "security": {
+    "copilotAutofix": false,
+    "dependabot": true,
+    "dependencyAutoSubmit": true,
+    "dependencyGraph": true,
+    "privateVulnerabilityReporting": true,
+    "pushProtection": true,
+    "secretProtection": true
+  },
+  "signoffRequired": false,
+  "socialPreview": true,
+  "variables": []
 }
