@@ -86,46 +86,9 @@
 			"target": "wxt.config.ts"
 		},
 		{
-			"compare": {
-				"required": [
-					"type",
-					"imports",
-					"exports",
-					"license",
-					"files",
-					"scripts",
-					"author",
-					"maintainers",
-					"contributors",
-					"name",
-					"version",
-					"description",
-					"keywords",
-					"homepage",
-					"bugs",
-					"repository",
-					"bin"
-				]
-			},
 			"name": "Package JSON",
-			"source": "projects/files/package/cli.json",
+			"source": "projects/files/package/webext.json",
 			"target": "package.json"
 		}
-	],
-	"js": {
-		"dependencies": {},
-		"devDependencies": {
-			"@changesets/cli": "3.0.3",
-			"@commitlint/cli": "21.2.4",
-			"@commitlint/config-conventional": "21.2.4",
-			"@types/bun": "1.4.4",
-			"husky": "9.1.7",
-			"oxlint": "1.92.0",
-			"typescript": "7.0.2",
-			"web-ext": "10.8.0",
-			"wxt": "0.21.5"
-		},
-		"peerDependencies": {},
-		"pm": "bun"
-	}
+	]
 }

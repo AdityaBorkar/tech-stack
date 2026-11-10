@@ -1,0 +1,70 @@
+{
+	"bin": {
+		"<binary-name>": "./.output/<binary-name>"
+	},
+	"description": "<one-line-description>",
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"files": [".output", "package.json", "configuration_schema", "README.md", "skills", "www"],
+	"imports": {
+		"#/*": "./src/*"
+	},
+	"keywords": ["<keyword>"],
+	"homepage": "https://github.com/<owner>/<repo>#readme",
+	"bugs": "https://github.com/<owner>/<repo>/issues",
+	"license": "MIT",
+	"author": {
+		"name": "<user-name>",
+		"email": "<user-email>",
+		"url": "<user-website>"
+	},
+	"maintainers": [
+		{
+			"name": "<user-name>",
+			"email": "<user-email>",
+			"url": "<user-website>"
+		}
+	],
+	"contributors": [
+		{
+			"name": "<user-name>",
+			"email": "<user-email>",
+			"url": "<user-website>"
+		}
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/<owner>/<repo>.git"
+	},
+	"name": "<package-name>",
+	"scripts": {
+		"build": "bun ./scripts/build.ts",
+		"check:lint": "oxlint",
+		"check:types": "tsrs",
+		"clean": "bun rimraf --glob \"**/{node_modules,dist,bun.lockb}\"",
+		"dev": "bun ./src/index.ts",
+		"format": "oxfmt",
+		"prepare": "husky",
+		"review:knip": "knip",
+		"test": "bun test",
+		"verify": "bun format && bun check:lint && bun check:types && bun test"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@commitlint/cli": "<version>",
+		"@commitlint/config-conventional": "<version>",
+		"@types/bun": "<version>",
+		"@types/node": "<version>",
+		"husky": "<version>",
+		"knip": "<version>",
+		"oxfmt": "<version>",
+		"oxlint": "<version>",
+		"rimraf": "<version>",
+		"tsrs": "<version>",
+		"typescript": "<version>"
+	},
+	"peerDependencies": {},
+	"type": "module",
+	"version": "<version>"
+}

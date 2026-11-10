@@ -96,27 +96,6 @@
 			"target": ".zed/settings.json"
 		},
 		{
-			"compare": {
-				"required": [
-					"type",
-					"imports",
-					"exports",
-					"license",
-					"files",
-					"scripts",
-					"author",
-					"maintainers",
-					"contributors",
-					"name",
-					"version",
-					"description",
-					"keywords",
-					"homepage",
-					"bugs",
-					"repository",
-					"bin"
-				]
-			},
 			"name": "Package JSON",
 			"source": "projects/files/package/cli.json",
 			"target": "package.json"

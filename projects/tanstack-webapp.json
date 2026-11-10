@@ -86,47 +86,9 @@
 			"target": "components.json"
 		},
 		{
-			"compare": {
-				"required": [
-					"type",
-					"imports",
-					"exports",
-					"license",
-					"files",
-					"scripts",
-					"author",
-					"maintainers",
-					"contributors",
-					"name",
-					"version",
-					"description",
-					"keywords",
-					"homepage",
-					"bugs",
-					"repository",
-					"bin"
-				]
-			},
 			"name": "Package JSON",
-			"source": "projects/files/package/cli.json",
+			"source": "projects/files/package/tanstack.json",
 			"target": "package.json"
 		}
-	],
-	"js": {
-		"dependencies": {},
-		"devDependencies": {
-			"@commitlint/cli": "21.2.4",
-			"@commitlint/config-conventional": "21.2.4",
-			"@types/bun": "1.4.4",
-			"@types/node": "26.6.5",
-			"husky": "9.1.7",
-			"oxfmt": "0.75.0",
-			"oxlint": "1.90.0",
-			"rimraf": "6.1.3",
-			"tsrs": "0.20.1-ts7.1.0-beta",
-			"typescript": "7.0.2"
-		},
-		"peerDependencies": {},
-		"pm": "bun"
-	}
+	]
 }

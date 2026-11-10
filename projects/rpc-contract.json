@@ -71,47 +71,9 @@
 			"target": ".zed/settings.json"
 		},
 		{
-			"compare": {
-				"required": [
-					"type",
-					"imports",
-					"exports",
-					"license",
-					"files",
-					"scripts",
-					"author",
-					"maintainers",
-					"contributors",
-					"name",
-					"version",
-					"description",
-					"keywords",
-					"homepage",
-					"bugs",
-					"repository",
-					"bin"
-				]
-			},
 			"name": "Package JSON",
-			"source": "projects/files/package/cli.json",
+			"source": "projects/files/package/rpc-contract.json",
 			"target": "package.json"
 		}
-	],
-	"js": {
-		"dependencies": {
-			"@orpc/contract": "1.16.2",
-			"zod": "4.6.7",
-			"zod-compiler": "2.0.8"
-		},
-		"devDependencies": {
-			"@commitlint/cli": "21.2.4",
-			"@commitlint/config-conventional": "21.2.4",
-			"@types/bun": "1.4.4",
-			"husky": "9.1.7",
-			"oxlint": "1.92.0",
-			"typescript": "7.0.2"
-		},
-		"peerDependencies": {},
-		"pm": "bun"
-	}
+	]
 }
