@@ -57,7 +57,7 @@
 		"dev": "bun src/index.ts",
 		"format": "oxfmt",
 		"prepare": "husky",
-		"test": "bun test",
+		"test": "bun test --only-failures --parallel=4",
 		"verify": "bun scripts/verify.ts"
 	},
 	"dependencies": {

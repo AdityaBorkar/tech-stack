@@ -1,6 +1,7 @@
 {
-	"$schema": "https://raw.githubusercontent.com/AdityaBorkar/adistack-conform/refs/heads/stable/configuration_schema/github-manifest.json",
-	"@name": "CLI Projects",
+  "$schema": "../node_modules/@adistack/conform/schema/github-manifest.json",
+  "@name": "Simplified Trunk Based Development",
+  "@description": "Simplified Trunk Based Development",
 	"actions": {
 		"allowApprovePRs": false,
 		"allowed": "all",
