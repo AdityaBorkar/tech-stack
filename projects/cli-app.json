@@ -41,18 +41,18 @@
 			"target": ".github/CODEOWNERS"
 		},
 		{
-			"name": "GitHub PR Workflow",
-			"source": "projects/files/github/workflows/pr.yml",
-			"target": ".github/workflows/pr.yml"
+			"name": "GitHub Preview Workflow",
+			"source": "projects/files/github/workflows/preview.yml",
+			"target": ".github/workflows/preview.yml"
 		},
 		{
-			"name": "GitHub Publish Workflow",
-			"source": "projects/files/github/workflows/publish.yml",
-			"target": ".github/workflows/publish.yml"
+			"name": "GitHub Release Workflow",
+			"source": "projects/files/github/workflows/release.yml",
+			"target": ".github/workflows/release.yml"
 		},
 		{
 			"name": "Gitignore",
-			"source": "projects/files/gitignore/base.gitignore",
+			"source": "projects/files/gitignore/cli.gitignore",
 			"target": ".gitignore"
 		},
 		{

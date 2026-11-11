@@ -6,7 +6,16 @@
 	"exports": {
 		".": "./src/index.ts"
 	},
-	"files": [".output", "package.json", "configuration_schema", "README.md", "skills", "www"],
+	"files": [
+		".output",
+		"src",
+		"package.json",
+		"config",
+		"README.md",
+		"CHANGELOG.md",
+		"skills",
+		"docs/www"
+	],
 	"imports": {
 		"#/*": "./src/*"
 	},
@@ -39,16 +48,17 @@
 	},
 	"name": "<package-name>",
 	"scripts": {
-		"build": "bun ./scripts/build.ts",
+		"build": "bun scripts/build.ts",
+		"check:conform": "bun dev check",
+		"check:knip": "knip",
 		"check:lint": "oxlint",
 		"check:types": "tsrs",
-		"clean": "bun rimraf --glob \"**/{node_modules,dist,bun.lockb}\"",
-		"dev": "bun ./src/index.ts",
+		"clean": "bun rimraf --glob \"**/{node_modules,output,bun.lockb}\"",
+		"dev": "bun src/index.ts",
 		"format": "oxfmt",
 		"prepare": "husky",
-		"review:knip": "knip",
 		"test": "bun test",
-		"verify": "bun format && bun check:lint && bun check:types && bun test"
+		"verify": "bun scripts/verify.ts"
 	},
 	"dependencies": {
 		"@clack/prompts": "<version>",

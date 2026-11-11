@@ -1,0 +1,16 @@
+.certs
+.local
+.output
+.tanstack
+config
+node_modules
+
+.env*
+*.env
+!.env.example
+*.gen.ts
+*.tsbuildinfo
+*.tgz
+.DS_Store
+
+.agents/skills
