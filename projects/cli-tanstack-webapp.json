@@ -1,5 +1,5 @@
 {
-  "$schema": "../node_modules/@adistack/conform/schema/project-manifest.json",
+	"$schema": "../node_modules/@adistack/conform/schema/project-manifest.json",
 	"@name": "CLI + Web App (Tanstack Start)",
 	"@description": "CLI + Web App using TanStack Start",
 	"file_structure": [

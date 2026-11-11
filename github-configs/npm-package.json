@@ -1,7 +1,7 @@
 {
-  "$schema": "../node_modules/@adistack/conform/schema/github-manifest.json",
-  "@name": "Simplified Trunk Based Development",
-  "@description": "Simplified Trunk Based Development",
+	"$schema": "../node_modules/@adistack/conform/schema/github-manifest.json",
+	"@name": "Simplified Trunk Based Development",
+	"@description": "Simplified Trunk Based Development",
 	"actions": {
 		"allowApprovePRs": false,
 		"allowed": "all",
