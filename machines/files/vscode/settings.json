@@ -135,7 +135,9 @@
 	"workbench.colorTheme": "Vercel 2024 Dark",
 	"workbench.editor.labelFormat": "short",
 	"workbench.iconTheme": "symbols",
-	"workbench.settings.applyToAllProfiles": ["terminal.integrated.fontLigatures"],
+	"workbench.settings.applyToAllProfiles": [
+		"terminal.integrated.fontLigatures"
+	],
 	"xml.server.binary.trustedHashes": [
 		"21f0b7c10580cec5f82b383fb180ac4dfcde2a6f193af780c3a2c87f83ce2b79"
 	]

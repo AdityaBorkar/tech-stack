@@ -8,8 +8,8 @@
 				"groupName": "bun"
 			},
 			{
-				"groupName": "wxt",
-				"elementNamePattern": ["wxt/browser"]
+				"elementNamePattern": ["wxt/browser"],
+				"groupName": "wxt"
 			}
 		],
 		"groups": [

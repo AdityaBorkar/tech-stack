@@ -1,8 +1,14 @@
 {
 	"$schema": "https://opencode.ai/v2/cli.json",
-	"theme": {
-		"name": "vercel",
-		"mode": "system"
+	"animations": true,
+	"attention": {
+		"notifications": true,
+		"sound": true,
+		"sound_pack": "opencode.default",
+		"volume": 0.7
+	},
+	"diffs": {
+		"wrap": "word"
 	},
 	"keybinds": {
 		"command.palette.show": ["ctrl+k", "ctrl+p"]
@@ -10,20 +16,14 @@
 	"scroll": {
 		"acceleration": true
 	},
-	"attention": {
-		"notifications": true,
-		"sound": true,
-		"volume": 0.7,
-		"sound_pack": "opencode.default"
-	},
-	"diffs": {
-		"wrap": "word"
-	},
 	"session": {
-		"sidebar": "auto",
+		"markdown": "rendered",
 		"scrollbar": false,
-		"thinking": "show",
-		"markdown": "rendered"
+		"sidebar": "auto",
+		"thinking": "show"
 	},
-	"animations": true
+	"theme": {
+		"mode": "system",
+		"name": "vercel"
+	}
 }

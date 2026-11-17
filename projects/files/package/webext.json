@@ -2,28 +2,47 @@
 	"bin": {
 		"<binary-name>": "./.output/<binary-name>"
 	},
-	"description": "<one-line-description>",
-	"exports": {
-		".": "./src/index.ts"
-	},
-	"files": [".output", "package.json", "configuration_schema", "README.md", "skills", "www"],
-	"imports": {
-		"#/*": "./src/*"
-	},
-	"homepage": "https://github.com/<owner>/<repo>#readme",
-	"license": "MIT",
 	"contributors": [
 		{
-			"name": "<user-name>",
 			"email": "<user-email>",
+			"name": "<user-name>",
 			"url": "<user-website>"
 		}
 	],
+	"dependencies": {},
+	"description": "<one-line-description>",
+	"devDependencies": {
+		"@changesets/cli": "<version>",
+		"@commitlint/cli": "<version>",
+		"@commitlint/config-conventional": "<version>",
+		"@types/bun": "<version>",
+		"husky": "<version>",
+		"oxlint": "<version>",
+		"typescript": "<version>",
+		"web-ext": "<version>",
+		"wxt": "<version>"
+	},
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"files": [
+		".output",
+		"package.json",
+		"configuration_schema",
+		"README.md",
+		"skills",
+		"www"
+	],
+	"homepage": "https://github.com/<owner>/<repo>#readme",
+	"imports": {
+		"#/*": "./src/*"
+	},
+	"license": "MIT",
+	"name": "<package-name>",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/<owner>/<repo>.git"
 	},
-	"name": "<package-name>",
 	"scripts": {
 		"build": "bun ./scripts/build.ts",
 		"check:lint": "oxlint",
@@ -35,18 +54,6 @@
 		"review:knip": "knip",
 		"test": "bun test",
 		"verify": "bun format && bun check:lint && bun check:types && bun test"
-	},
-	"dependencies": {},
-	"devDependencies": {
-		"@changesets/cli": "<version>",
-		"@commitlint/cli": "<version>",
-		"@commitlint/config-conventional": "<version>",
-		"@types/bun": "<version>",
-		"husky": "<version>",
-		"oxlint": "<version>",
-		"typescript": "<version>",
-		"web-ext": "<version>",
-		"wxt": "<version>"
 	},
 	"type": "module",
 	"version": "<version>"

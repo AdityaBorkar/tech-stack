@@ -16,8 +16,8 @@ const BIN = "/home/aditya/.local/bin/codebase-memory-mcp";
 function augment(payload) {
 	return new Promise((resolve) => {
 		const child = spawn(BIN, ["hook-augment"], {
-			stdio: ["pipe", "pipe", "ignore"],
 			env: { ...process.env, CBM_LOG_LEVEL: "error" },
+			stdio: ["pipe", "pipe", "ignore"],
 		});
 		let out = "";
 		child.stdout.on("data", (d) => (out += d.toString()));
@@ -36,15 +36,21 @@ function augment(payload) {
 
 export default {
 	id: "codebase-memory-augment",
-	// V2 config loader: requires id + setup|effect; no tool domain yet
-	// at this point, so there is nothing to register here.
-	setup() {},
 	// Server runtime: reads default.server and dispatches the hooks it returns.
 	server: async (ctx) => {
 		const dir = ctx?.directory;
 		const seen = new Set();
-		const lifecycle = () => augment({ hook_event_name: "SessionStart", cwd: dir });
+		const lifecycle = () =>
+			augment({ cwd: dir, hook_event_name: "SessionStart" });
 		return {
+			// Documented (experimental) compaction surface: output.context is the
+			// mutable array of context strings for the rebuilt session.
+			"experimental.session.compacting": async (_input, output) => {
+				const note = await lifecycle();
+				if (note && Array.isArray(output?.context)) {
+					output.context.push(note);
+				}
+			},
 			"tool.execute.after": async (input, output) => {
 				if (typeof output?.output !== "string") return;
 				const pieces = [];
@@ -54,14 +60,19 @@ export default {
 					pieces.push(await lifecycle());
 				}
 				const args = input?.args ?? {};
-				const search = input?.tool === "grep" ? "Grep" : input?.tool === "glob" ? "Glob" : null;
+				const search =
+					input?.tool === "grep"
+						? "Grep"
+						: input?.tool === "glob"
+							? "Glob"
+							: null;
 				if (search) {
 					pieces.push(
 						await augment({
-							hook_event_name: "PreToolUse",
-							tool_name: search,
-							tool_input: args,
 							cwd: dir,
+							hook_event_name: "PreToolUse",
+							tool_input: args,
+							tool_name: search,
 						}),
 					);
 				} else if (input?.tool === "read") {
@@ -69,10 +80,10 @@ export default {
 					if (typeof filePath === "string" && filePath) {
 						pieces.push(
 							await augment({
-								hook_event_name: "PostToolUse",
-								tool_name: "Read",
-								tool_input: { file_path: filePath },
 								cwd: dir,
+								hook_event_name: "PostToolUse",
+								tool_input: { file_path: filePath },
+								tool_name: "Read",
 							}),
 						);
 					}
@@ -82,15 +93,10 @@ export default {
 					output.output += "\n" + extra;
 				}
 			},
-			// Documented (experimental) compaction surface: output.context is the
-			// mutable array of context strings for the rebuilt session.
-			"experimental.session.compacting": async (_input, output) => {
-				const note = await lifecycle();
-				if (note && Array.isArray(output?.context)) {
-					output.context.push(note);
-				}
-			},
 		};
 	},
+	// V2 config loader: requires id + setup|effect; no tool domain yet
+	// at this point, so there is nothing to register here.
+	setup() {},
 };
 // codebase-memory-mcp:end

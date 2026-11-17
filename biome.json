@@ -1,0 +1,25 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"assist": {
+		"actions": {
+			"source": {
+				"preset": "all",
+				"useSortedPackageJson": "off"
+			}
+		}
+	},
+	"files": {
+		"ignoreUnknown": true,
+		"includes": ["**", "!**/*.ts"]
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab"
+	},
+	"root": true,
+	"vcs": {
+		"clientKind": "git",
+		"enabled": true,
+		"useIgnoreFile": true
+	}
+}

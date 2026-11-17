@@ -1,25 +1,45 @@
 {
+	"contributors": [
+		{
+			"email": "<user-email>",
+			"name": "<user-name>",
+			"url": "<user-website>"
+		}
+	],
+	"dependencies": {
+		"@orpc/contract": "<version>",
+		"zod": "<version>",
+		"zod-compiler": "<version>"
+	},
 	"description": "<one-line-description>",
+	"devDependencies": {
+		"@commitlint/cli": "<version>",
+		"@commitlint/config-conventional": "<version>",
+		"@types/bun": "<version>",
+		"husky": "<version>",
+		"oxlint": "<version>",
+		"typescript": "<version>"
+	},
 	"exports": {
 		".": "./src/index.ts"
 	},
-	"files": [".output", "package.json", "configuration_schema", "README.md", "skills", "www"],
+	"files": [
+		".output",
+		"package.json",
+		"configuration_schema",
+		"README.md",
+		"skills",
+		"www"
+	],
 	"imports": {
 		"#/*": "./src/*"
 	},
 	"license": "MIT",
-	"contributors": [
-		{
-			"name": "<user-name>",
-			"email": "<user-email>",
-			"url": "<user-website>"
-		}
-	],
+	"name": "<package-name>",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/<owner>/<repo>.git"
 	},
-	"name": "<package-name>",
 	"scripts": {
 		"build": "bun ./scripts/build.ts",
 		"check:lint": "oxlint",
@@ -31,19 +51,6 @@
 		"review:knip": "knip",
 		"test": "bun test",
 		"verify": "bun format && bun check:lint && bun check:types && bun test"
-	},
-	"dependencies": {
-		"@orpc/contract": "<version>",
-		"zod": "<version>",
-		"zod-compiler": "<version>"
-	},
-	"devDependencies": {
-		"@commitlint/cli": "<version>",
-		"@commitlint/config-conventional": "<version>",
-		"@types/bun": "<version>",
-		"husky": "<version>",
-		"oxlint": "<version>",
-		"typescript": "<version>"
 	},
 	"type": "module",
 	"version": "<version>"

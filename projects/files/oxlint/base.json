@@ -18,7 +18,15 @@
 			}
 		}
 	],
-	"plugins": ["eslint", "import", "node", "oxc", "promise", "typescript", "unicorn"],
+	"plugins": [
+		"eslint",
+		"import",
+		"node",
+		"oxc",
+		"promise",
+		"typescript",
+		"unicorn"
+	],
 	"rules": {
 		"import/max-dependencies": "off",
 		"import/no-unassigned-import": "error",
@@ -48,19 +56,19 @@
 				]
 			}
 		],
+		"no-underscore-dangle": "warn",
+		"promise/always-return": "off",
+		"promise/no-callback-in-promise": "off",
+		"sort-imports": "off",
 		"sort-keys": [
 			"error",
 			"asc",
 			{
+				"allowLineSeparatedGroups": false,
 				"caseSensitive": true,
-				"natural": true,
 				"minKeys": 2,
-				"allowLineSeparatedGroups": false
+				"natural": true
 			}
-		],
-		"no-underscore-dangle": "warn",
-		"promise/always-return": "off",
-		"promise/no-callback-in-promise": "off",
-		"sort-imports": "off"
+		]
 	}
 }

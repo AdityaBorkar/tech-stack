@@ -1,40 +1,44 @@
 {
 	"$schema": "https://opencode.ai/config.json",
+	"experimental": {
+		"background_compaction": true,
+		"subagent_depth": 3,
+		"todo": true
+	},
 	"lsp": true,
-	"plugins": ["@dietrichgebert/ponytail"],
 	"mcp": {
 		"servers": {
-			"context7": {
-				"type": "local",
-				"command": ["context7-mcp", "--api-key", "@@opencode_context7_api_key@@"]
-			},
-			"GitHits": {
-				"type": "local",
-				"command": ["githits", "mcp", "start"]
-			},
 			"codebase-memory-mcp": {
 				"command": ["~/.local/bin/codebase-memory-mcp"],
+				"type": "local"
+			},
+			"context7": {
+				"command": [
+					"context7-mcp",
+					"--api-key",
+					"@@opencode_context7_api_key@@"
+				],
+				"type": "local"
+			},
+			"GitHits": {
+				"command": ["githits", "mcp", "start"],
 				"type": "local"
 			}
 		}
 	},
-	"update": "auto",
-	"share": "disabled",
 	"permissions": [
 		{
 			"action": "external_directory",
-			"resource": "~/.agents/*",
-			"effect": "allow"
+			"effect": "allow",
+			"resource": "~/.agents/*"
 		},
 		{
 			"action": "external_directory",
-			"resource": "/tmp/*",
-			"effect": "allow"
+			"effect": "allow",
+			"resource": "/tmp/*"
 		}
 	],
-	"experimental": {
-		"todo": true,
-		"subagent_depth": 3,
-		"background_compaction": true
-	}
+	"plugins": ["@dietrichgebert/ponytail"],
+	"share": "disabled",
+	"update": "auto"
 }

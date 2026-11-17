@@ -13,26 +13,26 @@
 		{ "language_server": { "name": "oxfmt" } }
 	],
 	"lsp": {
+		"oxfmt": {
+			"binary": {
+				"arguments": ["./node_modules/.bin/oxfmt", "--lsp"],
+				"path": "bun"
+			},
+			"initialization_options": {
+				"settings": {
+					"run": "onSave"
+				}
+			}
+		},
 		"oxlint": {
 			"binary": {
-				"path": "bun",
-				"arguments": ["./node_modules/.bin/oxlint", "--lsp"]
+				"arguments": ["./node_modules/.bin/oxlint", "--lsp"],
+				"path": "bun"
 			},
 			"initialization_options": {
 				"settings": {
 					"run": "onType",
 					"unusedDisableDirectives": "deny"
-				}
-			}
-		},
-		"oxfmt": {
-			"binary": {
-				"path": "bun",
-				"arguments": ["./node_modules/.bin/oxfmt", "--lsp"]
-			},
-			"initialization_options": {
-				"settings": {
-					"run": "onSave"
 				}
 			}
 		}

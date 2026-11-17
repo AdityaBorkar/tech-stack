@@ -43,7 +43,12 @@
 		},
 		{
 			"dictionaries": ["html"],
-			"filename": ["**/*.md", "**/*.mdx", "cms/**/*", "src/pages/legal/privacy-policy"],
+			"filename": [
+				"**/*.md",
+				"**/*.mdx",
+				"cms/**/*",
+				"src/pages/legal/privacy-policy"
+			],
 			"words": [
 				"aakash",
 				"aiesec",

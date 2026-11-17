@@ -1,22 +1,22 @@
 {
-	"$schema": "../node_modules/@adistack/conform/schema/project-manifest.json",
-	"@name": "RPC Contract",
 	"@description": "RPC Contract using oRPC + Zod",
+	"@name": "RPC Contract",
+	"$schema": "../node_modules/@adistack/conform/schema/project-manifest.json",
 	"file_structure": [
 		{
+			"kind": "dir",
 			"name": "Source Dir",
-			"target": "src/",
-			"kind": "dir"
+			"target": "src/"
 		},
 		{
+			"kind": "file",
 			"name": "AGENTS.md",
-			"target": "AGENTS.md",
-			"kind": "file"
+			"target": "AGENTS.md"
 		},
 		{
+			"kind": "file",
 			"name": "README.md",
-			"target": "README.md",
-			"kind": "file"
+			"target": "README.md"
 		}
 	],
 	"files": [

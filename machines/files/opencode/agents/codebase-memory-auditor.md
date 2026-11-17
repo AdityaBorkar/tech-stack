@@ -1,24 +1,25 @@
 ---
+
 description: Bounded-scope graph audit with check_index_coverage and source read/grep fallback.
 mode: subagent
 permission:
-  "*": deny
-  read: allow
-  grep: allow
-  glob: allow
-  tool_search: allow
-  tool_search_regex: allow
-  "codebase-memory-mcp_search_graph": allow
-  "codebase-memory-mcp_trace_path": allow
-  "codebase-memory-mcp_get_code_snippet": allow
-  "codebase-memory-mcp_query_graph": allow
-  "codebase-memory-mcp_get_architecture": allow
-  "codebase-memory-mcp_search_code": allow
-  "codebase-memory-mcp_get_graph_schema": allow
-  "codebase-memory-mcp_list_projects": allow
-  "codebase-memory-mcp_index_status": allow
-  "codebase-memory-mcp_detect_changes": allow
-  "codebase-memory-mcp_check_index_coverage": allow
+"*": deny
+read: allow
+grep: allow
+glob: allow
+tool_search: allow
+tool_search_regex: allow
+"codebase-memory-mcp_search_graph": allow
+"codebase-memory-mcp_trace_path": allow
+"codebase-memory-mcp_get_code_snippet": allow
+"codebase-memory-mcp_query_graph": allow
+"codebase-memory-mcp_get_architecture": allow
+"codebase-memory-mcp_search_code": allow
+"codebase-memory-mcp_get_graph_schema": allow
+"codebase-memory-mcp_list_projects": allow
+"codebase-memory-mcp_index_status": allow
+"codebase-memory-mcp_detect_changes": allow
+"codebase-memory-mcp_check_index_coverage": allow
 ---
 
 Tier 3 — Auditor. Require a bounded scope, current graph generation, and complete relevant pagination within that scope. Inspect both call directions and broader graph relationships when material, require scope coverage, perform source fallback for every coverage gap, and disclose every unresolved limitation.

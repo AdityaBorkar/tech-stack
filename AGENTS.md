@@ -1,29 +1,22 @@
 # AGENTS.md
 
-Data-only registry of machine + project blueprints. No app source, tests, or CI here. `registry.json` is the entrypoint; `projects/*.json` are blueprints; `projects/files/` holds payload files copied into generated projects (templates, not runnable here).
+Data-only blueprint registry. No app source, tests, or CI here. `registry.json` is the entrypoint; `projects/*.json` are project blueprints; `machines/main.json` is the machine blueprint; `github-configs/*.json` are repo-settings blueprints. `*/files/` holds payload goldens copied into generated targets (templates, not runnable here).
 
 ## Layout
 
-- `registry.json` — maps for `machines` + `projects` + `github_configs` (not arrays). Every blueprint must have an entry here. Only `machines/main/` is registered; `machines/wsl/` (`.wslconfig`, `wsl.conf`) exists but is unregistered and not Nix-managed. `github-configs/npm-package.json` holds the shared GitHub repo-settings blueprint.
-- `projects/<name>.json` — blueprint: `@name` + `@description` + `files[]` (what gets copied) + `file_structure[]` (`src/` + empty `AGENTS.md`/`README.md`; `web-extension` also creates `entrypoints/` + `public/`).
-- `projects/files/` — payloads grouped by tool (`bunfig/`, `changeset/`, `github/`, `gitignore/`, `husky/`, `knip/`, `oxfmt/`, `oxlint/`, `package/`, `scripts/`, `tsconfig/`, `zed/`, plus flat files). Base variant = default; per-stack variants are `astro`, `tanstack`, `cli-tanstack`, `webext` (not every tool has every variant — check the dir). Manifests are source of truth — e.g. `biome.json` exists but no manifest references it (dead file, toolchain is oxlint + oxfmt).
+- `projects/<name>.json` — `@name` + `@description` + `files[]` (copied goldens) + `file_structure[]` (existence-only: `src/` + empty `AGENTS.md`/`README.md`; `web-extension` also creates `entrypoints/` + `public/`).
+- `machines/main.json` — `params` (`USER`, `GIT_NAME`, `GIT_EMAIL`) + `packages.{pacman,bun}` + `files[]` with `~`-targets and optional `mode` + `secrets[]`. Note: `registry.json` maps `main` to `./machines/main/`, but on disk the manifest is `machines/main.json` with payloads in `machines/files/` (no `machines/main/` dir) — confirm conform's resolution before renaming either side.
+- `files[]` entries: `source` is repo-root-relative (`projects/files/<group>/<file>`); `target` is destination-relative (`~` expands for machines, cwd for projects). A `source` that doesn't exist breaks scaffolding — confirm every one after adds/renames.
+- Only manifest-referenced payloads ship. Unreferenced (dead) today: `projects/files/biome.config.json`, `projects/files/scripts/build.ts`, `machines/files/.wslconfig`, `machines/files/wsl.conf`. Don't resurrect or delete without checking why.
 
-## Editing blueprints
+## Conform semantics
 
-- `files[]`: `source` is root-relative (`projects/files/<group>/<variant>`), `target` is the destination path. After adding/renaming a preset file, update every manifest referencing it and confirm each `source` exists — a missing source breaks scaffolding.
-- `projects/files/package/*.json` and `wrangler.json` are templates with `<...>` placeholders (`name`, `version`, owner/repo URLs, binary name, dependency versions, worker name/domain) — never copy verbatim; every placeholder must be replaced per project.
-- `compare.ignore["overrides"]` is set on oxlint/oxfmt entries only. Any golden holding `<...>` placeholders is a template on its own — each slot accepts any per-project value, every other field must match. Keep `compare` groups disjoint.
-- Generated-project `verify` (in every `package/*.json`) is `bun format && bun check:lint && bun check:types && bun test` — note this differs from the root `verify` below.
-- Every generated `package.json` runs `build: bun ./scripts/build.ts`, but no manifest `files[]` copies `projects/files/scripts/build.ts` — confirm how it reaches generated projects before touching build.
-
-## Machines notes
-
-- `machines/main/flake.nix` requires `GIT_NAME`/`GIT_EMAIL` env vars and `--impure` (`builtins.getEnv`). See `machines/main/HOW_TO.md` for bootstrap.
-- `machines/main/secrets.yaml` is sops-encrypted (age key in `.sops.yaml`); private key lives at `~/.config/sops/age/keys.txt` and must never be committed. Without it credential files render empty — including `~/.npmrc`, which carries the private-npm token (see Verify).
+- `compare.ignore: ["overrides"]` is set on Oxfmt/Oxlint entries only — downstream keeps its own `overrides`, everything else must match.
+- A JSON golden holding `<...>` placeholders is a template: each slot accepts any per-project value, all other fields must match, and a verbatim copy never passes. Templates: all `projects/files/package/*.json` + `projects/files/wrangler.json`. (`wxt.config.ts` holds a literal `<extension-id>` but isn't JSON, so it is not treated as a template.)
+- Machine secrets are per-file `secrets: [...]` plus `@@name@@` placeholders in the golden (e.g. `machines/files/npmrc` holds `@@npm_auth_token@@`). Never commit real values.
 
 ## Verify here
 
-- Root has no test runner and no `.oxlintrc.json`/`.oxfmtrc.json` — `lint` is bare `oxlint` (defaults), `format` is `bun fmt` (config in root `bunfig.toml` `[fmt]`). Note the asymmetry: generated projects format with `oxfmt`, this repo formats with `bun fmt`.
-- After `bun install`, run `bun run verify` (= `format && lint && validate`). `validate` (`@adistack/conform validate`) checks `registry.json` + blueprints against the `$schema` URLs; it fails before install.
-- `@adistack/conform` is private on npm — install needs the `~/.npmrc` token rendered by `machines/main` secrets. A registry 404 means the token is missing/invalid (re-run `home-manager switch`, check `~/.npmrc` has no `@@...@@` left).
-- After touching JSON: parse-check it, e.g. `bun -e 'for (const f of ["registry.json","projects/cli-app.json"]) JSON.parse(await Bun.file(f).text())'`.
+- No test runner, no `.oxlintrc.json`/`.oxfmtrc.json`, no root `opencode.json`/`conform.json`. `lint` is bare `oxlint`; `format` is `bun fmt` (tabs, width 100, import sorting in `bunfig.toml [fmt]`).
+- `bun run verify` does not pass in this repo: the `validate` script invokes `@adistack/conform`, but the installed binary is `adistack-conform` (command-not-found), and `validate` needs a downstream `conform.json` (exits 2 with "No desired state found" here). For local edits run `bun run format && bun run lint` plus a JSON parse-check, e.g. `bun -e 'for (const f of ["registry.json","projects/cli-app.json"]) JSON.parse(await Bun.file(f).text())'`.
+- Generated-project `verify` differs from root: most `package/*.json` templates use `bun format && bun check:lint && bun check:types && bun test`; `cli-tanstack` uses `bun scripts/verify.ts`.

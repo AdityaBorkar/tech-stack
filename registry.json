@@ -1,5 +1,8 @@
 {
 	"$schema": "node_modules/@adistack/conform/schema/registry.json",
+	"github_configs": {
+		"npm-package": "./github-configs/npm-package.json"
+	},
 	"machines": {
 		"main": "./machines/main/"
 	},
@@ -11,8 +14,5 @@
 		"tanstack-webapp": "./projects/tanstack-webapp.json",
 		"tanstack-website": "./projects/tanstack-website.json",
 		"web-extension": "./projects/web-extension.json"
-	},
-	"github_configs": {
-		"npm-package": "./github-configs/npm-package.json"
 	}
 }

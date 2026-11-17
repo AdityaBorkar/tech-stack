@@ -1,275 +1,147 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
-	"proxy": "",
-	"preview_tabs": {
-		"enable_preview_from_file_finder": true
-	},
-	"tab_bar": {
-		"show_tab_bar_buttons": false,
-		"show_pinned_tabs_in_separate_row": false
-	},
-	"tabs": {
-		"show_diagnostics": "all",
-		"file_icons": false,
-		"git_status": true
-	},
-	"title_bar": {
-		"show_menus": false,
-		"show_branch_status_icon": true
-	},
-	"status_bar": {
-		"show_active_file": false
-	},
-	"search": {
-		"center_on_match": true
-	},
-	"semantic_tokens": "off",
-	"colorize_brackets": false,
-	"inlay_hints": {
-		"enabled": true
-	},
-	"toolbar": {
-		"code_actions": true
-	},
-	"relative_line_numbers": "disabled",
-	"autoscroll_on_clicks": true,
-	"sticky_scroll": {
-		"enabled": true
-	},
-	"cursor_shape": "bar",
-	"text_rendering_mode": "platform_default",
-	"buffer_font_weight": 400.0,
-	"diagnostics": {
-		"inline": {
-			"enabled": true
-		}
-	},
-	"git": {
-		"gutter_debounce": 100,
-		"inline_blame": {
-			"show_commit_summary": true,
-			"delay_ms": 200
-		}
-	},
-	"cli_default_open_behavior": "existing_window",
-	"wsl_connections": [
-		{
-			"distro_name": "Ubuntu-24.04",
-			"user": null,
-			"projects": []
-		}
-	],
-	"project_panel": {
-		"hide_root": true,
-		"git_status_indicator": false,
-		"diagnostic_badges": true,
-		"bold_folder_labels": false,
-		"dock": "left"
-	},
-	"outline_panel": {
-		"dock": "right"
-	},
-	"collaboration_panel": {
-		"dock": "right"
-	},
 	"agent": {
 		"dock": "left",
 		"favorite_models": [],
 		"model_parameters": []
 	},
-	"git_panel": {
-		"show_count_badge": false,
-		"diff_stats": true,
-		"collapse_untracked_diff": false,
-		"folder_icons": true,
-		"file_icons": false,
-		"tree_view": false,
-		"dock": "right"
-	},
 	"agent_servers": {
-		"opencode": {
+		"claude-acp": {
 			"type": "registry"
 		},
 		"factory-droid": {
 			"type": "registry"
 		},
-		"claude-acp": {
+		"opencode": {
 			"type": "registry"
 		}
 	},
-	"edit_predictions": {
-		"provider": "zed"
-	},
-	"ui_font_weight": 400.0,
-	"ui_font_family": ".ZedSans",
+	"autoscroll_on_clicks": true,
+	"base_keymap": "VSCode",
 	"buffer_font_family": "Fira Code",
 	"buffer_font_features": {
 		"calt": true,
 		"liga": true
 	},
-	"terminal": {
-		"toolbar": {
-			"breadcrumbs": false
-		},
-		"show_count_badge": false,
-		"font_family": "Fira Code",
-		"font_features": {
-			"calt": true,
-			"liga": true
+	"buffer_font_size": 12.0,
+	"buffer_font_weight": 400.0,
+	"cli_default_open_behavior": "existing_window",
+	"collaboration_panel": {
+		"dock": "right"
+	},
+	"colorize_brackets": false,
+	"cursor_shape": "bar",
+	"diagnostics": {
+		"inline": {
+			"enabled": true
 		}
 	},
-	"telemetry": {
-		"diagnostics": true,
-		"metrics": true
-	},
-	"minimap": {
-		"show": "always"
+	"edit_predictions": {
+		"provider": "zed"
 	},
 	"file_types": {},
-	"show_edit_predictions": true,
-	"base_keymap": "VSCode",
-	"icon_theme": "Symbols Icon Theme",
-	"ui_font_size": 12.0,
-	"buffer_font_size": 12.0,
-	"theme": {
-		"mode": "dark",
-		"light": "One Light",
-		"dark": "Vercel Dark"
-	},
-	"lsp": {
-		"biome": {
-			"settings": {
-				"require_config_file": true
-			}
+	"git": {
+		"gutter_debounce": 100,
+		"inline_blame": {
+			"delay_ms": 200,
+			"show_commit_summary": true
 		}
+	},
+	"git_panel": {
+		"collapse_untracked_diff": false,
+		"diff_stats": true,
+		"dock": "right",
+		"file_icons": false,
+		"folder_icons": true,
+		"show_count_badge": false,
+		"tree_view": false
+	},
+	"icon_theme": "Symbols Icon Theme",
+	"inlay_hints": {
+		"enabled": true
 	},
 	"languages": {
 		"Astro": {
+			"code_actions_on_format": {
+				"source.fixAll.biome": true,
+				"source.organizeImports.biome": true
+			},
 			"formatter": {
 				"language_server": {
 					"name": "biome"
 				}
-			},
-			"code_actions_on_format": {
-				"source.fixAll.biome": true,
-				"source.organizeImports.biome": true
 			}
 		},
 		"CSS": {
+			"code_actions_on_format": {
+				"source.fixAll.biome": true,
+				"source.organizeImports.biome": true
+			},
 			"formatter": {
 				"language_server": {
 					"name": "biome"
 				}
-			},
-			"code_actions_on_format": {
-				"source.fixAll.biome": true,
-				"source.organizeImports.biome": true
 			}
 		},
 		"GraphQL": {
+			"code_actions_on_format": {
+				"source.fixAll.biome": true,
+				"source.organizeImports.biome": true
+			},
 			"formatter": {
 				"language_server": {
 					"name": "biome"
 				}
-			},
-			"code_actions_on_format": {
-				"source.fixAll.biome": true,
-				"source.organizeImports.biome": true
 			}
 		},
 		"HTML": {
+			"code_actions_on_format": {
+				"source.fixAll.biome": true,
+				"source.organizeImports.biome": true
+			},
 			"formatter": {
 				"language_server": {
 					"name": "biome"
 				}
-			},
-			"code_actions_on_format": {
-				"source.fixAll.biome": true,
-				"source.organizeImports.biome": true
-			}
-		},
-		"JSON": {
-			"formatter": {
-				"language_server": {
-					"name": "biome"
-				}
-			},
-			"code_actions_on_format": {
-				"source.fixAll.biome": true,
-				"source.organizeImports.biome": true
-			}
-		},
-		"JSONC": {
-			"formatter": {
-				"language_server": {
-					"name": "biome"
-				}
-			},
-			"code_actions_on_format": {
-				"source.fixAll.biome": true,
-				"source.organizeImports.biome": true
-			}
-		},
-		"JSX": {
-			"formatter": {
-				"language_server": {
-					"name": "biome"
-				}
-			},
-			"code_actions_on_format": {
-				"source.fixAll.biome": true,
-				"source.organizeImports.biome": true
 			}
 		},
 		"JavaScript": {
-			"formatter": {
-				"language_server": {
-					"name": "biome"
-				}
-			},
 			"code_actions_on_format": {
 				"source.fixAll.biome": true,
 				"source.organizeImports.biome": true
-			}
-		},
-		"TSX": {
+			},
 			"formatter": {
 				"language_server": {
 					"name": "biome"
 				}
-			},
+			}
+		},
+		"JSON": {
 			"code_actions_on_format": {
 				"source.fixAll.biome": true,
 				"source.organizeImports.biome": true
-			}
-		},
-		"TypeScript": {
-			"language_servers": ["tsgo"],
+			},
 			"formatter": {
 				"language_server": {
 					"name": "biome"
 				}
-			},
+			}
+		},
+		"JSONC": {
 			"code_actions_on_format": {
 				"source.fixAll.biome": true,
 				"source.organizeImports.biome": true
-			}
-		},
-		"Svelte": {
+			},
 			"formatter": {
 				"language_server": {
 					"name": "biome"
 				}
 			}
 		},
-		"Vue.js": {
+		"JSX": {
+			"code_actions_on_format": {
+				"source.fixAll.biome": true,
+				"source.organizeImports.biome": true
+			},
 			"formatter": {
 				"language_server": {
 					"name": "biome"
@@ -282,6 +154,126 @@
 					"name": "markdownlint"
 				}
 			}
+		},
+		"Svelte": {
+			"formatter": {
+				"language_server": {
+					"name": "biome"
+				}
+			}
+		},
+		"TSX": {
+			"code_actions_on_format": {
+				"source.fixAll.biome": true,
+				"source.organizeImports.biome": true
+			},
+			"formatter": {
+				"language_server": {
+					"name": "biome"
+				}
+			}
+		},
+		"TypeScript": {
+			"code_actions_on_format": {
+				"source.fixAll.biome": true,
+				"source.organizeImports.biome": true
+			},
+			"formatter": {
+				"language_server": {
+					"name": "biome"
+				}
+			},
+			"language_servers": ["tsgo"]
+		},
+		"Vue.js": {
+			"formatter": {
+				"language_server": {
+					"name": "biome"
+				}
+			}
 		}
-	}
+	},
+	"lsp": {
+		"biome": {
+			"settings": {
+				"require_config_file": true
+			}
+		}
+	},
+	"minimap": {
+		"show": "always"
+	},
+	"outline_panel": {
+		"dock": "right"
+	},
+	"preview_tabs": {
+		"enable_preview_from_file_finder": true
+	},
+	"project_panel": {
+		"bold_folder_labels": false,
+		"diagnostic_badges": true,
+		"dock": "left",
+		"git_status_indicator": false,
+		"hide_root": true
+	},
+	"proxy": "",
+	"relative_line_numbers": "disabled",
+	"search": {
+		"center_on_match": true
+	},
+	"semantic_tokens": "off",
+	"show_edit_predictions": true,
+	"status_bar": {
+		"show_active_file": false
+	},
+	"sticky_scroll": {
+		"enabled": true
+	},
+	"tab_bar": {
+		"show_pinned_tabs_in_separate_row": false,
+		"show_tab_bar_buttons": false
+	},
+	"tabs": {
+		"file_icons": false,
+		"git_status": true,
+		"show_diagnostics": "all"
+	},
+	"telemetry": {
+		"diagnostics": true,
+		"metrics": true
+	},
+	"terminal": {
+		"font_family": "Fira Code",
+		"font_features": {
+			"calt": true,
+			"liga": true
+		},
+		"show_count_badge": false,
+		"toolbar": {
+			"breadcrumbs": false
+		}
+	},
+	"text_rendering_mode": "platform_default",
+	"theme": {
+		"dark": "Vercel Dark",
+		"light": "One Light",
+		"mode": "dark"
+	},
+	"title_bar": {
+		"show_branch_status_icon": true,
+		"show_menus": false
+	},
+	"toolbar": {
+		"code_actions": true
+	},
+	"ui_font_family": ".ZedSans",
+	"ui_font_size": 12.0,
+	"ui_font_weight": 400.0,
+	"wsl_connections": [
+		{
+			"distro_name": "Ubuntu-24.04",
+			"projects": [],
+			"user": null
+		}
+	]
 }

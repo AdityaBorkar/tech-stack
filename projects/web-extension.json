@@ -1,32 +1,32 @@
 {
-	"$schema": "../node_modules/@adistack/conform/schema/project-manifest.json",
-	"@name": "Web Extension (WXT)",
 	"@description": "Web Extension using WXT",
+	"@name": "Web Extension (WXT)",
+	"$schema": "../node_modules/@adistack/conform/schema/project-manifest.json",
 	"file_structure": [
 		{
+			"kind": "dir",
 			"name": "Source Dir",
-			"target": "src/",
-			"kind": "dir"
+			"target": "src/"
 		},
 		{
+			"kind": "dir",
 			"name": "Entrypoints Dir",
-			"target": "entrypoints/",
-			"kind": "dir"
+			"target": "entrypoints/"
 		},
 		{
+			"kind": "dir",
 			"name": "Public Dir",
-			"target": "public/",
-			"kind": "dir"
+			"target": "public/"
 		},
 		{
+			"kind": "file",
 			"name": "AGENTS.md",
-			"target": "AGENTS.md",
-			"kind": "file"
+			"target": "AGENTS.md"
 		},
 		{
+			"kind": "file",
 			"name": "README.md",
-			"target": "README.md",
-			"kind": "file"
+			"target": "README.md"
 		}
 	],
 	"files": [

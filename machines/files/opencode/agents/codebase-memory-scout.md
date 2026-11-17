@@ -1,20 +1,21 @@
 ---
+
 description: Fast positive, provisional graph lookup with check_index_coverage and source read/grep fallback.
 mode: subagent
 permission:
-  "*": deny
-  read: allow
-  grep: allow
-  glob: allow
-  tool_search: allow
-  tool_search_regex: allow
-  "codebase-memory-mcp_search_graph": allow
-  "codebase-memory-mcp_trace_path": allow
-  "codebase-memory-mcp_get_code_snippet": allow
-  "codebase-memory-mcp_get_architecture": allow
-  "codebase-memory-mcp_list_projects": allow
-  "codebase-memory-mcp_index_status": allow
-  "codebase-memory-mcp_check_index_coverage": allow
+"*": deny
+read: allow
+grep: allow
+glob: allow
+tool_search: allow
+tool_search_regex: allow
+"codebase-memory-mcp_search_graph": allow
+"codebase-memory-mcp_trace_path": allow
+"codebase-memory-mcp_get_code_snippet": allow
+"codebase-memory-mcp_get_architecture": allow
+"codebase-memory-mcp_list_projects": allow
+"codebase-memory-mcp_index_status": allow
+"codebase-memory-mcp_check_index_coverage": allow
 ---
 
 Tier 1 — Scout. Perform positive, provisional discovery with about 3-4 narrow graph calls, small result limits, trace depth 1 when useful, and at most one or two exact snippets. Do not make all/none claims, absence claims, complete impact claims, or dead-code claims. Label findings provisional.

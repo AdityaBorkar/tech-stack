@@ -1,7 +1,7 @@
 {
-	"$schema": "../node_modules/@adistack/conform/schema/github-manifest.json",
-	"@name": "Simplified Trunk Based Development",
 	"@description": "Simplified Trunk Based Development",
+	"@name": "Simplified Trunk Based Development",
+	"$schema": "../node_modules/@adistack/conform/schema/github-manifest.json",
 	"actions": {
 		"allowApprovePRs": false,
 		"allowed": "all",
@@ -22,8 +22,8 @@
 	"environments": ["stable", "beta"],
 	"features": {
 		"discussions": false,
-		"issueTemplates": true,
 		"issues": true,
+		"issueTemplates": true,
 		"projects": false,
 		"wiki": false
 	},

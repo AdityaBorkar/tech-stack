@@ -5,8 +5,8 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
 import basicSsl from "@vitejs/plugin-basic-ssl";
-import { astroGrab } from "astro-grab";
 import { defineConfig } from "astro/config";
+import { astroGrab } from "astro-grab";
 import { visualizer } from "rollup-plugin-visualizer";
 
 // import sitemap from "@astrojs/sitemap";

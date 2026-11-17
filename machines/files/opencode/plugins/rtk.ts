@@ -47,7 +47,9 @@ export function resolveRtkPath(): string | null {
 
 	const dirs = (process.env.PATH ?? "").split(delimiter).filter(Boolean);
 	const exts =
-		process.platform === "win32" ? (process.env.PATHEXT ?? ".EXE;.CMD;.BAT;.COM").split(";") : [""];
+		process.platform === "win32"
+			? (process.env.PATHEXT ?? ".EXE;.CMD;.BAT;.COM").split(";")
+			: [""];
 
 	for (const dir of dirs) {
 		for (const ext of exts) {
@@ -131,7 +133,8 @@ export function runHookOpencode(
 					return resolve(null);
 				}
 
-				const rewritten = typeof answer?.command === "string" ? answer.command.trim() : "";
+				const rewritten =
+					typeof answer?.command === "string" ? answer.command.trim() : "";
 				resolve(rewritten && rewritten !== command ? rewritten : null);
 			},
 		);
@@ -144,7 +147,11 @@ export async function tryRewriteCommand(
 	agent?: string,
 ): Promise<string | null> {
 	const tool = String(toolName ?? "").toLowerCase();
-	if ((tool !== "bash" && tool !== "shell") || typeof command !== "string" || !command.trim()) {
+	if (
+		(tool !== "bash" && tool !== "shell") ||
+		typeof command !== "string" ||
+		!command.trim()
+	) {
 		return null;
 	}
 
@@ -171,7 +178,11 @@ export async function tryRewriteCommand(
 
 async function handleToolHook(tool: unknown, container: any, agent?: string) {
 	if (!container || typeof container !== "object") return;
-	const rewritten = await tryRewriteCommand(String(tool ?? ""), container.command, agent);
+	const rewritten = await tryRewriteCommand(
+		String(tool ?? ""),
+		container.command,
+		agent,
+	);
 	if (rewritten) container.command = rewritten;
 }
 
@@ -185,7 +196,9 @@ async function ensureRtkUsable(): Promise<boolean> {
 		return false;
 	}
 	if (!(await probeRtkHookOpencode(rtkBin))) {
-		console.warn(`[rtk] ${rtkBin} has no \`rtk hook opencode\` subcommand — plugin disabled`);
+		console.warn(
+			`[rtk] ${rtkBin} has no \`rtk hook opencode\` subcommand — plugin disabled`,
+		);
 		return false;
 	}
 	return true;
@@ -207,21 +220,26 @@ async function ensureRtkUsable(): Promise<boolean> {
 const RtkOpenCodePlugin = {
 	id: "rtk",
 
-	// OpenCode 2.x entrypoint: `{tool, sessionID, agent, messageID, id, input}`.
-	async setup(ctx: any) {
-		if (!(await ensureRtkUsable())) return;
-		await ctx?.tool?.hook?.("execute.before", (e: any) =>
-			handleToolHook(e?.tool, e?.input, typeof e?.agent === "string" ? e.agent : undefined),
-		);
-	},
-
 	// OpenCode 1.x entrypoint: `{tool, sessionID, callID}` — no agent field, so
 	// an agent-scoped ask stays silenced here.
 	async server() {
 		if (!(await ensureRtkUsable())) return {};
 		return {
-			"tool.execute.before": (input: any, output: any) => handleToolHook(input?.tool, output?.args),
+			"tool.execute.before": (input: any, output: any) =>
+				handleToolHook(input?.tool, output?.args),
 		};
+	},
+
+	// OpenCode 2.x entrypoint: `{tool, sessionID, agent, messageID, id, input}`.
+	async setup(ctx: any) {
+		if (!(await ensureRtkUsable())) return;
+		await ctx?.tool?.hook?.("execute.before", (e: any) =>
+			handleToolHook(
+				e?.tool,
+				e?.input,
+				typeof e?.agent === "string" ? e.agent : undefined,
+			),
+		);
 	},
 };
 

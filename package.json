@@ -1,17 +1,12 @@
 {
-	"name": "tech-stack",
-	"private": true,
-	"type": "module",
-	"scripts": {
-		"format": "bun fmt",
-		"lint": "oxlint",
-		"validate": "@adistack/conform validate",
-		"verify": "bun format && bun lint && bun validate"
-	},
 	"dependencies": {
 		"@adistack/conform": "0.1.0",
-		"@types/bun": "^1.4.4",
-		"oxlint": "^1.93.0",
-		"typescript": "^7.0.2"
-	}
+		"@biomejs/biome": "2.6.8"
+	},
+	"name": "tech-stack",
+	"private": true,
+	"scripts": {
+		"verify": "biome check --fix && @adistack/conform validate"
+	},
+	"type": "module"
 }

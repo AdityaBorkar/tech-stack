@@ -1,5 +1,10 @@
 {
-	"file_scan_exclusions": ["**/.git", "**/.output", "**/node_modules", "tsconfig.tsbuildinfo"],
+	"file_scan_exclusions": [
+		"**/.git",
+		"**/.output",
+		"**/node_modules",
+		"tsconfig.tsbuildinfo"
+	],
 	"format_on_save": "on",
 	"formatter": [
 		{ "code_action": "source.fixAll" },
@@ -13,10 +18,21 @@
 		}
 	},
 	"lsp": {
+		"oxfmt": {
+			"binary": {
+				"arguments": ["./node_modules/.bin/oxfmt", "--lsp"],
+				"path": "bun"
+			},
+			"initialization_options": {
+				"settings": {
+					"run": "onSave"
+				}
+			}
+		},
 		"oxlint": {
 			"binary": {
-				"path": "bun",
-				"arguments": ["./node_modules/.bin/oxlint", "--lsp"]
+				"arguments": ["./node_modules/.bin/oxlint", "--lsp"],
+				"path": "bun"
 			},
 			"initialization_options": {
 				"settings": {
@@ -27,19 +43,11 @@
 		},
 		"tailwindcss-language-server": {
 			"binary": {
-				"arguments": ["./node_modules/.bin/tailwindcss-language-server", "--stdio"],
+				"arguments": [
+					"./node_modules/.bin/tailwindcss-language-server",
+					"--stdio"
+				],
 				"path": "bun"
-			}
-		},
-		"oxfmt": {
-			"binary": {
-				"path": "bun",
-				"arguments": ["./node_modules/.bin/oxfmt", "--lsp"]
-			},
-			"initialization_options": {
-				"settings": {
-					"run": "onSave"
-				}
 			}
 		},
 		"typescript-ls": {

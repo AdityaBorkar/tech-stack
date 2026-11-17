@@ -11,7 +11,10 @@ export default defineConfig({
 		outDir: ".output",
 		rolldownOptions: {
 			onLog(level, log, defaultHandler) {
-				if (log.code === "MODULE_LEVEL_DIRECTIVE" && log.message?.includes('"use client"')) {
+				if (
+					log.code === "MODULE_LEVEL_DIRECTIVE" &&
+					log.message?.includes('"use client"')
+				) {
 					return;
 				}
 				defaultHandler(level, log);

@@ -1,98 +1,98 @@
 name: preview
 
 on:
-    pull_request:
-        branches:
-            - main
+  pull_request:
+    branches:
+      - main
 
 concurrency:
-    group: preview-${{ github.event.pull_request.number }}
-    cancel-in-progress: true
+  group: preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 
 jobs:
-    checks:
-        if: github.head_ref != 'changeset-release/main'
-        runs-on: ubuntu-latest
-        permissions:
-            contents: read
-            pull-requests: write
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0
-            - uses: oven-sh/setup-bun@v2
-            - uses: actions/cache@v4
-              with:
-                  path: ~/.bun/install/cache
-                  key: ${{ runner.os }}-bun-${{ hashFiles('bun.lock') }}
-                  restore-keys: |
-                      ${{ runner.os }}-bun-
-            - run: bun install --frozen-lockfile
-            - run: bun run verify
-            - if: github.event_name == 'pull_request' && !startsWith(github.head_ref, 'changeset-release/')
-              run: bun changeset status --since origin/main
-            - uses: actions/github-script@v7
-              env:
-                  HEAD_REF: ${{ github.head_ref }}
-              with:
-                  script: |
-                      const { execSync } = require('child_process');
-                      const fs = require('fs');
-                      const MARKER = '<!-- release-preview -->';
-                      const headRef = process.env.HEAD_REF || '';
-                      const isVersionPR = headRef.startsWith('changeset-release/');
-                      const out = (cmd) => execSync(cmd, { encoding: 'utf8' }).trim();
-                      execSync('git fetch origin main:refs/remotes/origin/main', { stdio: 'inherit' });
-                      const changed = out('git diff --name-only origin/main...HEAD')
-                        .split('\n').map((s) => s.trim()).filter(Boolean);
-                      const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+  checks:
+    if: github.head_ref != 'changeset-release/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: oven-sh/setup-bun@v2
+      - uses: actions/cache@v4
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+      - run: bun install --frozen-lockfile
+      - run: bun run verify
+      - if: github.event_name == 'pull_request' && !startsWith(github.head_ref, 'changeset-release/')
+        run: bun changeset status --since origin/main
+      - uses: actions/github-script@v7
+        env:
+          HEAD_REF: ${{ github.head_ref }}
+        with:
+          script: |
+            const { execSync } = require('child_process');
+            const fs = require('fs');
+            const MARKER = '<!-- release-preview -->';
+            const headRef = process.env.HEAD_REF || '';
+            const isVersionPR = headRef.startsWith('changeset-release/');
+            const out = (cmd) => execSync(cmd, { encoding: 'utf8' }).trim();
+            execSync('git fetch origin main:refs/remotes/origin/main', { stdio: 'inherit' });
+            const changed = out('git diff --name-only origin/main...HEAD')
+              .split('\n').map((s) => s.trim()).filter(Boolean);
+            const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
 
-                      const bumpRank = { patch: 0, minor: 1, major: 2 };
+            const bumpRank = { patch: 0, minor: 1, major: 2 };
 
-                      let body;
-                      if (isVersionPR) {
-                        const changelog = fs.existsSync('CHANGELOG.md')
-                          ? fs.readFileSync('CHANGELOG.md', 'utf8').split('\n').slice(0, 40).join('\n')
-                          : '_No CHANGELOG.md yet._';
-                        body = `${MARKER}\n## Release preview (version PR)\n\n**Package version:** \`${pkg.version}\`\n\n### CHANGELOG.md (head)\n\n${changelog}`;
-                      } else {
-                        const files = changed.filter((f) =>
-                          f.startsWith('.changeset/') && f.endsWith('.md') && !f.endsWith('README.md'));
-                        if (files.length === 0) {
-                          body = `${MARKER}\n## Release preview\n\n**Package version:** \`${pkg.version}\` (no changesets — merge will not release).\n\nAdd a \`.changeset/*.md\` file (\`changeset --empty\` for no-release changes).`;
-                        } else {
-                          let top = 'patch';
-                          const entries = files.map((f) => {
-                            const raw = fs.readFileSync(f, 'utf8');
-                            const m = raw.match(/["']@adistack\/conform["']\s*:\s*(major|minor|patch)/);
-                            const bump = m ? m[1] : 'patch';
-                            if (bumpRank[bump] > bumpRank[top]) top = bump;
-                            const text = raw.replace(/^---[\s\S]*?---/, '').trim().split('\n').slice(0, 10).join('\n');
-                            return `- \`${f}\` (${bump})\n  > ${text.split('\n').join('\n  > ')}`;
-                          });
-                          body = `${MARKER}\n## Release preview\n\n**Change type:** \`${top.toUpperCase()}\`\n\n### Changelog preview (from changesets)\n\n${entries.join('\n')}\n\nMerging runs \`changeset version\` on \`main\`, which writes this into \`CHANGELOG.md\` + \`package.json\`.`;
-                        }
-                      }
+            let body;
+            if (isVersionPR) {
+              const changelog = fs.existsSync('CHANGELOG.md')
+                ? fs.readFileSync('CHANGELOG.md', 'utf8').split('\n').slice(0, 40).join('\n')
+                : '_No CHANGELOG.md yet._';
+              body = `${MARKER}\n## Release preview (version PR)\n\n**Package version:** \`${pkg.version}\`\n\n### CHANGELOG.md (head)\n\n${changelog}`;
+            } else {
+              const files = changed.filter((f) =>
+                f.startsWith('.changeset/') && f.endsWith('.md') && !f.endsWith('README.md'));
+              if (files.length === 0) {
+                body = `${MARKER}\n## Release preview\n\n**Package version:** \`${pkg.version}\` (no changesets — merge will not release).\n\nAdd a \`.changeset/*.md\` file (\`changeset --empty\` for no-release changes).`;
+              } else {
+                let top = 'patch';
+                const entries = files.map((f) => {
+                  const raw = fs.readFileSync(f, 'utf8');
+                  const m = raw.match(/["']@adistack\/conform["']\s*:\s*(major|minor|patch)/);
+                  const bump = m ? m[1] : 'patch';
+                  if (bumpRank[bump] > bumpRank[top]) top = bump;
+                  const text = raw.replace(/^---[\s\S]*?---/, '').trim().split('\n').slice(0, 10).join('\n');
+                  return `- \`${f}\` (${bump})\n  > ${text.split('\n').join('\n  > ')}`;
+                });
+                body = `${MARKER}\n## Release preview\n\n**Change type:** \`${top.toUpperCase()}\`\n\n### Changelog preview (from changesets)\n\n${entries.join('\n')}\n\nMerging runs \`changeset version\` on \`main\`, which writes this into \`CHANGELOG.md\` + \`package.json\`.`;
+              }
+            }
 
-                      const { data: comments } = await github.rest.issues.listComments({
-                        owner: context.repo.owner,
-                        repo: context.repo.repo,
-                        issue_number: context.issue.number,
-                        per_page: 100,
-                      });
-                      const existing = comments.find((c) => c.body && c.body.includes(MARKER));
-                      if (existing) {
-                        await github.rest.issues.updateComment({
-                          owner: context.repo.owner,
-                          repo: context.repo.repo,
-                          comment_id: existing.id,
-                          body,
-                        });
-                      } else {
-                        await github.rest.issues.createComment({
-                          owner: context.repo.owner,
-                          repo: context.repo.repo,
-                          issue_number: context.issue.number,
-                          body,
-                        });
-                      }
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              per_page: 100,
+            });
+            const existing = comments.find((c) => c.body && c.body.includes(MARKER));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }

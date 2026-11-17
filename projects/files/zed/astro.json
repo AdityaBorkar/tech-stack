@@ -24,14 +24,25 @@
 	"lsp": {
 		"markdownlint": {
 			"binary": {
-				"path": "bun",
-				"arguments": ["./node_modules/.bin/markdownlint-lsp-server", "--stdio"]
+				"arguments": ["./node_modules/.bin/markdownlint-lsp-server", "--stdio"],
+				"path": "bun"
+			}
+		},
+		"oxfmt": {
+			"binary": {
+				"arguments": ["./node_modules/.bin/oxfmt", "--lsp"],
+				"path": "bun"
+			},
+			"initialization_options": {
+				"settings": {
+					"run": "onSave"
+				}
 			}
 		},
 		"oxlint": {
 			"binary": {
-				"path": "bun",
-				"arguments": ["./node_modules/.bin/oxlint", "--lsp"]
+				"arguments": ["./node_modules/.bin/oxlint", "--lsp"],
+				"path": "bun"
 			},
 			"initialization_options": {
 				"settings": {
@@ -40,20 +51,12 @@
 				}
 			}
 		},
-		"oxfmt": {
-			"binary": {
-				"path": "bun",
-				"arguments": ["./node_modules/.bin/oxfmt", "--lsp"]
-			},
-			"initialization_options": {
-				"settings": {
-					"run": "onSave"
-				}
-			}
-		},
 		"tailwindcss-language-server": {
 			"binary": {
-				"arguments": ["./node_modules/.bin/tailwindcss-language-server", "--stdio"],
+				"arguments": [
+					"./node_modules/.bin/tailwindcss-language-server",
+					"--stdio"
+				],
 				"path": "bun"
 			}
 		},

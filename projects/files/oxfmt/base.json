@@ -23,8 +23,8 @@
 		"sortScripts": true
 	},
 	"sortTailwindcss": {
-		"stylesheet": "src/styles.css",
-		"functions": ["cn"]
+		"functions": ["cn"],
+		"stylesheet": "src/styles.css"
 	},
 	"useTabs": true
 }

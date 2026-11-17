@@ -1,56 +1,22 @@
 {
+	"author": {
+		"email": "<user-email>",
+		"name": "<user-name>",
+		"url": "<user-website>"
+	},
 	"bin": {
 		"<binary-name>": "./.output/<binary-name>"
 	},
-	"description": "<one-line-description>",
-	"exports": {
-		".": "./src/index.ts"
-	},
-	"files": [".output", "package.json", "configuration_schema", "README.md", "skills", "www"],
-	"imports": {
-		"#/*": "./src/*"
-	},
-	"keywords": ["<keyword>"],
-	"homepage": "https://github.com/<owner>/<repo>#readme",
 	"bugs": "https://github.com/<owner>/<repo>/issues",
-	"license": "MIT",
-	"author": {
-		"name": "<user-name>",
-		"email": "<user-email>",
-		"url": "<user-website>"
-	},
-	"maintainers": [
-		{
-			"name": "<user-name>",
-			"email": "<user-email>",
-			"url": "<user-website>"
-		}
-	],
 	"contributors": [
 		{
-			"name": "<user-name>",
 			"email": "<user-email>",
+			"name": "<user-name>",
 			"url": "<user-website>"
 		}
 	],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/<owner>/<repo>.git"
-	},
-	"name": "<package-name>",
-	"scripts": {
-		"build": "bun ./scripts/build.ts",
-		"check:lint": "oxlint",
-		"check:types": "tsrs",
-		"clean": "bun rimraf --glob \"**/{node_modules,dist,bun.lockb}\"",
-		"dev": "bun ./src/index.ts",
-		"format": "oxfmt",
-		"prepare": "husky",
-		"review:knip": "knip",
-		"test": "bun test",
-		"verify": "bun format && bun check:lint && bun check:types && bun test"
-	},
 	"dependencies": {},
+	"description": "<one-line-description>",
 	"devDependencies": {
 		"@commitlint/cli": "<version>",
 		"@commitlint/config-conventional": "<version>",
@@ -64,7 +30,48 @@
 		"tsrs": "<version>",
 		"typescript": "<version>"
 	},
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"files": [
+		".output",
+		"package.json",
+		"configuration_schema",
+		"README.md",
+		"skills",
+		"www"
+	],
+	"homepage": "https://github.com/<owner>/<repo>#readme",
+	"imports": {
+		"#/*": "./src/*"
+	},
+	"keywords": ["<keyword>"],
+	"license": "MIT",
+	"maintainers": [
+		{
+			"email": "<user-email>",
+			"name": "<user-name>",
+			"url": "<user-website>"
+		}
+	],
+	"name": "<package-name>",
 	"peerDependencies": {},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/<owner>/<repo>.git"
+	},
+	"scripts": {
+		"build": "bun ./scripts/build.ts",
+		"check:lint": "oxlint",
+		"check:types": "tsrs",
+		"clean": "bun rimraf --glob \"**/{node_modules,dist,bun.lockb}\"",
+		"dev": "bun ./src/index.ts",
+		"format": "oxfmt",
+		"prepare": "husky",
+		"review:knip": "knip",
+		"test": "bun test",
+		"verify": "bun format && bun check:lint && bun check:types && bun test"
+	},
 	"type": "module",
 	"version": "<version>"
 }

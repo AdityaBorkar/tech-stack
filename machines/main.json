@@ -1,79 +1,9 @@
 {
-	"$schema": "../node_modules/@adistack/conform/schema/machine-manifest.json",
-	"@name": "Primary Developer Machine",
 	"@description": "Primary Developer Machine",
-	"system": "x86_64-linux",
-	"params": [
-		"USER",
-		"GIT_NAME",
-		"GIT_EMAIL"
-	],
-	"packages": {
-		"pacman": {
-			"pkgconf": "latest",
-			"gcc": "latest",
-			"make": "latest",
-			"autoconf": "latest",
-			"automake": "latest",
-			"binutils": "latest",
-			"patch": "latest",
-			"libtool": "latest",
-			"gnome-keyring": "latest",
-			"xorg-server-xvfb": "latest",
-			"curl": "latest",
-			"wget": "latest",
-			"jq": "latest",
-			"ripgrep": "latest",
-			"lsof": "latest",
-			"tree": "latest",
-			"fd": "latest",
-			"net-tools": "latest",
-			"unzip": "latest",
-			"file": "latest",
-			"acl": "latest",
-			"nano": "latest",
-			"btop": "latest",
-			"ncdu": "latest",
-			"fastfetch": "latest",
-			"strace": "latest",
-			"cockpit": "latest",
-			"hyperfine": "latest",
-			"mkcert": "latest",
-			"ffmpeg": "latest",
-			"caddy": "latest",
-			"dnsmasq": "latest",
-			"zsh": "latest",
-			"zsh-completions": "latest",
-			"zsh-autosuggestions": "latest",
-			"zsh-syntax-highlighting": "latest",
-			"direnv": "latest",
-			"git": "latest",
-			"github-cli": "latest",
-			"sqlite": "latest",
-			"nodejs": "latest",
-			"bun": "latest",
-			"go": "latest",
-			"jdk17-openjdk": "latest",
-			"gradle": "latest",
-			"python": "latest",
-			"docker": "latest",
-			"aws-cli-v2": "latest",
-			"pulumi": "latest",
-			"cloudflared": "latest",
-			"google-chrome": "latest",
-			"zed": "latest"
-		},
-		"bun": {
-			"@earendil-works/pi-coding-agent": "latest",
-			"@oh-my-pi/pi-coding-agent": "latest",
-			"@oh-my-pi/pi-natives": "latest",
-			"@oh-my-pi/pi-natives-linux-x64": "latest",
-			"@opencode/cli": "latest",
-			"@upstash/context7-mcp": "latest",
-			"eas-cli": "latest",
-			"expect-cli": "latest",
-			"githits": "latest"
-		}
+	"@name": "Primary Developer Machine",
+	"$schema": "../node_modules/@adistack/conform/schema/machine-manifest.json",
+	"allowlist": {
+		"pacman": ["base", "base-devel", "linux", "linux-firmware", "sudo"]
 	},
 	"files": [
 		{
@@ -187,67 +117,117 @@
 			"target": "~/.config/zed/settings.json"
 		},
 		{
-			"name": "AwsCredentials",
-			"source": "machines/files/aws/credentials",
-			"target": "~/.aws/credentials",
 			"mode": "0600",
+			"name": "AwsCredentials",
 			"secrets": [
 				"aws_prod_access_key_id",
 				"aws_prod_secret_access_key",
 				"aws_dev_access_key_id",
 				"aws_dev_secret_access_key"
-			]
+			],
+			"source": "machines/files/aws/credentials",
+			"target": "~/.aws/credentials"
 		},
 		{
+			"mode": "0600",
 			"name": "GhHosts",
+			"secrets": ["gh_oauth_token"],
 			"source": "machines/files/gh/hosts.yml",
-			"target": "~/.config/gh/hosts.yml",
-			"mode": "0600",
-			"secrets": [
-				"gh_oauth_token"
-			]
+			"target": "~/.config/gh/hosts.yml"
 		},
 		{
-			"name": "Npmrc",
-			"source": "machines/files/npmrc",
-			"target": "~/.npmrc",
 			"mode": "0600",
-			"secrets": [
-				"npm_auth_token"
-			]
+			"name": "Npmrc",
+			"secrets": ["npm_auth_token"],
+			"source": "machines/files/npmrc",
+			"target": "~/.npmrc"
 		},
 		{
 			"name": "EasSettings",
+			"secrets": ["eas_analytics_device_id"],
 			"source": "machines/files/eas-cli/user-settings.json",
-			"target": "~/.config/eas-cli-nodejs/user-settings.json",
-			"secrets": [
-				"eas_analytics_device_id"
-			]
+			"target": "~/.config/eas-cli-nodejs/user-settings.json"
 		},
 		{
 			"name": "OpencodeConfig",
+			"secrets": ["opencode_context7_api_key"],
 			"source": "machines/files/opencode/opencode.json",
-			"target": "~/.config/opencode/opencode.json",
-			"secrets": [
-				"opencode_context7_api_key"
-			]
+			"target": "~/.config/opencode/opencode.json"
 		},
 		{
 			"name": "WakatimeCfg",
+			"secrets": ["wakatime_api_key"],
 			"source": "machines/files/wakatime.cfg",
-			"target": "~/.wakatime.cfg",
-			"secrets": [
-				"wakatime_api_key"
-			]
+			"target": "~/.wakatime.cfg"
 		}
 	],
-	"allowlist": {
-		"pacman": [
-			"base",
-			"base-devel",
-			"linux",
-			"linux-firmware",
-			"sudo"
-		]
-	}
+	"packages": {
+		"bun": {
+			"@earendil-works/pi-coding-agent": "latest",
+			"@oh-my-pi/pi-coding-agent": "latest",
+			"@oh-my-pi/pi-natives": "latest",
+			"@oh-my-pi/pi-natives-linux-x64": "latest",
+			"@opencode/cli": "latest",
+			"@upstash/context7-mcp": "latest",
+			"eas-cli": "latest",
+			"expect-cli": "latest",
+			"githits": "latest"
+		},
+		"pacman": {
+			"acl": "latest",
+			"autoconf": "latest",
+			"automake": "latest",
+			"aws-cli-v2": "latest",
+			"binutils": "latest",
+			"btop": "latest",
+			"bun": "latest",
+			"caddy": "latest",
+			"cloudflared": "latest",
+			"cockpit": "latest",
+			"curl": "latest",
+			"direnv": "latest",
+			"dnsmasq": "latest",
+			"docker": "latest",
+			"fastfetch": "latest",
+			"fd": "latest",
+			"ffmpeg": "latest",
+			"file": "latest",
+			"gcc": "latest",
+			"git": "latest",
+			"github-cli": "latest",
+			"gnome-keyring": "latest",
+			"go": "latest",
+			"google-chrome": "latest",
+			"gradle": "latest",
+			"hyperfine": "latest",
+			"jdk17-openjdk": "latest",
+			"jq": "latest",
+			"libtool": "latest",
+			"lsof": "latest",
+			"make": "latest",
+			"mkcert": "latest",
+			"nano": "latest",
+			"ncdu": "latest",
+			"net-tools": "latest",
+			"nodejs": "latest",
+			"patch": "latest",
+			"pkgconf": "latest",
+			"pulumi": "latest",
+			"python": "latest",
+			"ripgrep": "latest",
+			"sqlite": "latest",
+			"strace": "latest",
+			"tree": "latest",
+			"unzip": "latest",
+			"wget": "latest",
+			"xorg-server-xvfb": "latest",
+			"zed": "latest",
+			"zsh": "latest",
+			"zsh-autosuggestions": "latest",
+			"zsh-completions": "latest",
+			"zsh-syntax-highlighting": "latest"
+		}
+	},
+	"params": ["USER", "GIT_NAME", "GIT_EMAIL"],
+	"system": "x86_64-linux"
 }

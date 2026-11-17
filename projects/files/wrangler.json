@@ -1,14 +1,14 @@
 {
-	"main": "@astrojs/cloudflare/entrypoints/server",
-	"name": "<worker-name>",
-	"compatibility_date": "2026-10-23",
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"assets": {
 		"binding": "ASSETS",
 		"directory": "./.output/",
 		"not_found_handling": "404-page"
 	},
+	"compatibility_date": "2026-10-23",
 	"compatibility_flags": ["nodejs_compat"],
+	"main": "@astrojs/cloudflare/entrypoints/server",
+	"name": "<worker-name>",
 	"observability": {
 		"enabled": true,
 		"logs": {
