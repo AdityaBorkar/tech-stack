@@ -1,0 +1,39 @@
+# Managed by conform machine blueprint (tech-stack machines/main). Full replacement.
+
+# Machine env (replaces nix hm-session-vars.sh)
+export JAVA_HOME="/usr/lib/jvm/java-17-openjdk"
+export GOPATH="$HOME/go"
+export PATH="$JAVA_HOME/bin:$PATH"
+
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory autocd
+
+fpath=(/usr/share/zsh/site-functions $fpath)
+autoload -Uz compinit && compinit
+
+# Plugins (pacman zsh-autosuggestions / zsh-syntax-highlighting)
+if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  . /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  . /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# direnv (pacman package; hook wired here)
+if command -v direnv >/dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi
+
+# Toolchain shims (same as .bashrc)
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh"
+export PATH="$HOME/.local/bin:$PATH"
+. "$HOME/.cargo/env" 2>/dev/null || true
+export ANDROID_HOME="$HOME/android"
+export ANDROID_SDK_ROOT="$HOME/android"
+export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH"
+
+PROMPT=$'%{\e[1;32m%}%n%{\e[1;34m%}:%~%{\e[1;0m%}$ '

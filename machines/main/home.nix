@@ -13,25 +13,25 @@
   };
 
   home.file = {
-    ".bashrc".source = ./files/.bashrc;
-    ".profile".source = ./files/.profile;
-    ".bash_logout".source = ./files/.bash_logout;
-    ".zshrc".source = ./files/.zshrc;
-    ".aws/config".source = ./files/.aws/config;
-    ".docker/config.json".source = ./files/.docker/config.json;
-    ".config/htop/htoprc".source = ./files/.config/htop/htoprc;
-    ".ssh/known_hosts".source = ./files/.ssh/known_hosts;
-    ".config/opencode/AGENTS.md".source = ./files/.config/opencode/AGENTS.md;
-    ".config/opencode/agents/codebase-memory.md".source = ./files/.config/opencode/agents/codebase-memory.md;
-    ".config/opencode/agents/codebase-memory-auditor.md".source = ./files/.config/opencode/agents/codebase-memory-auditor.md;
-    ".config/opencode/agents/codebase-memory-scout.md".source = ./files/.config/opencode/agents/codebase-memory-scout.md;
-    ".config/opencode/cli.json".source = ./files/.config/opencode/cli.json;
-    ".config/opencode/package.json".source = ./files/.config/opencode/package.json;
-    ".config/opencode/plugins/cbm-augment.ts".source = ./files/.config/opencode/plugins/cbm-augment.ts;
-    ".config/opencode/plugins/rtk.ts".source = ./files/.config/opencode/plugins/rtk.ts;
-    ".config/opencode/skills/codebase-memory/SKILL.md".source = ./files/.config/opencode/skills/codebase-memory/SKILL.md;
-    ".config/Code/User/settings.json".source = ./files/.config/Code/User/settings.json;
-    ".config/zed/settings.json".source = ./files/.config/zed/settings.json;
+    ".bashrc".source = ./files/bashrc;
+    ".profile".source = ./files/profile;
+    ".bash_logout".source = ./files/bash_logout;
+    ".zshrc".source = ./files/zshrc;
+    ".aws/config".source = ./files/aws/config;
+    ".docker/config.json".source = ./files/docker/config.json;
+    ".config/htop/htoprc".source = ./files/htop/htoprc;
+    ".ssh/known_hosts".source = ./files/ssh/known_hosts;
+    ".config/opencode/AGENTS.md".source = ./files/opencode/AGENTS.md;
+    ".config/opencode/agents/codebase-memory.md".source = ./files/opencode/agents/codebase-memory.md;
+    ".config/opencode/agents/codebase-memory-auditor.md".source = ./files/opencode/agents/codebase-memory-auditor.md;
+    ".config/opencode/agents/codebase-memory-scout.md".source = ./files/opencode/agents/codebase-memory-scout.md;
+    ".config/opencode/cli.json".source = ./files/opencode/cli.json;
+    ".config/opencode/package.json".source = ./files/opencode/package.json;
+    ".config/opencode/plugins/cbm-augment.ts".source = ./files/opencode/plugins/cbm-augment.ts;
+    ".config/opencode/plugins/rtk.ts".source = ./files/opencode/plugins/rtk.ts;
+    ".config/opencode/skills/codebase-memory/SKILL.md".source = ./files/opencode/skills/codebase-memory/SKILL.md;
+    ".config/Code/User/settings.json".source = ./files/vscode/settings.json;
+    ".config/zed/settings.json".source = ./files/zed/settings.json;
   };
 
   sops = {
@@ -67,16 +67,16 @@
             config.sops.placeholder.aws_dev_access_key_id
             config.sops.placeholder.aws_dev_secret_access_key
           ]
-          (builtins.readFile ./files/.aws/credentials);
+          (builtins.readFile ./files/aws/credentials);
       };
 
       "gh-hosts" = {
         path = "${config.home.homeDirectory}/.config/gh/hosts.yml";
         mode = "0600";
         content = builtins.replaceStrings
-          [ '"@@GH_OAUTH_TOKEN@@"' ]
+          [ "@@GH_OAUTH_TOKEN@@" ]
           [ config.sops.placeholder.gh_oauth_token ]
-          (builtins.readFile ./files/.config/gh/hosts.yml);
+          (builtins.readFile ./files/gh/hosts.yml);
       };
 
       "npmrc" = {
@@ -85,7 +85,7 @@
         content = builtins.replaceStrings
           [ "@@NPM_AUTH_TOKEN@@" ]
           [ config.sops.placeholder.npm_auth_token ]
-          (builtins.readFile ./files/.npmrc);
+          (builtins.readFile ./files/npmrc);
       };
 
       "eas-settings" = {
@@ -94,7 +94,7 @@
         content = builtins.replaceStrings
           [ "@@EAS_ANALYTICS_DEVICE_ID@@" ]
           [ config.sops.placeholder.eas_analytics_device_id ]
-          (builtins.readFile ./files/.config/eas-cli-nodejs/user-settings.json);
+          (builtins.readFile ./files/eas-cli/user-settings.json);
       };
 
       "opencode-config" = {
@@ -103,7 +103,7 @@
         content = builtins.replaceStrings
           [ "@@OPENCODE_CONTEXT7_API_KEY@@" ]
           [ config.sops.placeholder.opencode_context7_api_key ]
-          (builtins.readFile ./files/.config/opencode/opencode.json);
+          (builtins.readFile ./files/opencode/opencode.json);
       };
 
       "wakatime-cfg" = {
@@ -112,7 +112,7 @@
         content = builtins.replaceStrings
           [ "@@WAKATIME_API_KEY@@" ]
           [ config.sops.placeholder.wakatime_api_key ]
-          (builtins.readFile ./files/.wakatime.cfg);
+          (builtins.readFile ./files/wakatime.cfg);
       };
     };
   };
