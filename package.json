@@ -1,12 +1,12 @@
 {
-	"dependencies": {
-		"@adistack/conform": "0.1.0",
-		"@biomejs/biome": "2.6.8"
-	},
 	"name": "tech-stack",
 	"private": true,
+	"type": "module",
 	"scripts": {
 		"verify": "biome check --fix && @adistack/conform validate"
 	},
-	"type": "module"
+	"dependencies": {
+		"@adistack/conform": "0.1.0",
+		"@biomejs/biome": "2.6.8"
+	}
 }

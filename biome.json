@@ -10,13 +10,31 @@
 	},
 	"files": {
 		"ignoreUnknown": true,
-		"includes": ["**", "!**/*.ts"]
+		"includes": ["**"]
 	},
 	"formatter": {
 		"enabled": true,
 		"indentStyle": "tab"
 	},
-	"root": true,
+	"overrides": [
+		{
+			"includes": ["**/*.ts"],
+			"linter": {
+				"enabled": false
+			}
+		},
+		{
+			"assist": {
+				"actions": {
+					"source": {
+						"useSortedKeys": "off",
+						"useSortedPackageJson": "on"
+					}
+				}
+			},
+			"includes": ["**/package.json"]
+		}
+	],
 	"vcs": {
 		"clientKind": "git",
 		"enabled": true,
