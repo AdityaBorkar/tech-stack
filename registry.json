@@ -1,10 +1,7 @@
 {
 	"$schema": "node_modules/@adistack/conform/schema/registry.json",
 	"machines": {
-		"main": {
-			"name": "Primary Developer Machine",
-			"path": "./machines/main/"
-		}
+		"main": "./machines/main/"
 	},
 	"projects": {
 		"astro-website": "./projects/astro-website.json",

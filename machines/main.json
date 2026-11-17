@@ -1,6 +1,6 @@
 {
-	"$schema": "https://stack.adityab.tech/conform/machine-manifest.json",
-	"@name": "main",
+	"$schema": "../node_modules/@adistack/conform/schema/machine-manifest.json",
+	"@name": "Primary Developer Machine",
 	"@description": "Primary Developer Machine",
 	"system": "x86_64-linux",
 	"params": [
@@ -60,7 +60,7 @@
 			"aws-cli-v2": "latest",
 			"pulumi": "latest",
 			"cloudflared": "latest",
-			"act": "latest",
+			"google-chrome": "latest",
 			"zed": "latest"
 		},
 		"bun": {
@@ -75,117 +75,120 @@
 			"githits": "latest"
 		}
 	},
-	"links": [
+	"files": [
 		{
 			"name": "Bashrc",
-			"source": "machines/main/files/bashrc",
+			"source": "machines/files/bashrc",
 			"target": "~/.bashrc"
 		},
 		{
 			"name": "Profile",
-			"source": "machines/main/files/profile",
+			"source": "machines/files/profile",
 			"target": "~/.profile"
 		},
 		{
 			"name": "BashLogout",
-			"source": "machines/main/files/bash_logout",
+			"source": "machines/files/bash_logout",
 			"target": "~/.bash_logout"
 		},
 		{
 			"name": "Zshrc",
-			"source": "machines/main/files/zshrc",
+			"source": "machines/files/zshrc",
 			"target": "~/.zshrc"
 		},
 		{
 			"name": "AwsConfig",
-			"source": "machines/main/files/aws/config",
+			"source": "machines/files/aws/config",
 			"target": "~/.aws/config"
 		},
 		{
 			"name": "DockerConfig",
-			"source": "machines/main/files/docker/config.json",
+			"source": "machines/files/docker/config.json",
 			"target": "~/.docker/config.json"
 		},
 		{
+			"name": "GitConfig",
+			"source": "machines/files/git/config",
+			"target": "~/.gitconfig"
+		},
+		{
 			"name": "GhConfig",
-			"source": "machines/main/files/gh/config.yml",
+			"source": "machines/files/gh/config.yml",
 			"target": "~/.config/gh/config.yml"
 		},
 		{
 			"name": "Htoprc",
-			"source": "machines/main/files/htop/htoprc",
+			"source": "machines/files/htop/htoprc",
 			"target": "~/.config/htop/htoprc"
 		},
 		{
 			"name": "KnownHosts",
-			"source": "machines/main/files/ssh/known_hosts",
+			"source": "machines/files/ssh/known_hosts",
 			"target": "~/.ssh/known_hosts"
 		},
 		{
 			"name": "SshConfig",
-			"source": "machines/main/files/ssh/config",
+			"source": "machines/files/ssh/config",
 			"target": "~/.ssh/config"
 		},
 		{
 			"name": "OpencodeAgents",
-			"source": "machines/main/files/opencode/AGENTS.md",
+			"source": "machines/files/opencode/AGENTS.md",
 			"target": "~/.config/opencode/AGENTS.md"
 		},
 		{
 			"name": "CodebaseMemory",
-			"source": "machines/main/files/opencode/agents/codebase-memory.md",
+			"source": "machines/files/opencode/agents/codebase-memory.md",
 			"target": "~/.config/opencode/agents/codebase-memory.md"
 		},
 		{
 			"name": "CodebaseMemoryAuditor",
-			"source": "machines/main/files/opencode/agents/codebase-memory-auditor.md",
+			"source": "machines/files/opencode/agents/codebase-memory-auditor.md",
 			"target": "~/.config/opencode/agents/codebase-memory-auditor.md"
 		},
 		{
 			"name": "CodebaseMemoryScout",
-			"source": "machines/main/files/opencode/agents/codebase-memory-scout.md",
+			"source": "machines/files/opencode/agents/codebase-memory-scout.md",
 			"target": "~/.config/opencode/agents/codebase-memory-scout.md"
 		},
 		{
 			"name": "OpencodeCli",
-			"source": "machines/main/files/opencode/cli.json",
+			"source": "machines/files/opencode/cli.json",
 			"target": "~/.config/opencode/cli.json"
 		},
 		{
 			"name": "OpencodePackage",
-			"source": "machines/main/files/opencode/package.json",
+			"source": "machines/files/opencode/package.json",
 			"target": "~/.config/opencode/package.json"
 		},
 		{
 			"name": "CbmAugment",
-			"source": "machines/main/files/opencode/plugins/cbm-augment.ts",
+			"source": "machines/files/opencode/plugins/cbm-augment.ts",
 			"target": "~/.config/opencode/plugins/cbm-augment.ts"
 		},
 		{
 			"name": "Rtk",
-			"source": "machines/main/files/opencode/plugins/rtk.ts",
+			"source": "machines/files/opencode/plugins/rtk.ts",
 			"target": "~/.config/opencode/plugins/rtk.ts"
 		},
 		{
 			"name": "CodebaseMemorySkill",
-			"source": "machines/main/files/opencode/skills/codebase-memory/SKILL.md",
+			"source": "machines/files/opencode/skills/codebase-memory/SKILL.md",
 			"target": "~/.config/opencode/skills/codebase-memory/SKILL.md"
 		},
 		{
 			"name": "VscodeSettings",
-			"source": "machines/main/files/vscode/settings.json",
+			"source": "machines/files/vscode/settings.json",
 			"target": "~/.config/Code/User/settings.json"
 		},
 		{
 			"name": "ZedSettings",
-			"source": "machines/main/files/zed/settings.json",
+			"source": "machines/files/zed/settings.json",
 			"target": "~/.config/zed/settings.json"
-		}
-	],
-	"templates": [
+		},
 		{
 			"name": "AwsCredentials",
-			"source": "machines/main/files/aws/credentials",
+			"source": "machines/files/aws/credentials",
 			"target": "~/.aws/credentials",
 			"mode": "0600",
 			"secrets": [
@@ -197,7 +200,7 @@
 		},
 		{
 			"name": "GhHosts",
-			"source": "machines/main/files/gh/hosts.yml",
+			"source": "machines/files/gh/hosts.yml",
 			"target": "~/.config/gh/hosts.yml",
 			"mode": "0600",
 			"secrets": [
@@ -206,7 +209,7 @@
 		},
 		{
 			"name": "Npmrc",
-			"source": "machines/main/files/npmrc",
+			"source": "machines/files/npmrc",
 			"target": "~/.npmrc",
 			"mode": "0600",
 			"secrets": [
@@ -215,27 +218,24 @@
 		},
 		{
 			"name": "EasSettings",
-			"source": "machines/main/files/eas-cli/user-settings.json",
+			"source": "machines/files/eas-cli/user-settings.json",
 			"target": "~/.config/eas-cli-nodejs/user-settings.json",
-			"mode": "0644",
 			"secrets": [
 				"eas_analytics_device_id"
 			]
 		},
 		{
 			"name": "OpencodeConfig",
-			"source": "machines/main/files/opencode/opencode.json",
+			"source": "machines/files/opencode/opencode.json",
 			"target": "~/.config/opencode/opencode.json",
-			"mode": "0644",
 			"secrets": [
 				"opencode_context7_api_key"
 			]
 		},
 		{
 			"name": "WakatimeCfg",
-			"source": "machines/main/files/wakatime.cfg",
+			"source": "machines/files/wakatime.cfg",
 			"target": "~/.wakatime.cfg",
-			"mode": "0644",
 			"secrets": [
 				"wakatime_api_key"
 			]

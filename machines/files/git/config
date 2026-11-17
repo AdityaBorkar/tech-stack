@@ -1,0 +1,7 @@
+# Managed by conform machine blueprint (tech-stack machines/main). Full replacement.
+# Mirrors programs.git static settings in programs.nix (user.name/user.email stay
+# params-driven via GIT_NAME/GIT_EMAIL, no static equivalent).
+[init]
+	defaultBranch = dev
+[pull]
+	rebase = false
