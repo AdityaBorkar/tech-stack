@@ -1,6 +1,6 @@
 {
-	"@description": "Websites using TanStack Start",
-	"@name": "Website (Tanstack Start)",
+	"$description": "Websites using TanStack Start",
+	"$name": "Website (Tanstack Start)",
 	"$schema": "../node_modules/@adistack/conform/config/project-manifest.json",
 	"file_structure": [
 		{

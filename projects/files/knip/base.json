@@ -1,7 +1,7 @@
 {
 	"$schema": "node_modules/knip/schema.json",
 	"entry": ["scripts/**/*.ts"],
-	"ignoreDependencies": ["@changesets/config"],
+	"ignoreDependencies": ["@changesets/config", "@changesets/cli"],
 	"ignoreExportsUsedInFile": true,
 	"project": ["src/**/*.ts", "scripts/**/*.ts"]
 }

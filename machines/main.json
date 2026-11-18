@@ -1,6 +1,6 @@
 {
-	"@description": "Primary Developer Machine",
-	"@name": "Primary Developer Machine",
+	"$description": "Primary Developer Machine",
+	"$name": "Primary Developer Machine",
 	"$schema": "../node_modules/@adistack/conform/config/machine-manifest.json",
 	"allowlist": {
 		"pacman": ["base", "base-devel", "linux", "linux-firmware", "sudo"]

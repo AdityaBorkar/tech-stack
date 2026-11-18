@@ -7,7 +7,7 @@ Data-only blueprint registry. No app source, tests, or CI here. `registry.json` 
 - Project manifests: `files[]` (copied goldens; `source` is repo-root-relative, `target` is destination-relative, cwd for projects) + `file_structure[]` (existence-only: `src/` + empty `AGENTS.md`/`README.md`; `web-extension` also creates `entrypoints/` + `public/`).
 - `tanstack-webapp.json` and `tanstack-website.json` differ only in `@name`/`@description` and share `projects/files/package/tanstack.json` — keep them in sync.
 - Machine manifest: `params` (`USER`, `GIT_NAME`, `GIT_EMAIL`) + `packages.{pacman,bun}` + `files[]` with `~` targets and optional `mode`. Secrets are per-file `secrets: [...]` plus `@@name@@` placeholders in the golden (e.g. `machines/files/npmrc` holds `@@npm_auth_token@@`); credential files use `mode: "0600"`. Never commit real values.
-- `github-configs/npm-package.json`: trunk-based defaults — `defaultBranch: stable`, squash and merge-commit both enabled, required checks `["lint", "format", "types", "conform"]`, 1 approval with code-owner and conversation-resolution required.
+- `github-configs/npm-package.json`: trunk-based defaults — `default_branch: stable`, squash and merge-commit both enabled, required checks `["lint", "format", "types", "conform"]`, 1 approval with code-owner and conversation-resolution required.
 
 ## Conform semantics
 
