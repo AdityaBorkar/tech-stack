@@ -14,7 +14,7 @@
 			"allowed": "all",
 			"fork_pr_approval": "all_external_contributors",
 			"retention_days": 90,
-			"sha_pinning_required": true,
+			"sha_pinning_required": false,
 			"workflow_permissions": {
 				"can_approve_pull_requests": false,
 				"default": "read"
