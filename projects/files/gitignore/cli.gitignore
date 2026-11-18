@@ -1,7 +1,5 @@
-.certs
-.local
 .output
-.tanstack
+config
 node_modules
 
 .env*
@@ -14,5 +12,3 @@ node_modules
 
 .agent/skills
 .claude/skills
-
-config

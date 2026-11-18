@@ -1,5 +1,7 @@
 {
 	"file_scan_exclusions": [
+		"**/.agent",
+		"**/.claude",
 		"**/.git",
 		"**/.output",
 		"**/node_modules",
