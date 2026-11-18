@@ -4,7 +4,7 @@
 		"npm-package": "./github-configs/npm-package.json"
 	},
 	"machines": {
-		"main": "./machines/main/"
+		"main": "./machines/main.json"
 	},
 	"projects": {
 		"astro-website": "./projects/astro-website.json",

@@ -3,10 +3,10 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"verify": "biome check --fix && @adistack/conform validate"
+		"verify": "biome check --fix && conform validate"
 	},
 	"dependencies": {
-		"@adistack/conform": "0.1.0",
+		"@adistack/conform": "0.2.0",
 		"@biomejs/biome": "2.6.8"
 	}
 }
