@@ -6,7 +6,7 @@
 		".output/**",
 		".wrangler/**",
 		"**/*.pdf",
-		"bun.lockb",
+		"bun.lock",
 		"cspell.json",
 		"node_modules/**",
 		"public/fonts/**",

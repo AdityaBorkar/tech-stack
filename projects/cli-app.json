@@ -1,7 +1,7 @@
 {
 	"@description": "CLI Application using Commander",
 	"@name": "CLI",
-	"$schema": "../node_modules/@adistack/conform/schema/project-manifest.json",
+	"$schema": "../node_modules/@adistack/conform/config/project-manifest.json",
 	"file_structure": [
 		{
 			"kind": "dir",
@@ -93,7 +93,7 @@
 		},
 		{
 			"name": "Zed Settings",
-			"source": "projects/files/zed/base.json",
+			"source": "projects/files/zed/cli.json",
 			"target": ".zed/settings.json"
 		},
 		{

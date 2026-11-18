@@ -1,7 +1,7 @@
 {
 	"@description": "Web Extension using WXT",
 	"@name": "Web Extension (WXT)",
-	"$schema": "../node_modules/@adistack/conform/schema/project-manifest.json",
+	"$schema": "../node_modules/@adistack/conform/config/project-manifest.json",
 	"file_structure": [
 		{
 			"kind": "dir",

@@ -2,7 +2,6 @@
 .local
 .output
 .tanstack
-config
 node_modules
 
 .env*
@@ -13,4 +12,7 @@ node_modules
 *.tgz
 .DS_Store
 
-.agents/skills
+.agent/skills
+.claude/skills
+
+config

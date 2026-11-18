@@ -1,5 +1,5 @@
 {
-	"$schema": "node_modules/@adistack/conform/schema/registry.json",
+	"$schema": "node_modules/@adistack/conform/config/registry.json",
 	"github_configs": {
 		"npm-package": "./github-configs/npm-package.json"
 	},

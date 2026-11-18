@@ -1,0 +1,45 @@
+{
+	"file_scan_exclusions": [
+		"**/.git",
+		"**/.output",
+		"**/node_modules",
+		"tsconfig.tsbuildinfo"
+	],
+	"format_on_save": "on",
+	"formatter": [
+		{ "code_action": "source.fixAll" },
+		{ "code_action": "source.fixAll.oxc" },
+		{ "language_server": { "name": "oxfmt" } }
+	],
+	"lsp": {
+		"oxfmt": {
+			"binary": {
+				"arguments": ["./node_modules/.bin/oxfmt", "--lsp"],
+				"path": "bun"
+			},
+			"initialization_options": {
+				"settings": {
+					"run": "onSave"
+				}
+			}
+		},
+		"oxlint": {
+			"binary": {
+				"arguments": ["./node_modules/.bin/oxlint", "--lsp"],
+				"path": "bun"
+			},
+			"initialization_options": {
+				"settings": {
+					"run": "onType",
+					"unusedDisableDirectives": "deny"
+				}
+			}
+		},
+		"typescript-ls": {
+			"binary": {
+				"arguments": ["./node_modules/.bin/tsrs", "--lsp", "--stdio"],
+				"path": "bun"
+			}
+		}
+	}
+}

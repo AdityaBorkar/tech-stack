@@ -74,7 +74,7 @@
 		"check:knip": "knip",
 		"check:lint": "oxlint",
 		"check:types": "tsrs",
-		"clean": "bun rimraf --glob \"**/{node_modules,output,bun.lockb}\"",
+		"clean": "bun rimraf --glob \"**/{.output,config,node_modules,bun.lock}\"",
 		"dev": "bun src/index.ts",
 		"format": "oxfmt",
 		"prepare": "husky",

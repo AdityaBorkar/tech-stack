@@ -1,7 +1,7 @@
 {
 	"@description": "Primary Developer Machine",
 	"@name": "Primary Developer Machine",
-	"$schema": "../node_modules/@adistack/conform/schema/machine-manifest.json",
+	"$schema": "../node_modules/@adistack/conform/config/machine-manifest.json",
 	"allowlist": {
 		"pacman": ["base", "base-devel", "linux", "linux-firmware", "sudo"]
 	},
@@ -227,7 +227,5 @@
 			"zsh-completions": "latest",
 			"zsh-syntax-highlighting": "latest"
 		}
-	},
-	"params": ["USER", "GIT_NAME", "GIT_EMAIL"],
-	"system": "x86_64-linux"
+	}
 }

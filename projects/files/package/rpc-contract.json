@@ -44,7 +44,7 @@
 		"build": "bun ./scripts/build.ts",
 		"check:lint": "oxlint",
 		"check:types": "tsrs",
-		"clean": "bun rimraf --glob \"**/{node_modules,dist,bun.lockb}\"",
+		"clean": "bun rimraf --glob \"**/{node_modules,dist,bun.lock}\"",
 		"dev": "bun ./src/index.ts",
 		"format": "oxfmt",
 		"prepare": "husky",

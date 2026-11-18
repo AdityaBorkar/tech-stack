@@ -1,7 +1,7 @@
 {
 	"@description": "RPC Contract using oRPC + Zod",
 	"@name": "RPC Contract",
-	"$schema": "../node_modules/@adistack/conform/schema/project-manifest.json",
+	"$schema": "../node_modules/@adistack/conform/config/project-manifest.json",
 	"file_structure": [
 		{
 			"kind": "dir",
