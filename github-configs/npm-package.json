@@ -2,6 +2,13 @@
 	"$description": "Simplified Trunk Based Development",
 	"$name": "Simplified Trunk Based Development",
 	"$schema": "../node_modules/@adistack/conform/config/github-manifest.json",
+	"access": {
+		"moderation": {
+			"code_review_limits": {
+				"restrict_to_explicit_access": true
+			}
+		}
+	},
 	"actions": {
 		"general": {
 			"allowed": "all",
@@ -63,6 +70,9 @@
 		}
 	},
 	"issue_templates": false,
+	"planning": {
+		"agent_suggestions": "full-control"
+	},
 	"pull_requests": {
 		"auto_merge": false,
 		"delete_head_branches": true,

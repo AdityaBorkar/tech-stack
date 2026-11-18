@@ -70,7 +70,7 @@
 	},
 	"scripts": {
 		"build": "bun scripts/build.ts",
-		"check:conform": "bun dev check",
+		"check:conform": "bun dev check --project-only",
 		"check:knip": "knip",
 		"check:lint": "oxlint",
 		"check:types": "tsrs",
@@ -78,6 +78,7 @@
 		"dev": "bun src/index.ts",
 		"format": "oxfmt",
 		"prepare": "husky",
+		"review:conform": "bun dev check",
 		"test": "bun test --only-failures --parallel=4",
 		"verify": "bun scripts/verify.ts"
 	},
