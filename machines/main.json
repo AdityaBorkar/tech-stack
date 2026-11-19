@@ -7,7 +7,7 @@
 	},
 	"files": [
 		{
-			"name": "Bashrc",
+			"name": "Bash RC",
 			"source": "machines/files/bashrc",
 			"target": "~/.bashrc"
 		},
@@ -17,146 +17,146 @@
 			"target": "~/.profile"
 		},
 		{
-			"name": "BashLogout",
+			"name": "Bash Logout",
 			"source": "machines/files/bash_logout",
 			"target": "~/.bash_logout"
 		},
 		{
-			"name": "Zshrc",
+			"name": "Zsh RC",
 			"source": "machines/files/zshrc",
 			"target": "~/.zshrc"
 		},
 		{
-			"name": "AwsConfig",
+			"name": "AWS Config",
 			"source": "machines/files/aws/config",
 			"target": "~/.aws/config"
 		},
 		{
-			"name": "DockerConfig",
+			"name": "Docker Config",
 			"source": "machines/files/docker/config.json",
 			"target": "~/.docker/config.json"
 		},
 		{
-			"name": "GitConfig",
+			"name": "Git Config",
 			"source": "machines/files/git/config",
 			"target": "~/.gitconfig"
 		},
 		{
-			"name": "GhConfig",
+			"name": "GitHub Config",
 			"source": "machines/files/gh/config.yml",
 			"target": "~/.config/gh/config.yml"
 		},
 		{
-			"name": "Htoprc",
-			"source": "machines/files/htop/htoprc",
-			"target": "~/.config/htop/htoprc"
-		},
-		{
-			"name": "KnownHosts",
+			"name": "SSH Known Hosts",
 			"source": "machines/files/ssh/known_hosts",
 			"target": "~/.ssh/known_hosts"
 		},
 		{
-			"name": "SshConfig",
+			"name": "SSH Config",
 			"source": "machines/files/ssh/config",
 			"target": "~/.ssh/config"
 		},
 		{
-			"name": "OpencodeAgents",
+			"name": "OpenCode Agents",
 			"source": "machines/files/opencode/AGENTS.md",
 			"target": "~/.config/opencode/AGENTS.md"
 		},
 		{
-			"name": "CodebaseMemory",
+			"name": "Codebase Memory",
 			"source": "machines/files/opencode/agents/codebase-memory.md",
 			"target": "~/.config/opencode/agents/codebase-memory.md"
 		},
 		{
-			"name": "CodebaseMemoryAuditor",
+			"name": "Codebase Memory Auditor",
 			"source": "machines/files/opencode/agents/codebase-memory-auditor.md",
 			"target": "~/.config/opencode/agents/codebase-memory-auditor.md"
 		},
 		{
-			"name": "CodebaseMemoryScout",
+			"name": "Codebase Memory Scout",
 			"source": "machines/files/opencode/agents/codebase-memory-scout.md",
 			"target": "~/.config/opencode/agents/codebase-memory-scout.md"
 		},
 		{
-			"name": "OpencodeCli",
+			"name": "OpenCode CLI",
 			"source": "machines/files/opencode/cli.json",
 			"target": "~/.config/opencode/cli.json"
 		},
 		{
-			"name": "OpencodePackage",
+			"name": "OpenCode Package",
 			"source": "machines/files/opencode/package.json",
 			"target": "~/.config/opencode/package.json"
 		},
 		{
-			"name": "CbmAugment",
+			"name": "CBM Augment",
 			"source": "machines/files/opencode/plugins/cbm-augment.ts",
 			"target": "~/.config/opencode/plugins/cbm-augment.ts"
 		},
 		{
-			"name": "Rtk",
+			"name": "RTK",
 			"source": "machines/files/opencode/plugins/rtk.ts",
 			"target": "~/.config/opencode/plugins/rtk.ts"
 		},
 		{
-			"name": "CodebaseMemorySkill",
+			"name": "Codebase Memory Skill",
 			"source": "machines/files/opencode/skills/codebase-memory/SKILL.md",
 			"target": "~/.config/opencode/skills/codebase-memory/SKILL.md"
 		},
 		{
-			"name": "VscodeSettings",
+			"name": "VS Code Settings",
 			"source": "machines/files/vscode/settings.json",
 			"target": "~/.config/Code/User/settings.json"
 		},
 		{
-			"name": "ZedSettings",
+			"name": "Zed Settings",
 			"source": "machines/files/zed/settings.json",
 			"target": "~/.config/zed/settings.json"
 		},
 		{
+			"name": "Claude Settings",
+			"source": "machines/files/.claude/settings.json",
+			"target": "~/.claude/settings.json"
+		},
+		{
 			"mode": "0600",
-			"name": "AwsCredentials",
+			"name": "AWS Credentials",
 			"secrets": [
-				"aws_prod_access_key_id",
-				"aws_prod_secret_access_key",
-				"aws_dev_access_key_id",
-				"aws_dev_secret_access_key"
+				"AWS_PROD_ACCESS_KEY_ID",
+				"AWS_PROD_SECRET_ACCESS_KEY",
+				"AWS_DEV_ACCESS_KEY_ID",
+				"AWS_DEV_SECRET_ACCESS_KEY"
 			],
 			"source": "machines/files/aws/credentials",
 			"target": "~/.aws/credentials"
 		},
 		{
 			"mode": "0600",
-			"name": "GhHosts",
-			"secrets": ["gh_oauth_token"],
+			"name": "GitHub Hosts",
+			"secrets": ["GH_OAUTH_TOKEN"],
 			"source": "machines/files/gh/hosts.yml",
 			"target": "~/.config/gh/hosts.yml"
 		},
 		{
 			"mode": "0600",
-			"name": "Npmrc",
-			"secrets": ["npm_auth_token"],
+			"name": "NPM RC",
+			"secrets": ["NPM_AUTH_TOKEN"],
 			"source": "machines/files/npmrc",
 			"target": "~/.npmrc"
 		},
 		{
-			"name": "EasSettings",
-			"secrets": ["eas_analytics_device_id"],
+			"name": "EAS Settings",
+			"secrets": ["EAS_ANALYTICS_DEVICE_ID"],
 			"source": "machines/files/eas-cli/user-settings.json",
 			"target": "~/.config/eas-cli-nodejs/user-settings.json"
 		},
 		{
-			"name": "OpencodeConfig",
-			"secrets": ["opencode_context7_api_key"],
+			"name": "OpenCode Config",
+			"secrets": ["OPENCODE_CONTEXT7_API_KEY"],
 			"source": "machines/files/opencode/opencode.json",
 			"target": "~/.config/opencode/opencode.json"
 		},
 		{
-			"name": "WakatimeCfg",
-			"secrets": ["wakatime_api_key"],
+			"name": "WakaTime Config",
+			"secrets": ["WAKATIME_API_KEY"],
 			"source": "machines/files/wakatime.cfg",
 			"target": "~/.wakatime.cfg"
 		}

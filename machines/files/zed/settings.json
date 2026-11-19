@@ -4,17 +4,7 @@
 		"favorite_models": [],
 		"model_parameters": []
 	},
-	"agent_servers": {
-		"claude-acp": {
-			"type": "registry"
-		},
-		"factory-droid": {
-			"type": "registry"
-		},
-		"opencode": {
-			"type": "registry"
-		}
-	},
+	"agent_servers": {},
 	"autoscroll_on_clicks": true,
 	"base_keymap": "VSCode",
 	"buffer_font_family": "Fira Code",
@@ -268,12 +258,5 @@
 	},
 	"ui_font_family": ".ZedSans",
 	"ui_font_size": 12.0,
-	"ui_font_weight": 400.0,
-	"wsl_connections": [
-		{
-			"distro_name": "Ubuntu-24.04",
-			"projects": [],
-			"user": null
-		}
-	]
+	"ui_font_weight": 400.0
 }

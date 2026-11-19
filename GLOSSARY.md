@@ -1,0 +1,131 @@
+# Glossary
+
+Blueprint-authoring vocabulary for this repo, synced from
+`~/repo/adistack-conform/GLOSSARY.md`. Use these terms with these meanings; the
+listed _Avoid_ words never appear in manifests.
+
+## Language
+
+### Desired state
+
+**Desired State**:
+The declaration of which project, machine, and GitHub blueprints a directory, machine, and repo should match, plus the pin holding them.
+_Avoid_: config, spec
+
+**Pin**:
+The tech-stack repo and ref a desired state reads its registry, blueprints, and upstreams from.
+_Avoid_: tech-stack source, source, preset repo, remote
+
+**Provider**:
+The kind of host serving the pin; only GitHub exists.
+_Avoid_: source type, backend
+
+**Registry**:
+The listing of every project, machine, and GitHub blueprint a pinned tech-stack repo offers.
+_Avoid_: catalog, index
+
+**Blueprint**:
+A named entry in the registry describing one desired shape: a project file set, a machine, or a set of GitHub repo settings.
+_Avoid_: preset, template, profile
+
+**Blueprint resolution**:
+Matching a desired-state blueprint name to a registry entry, by exact name or path only.
+_Avoid_: lookup, fuzzy match
+
+**Manifest**:
+The blueprint file declaring what that blueprint enforces.
+_Avoid_: blueprint config, spec file
+
+**Machine manifest**:
+A manifest declaring the packages a machine must have and the files it must carry.
+_Avoid_: flake, system config
+
+### Enforcement
+
+**Scope**:
+One of the three enforcement domains: project, machine, or GitHub.
+_Avoid_: mode, area
+
+**Scope filter**:
+Narrowing one run to a single scope.
+_Avoid_: scope flag, mode filter
+
+**Source**:
+Where an upstream lives inside the pinned tech-stack repo, as declared by a manifest entry.
+_Avoid_: pin, preset path, upstream path
+
+**Upstream**:
+The tech-stack content a target is compared against, fetched from its source.
+_Avoid_: golden, expected file, preset
+
+**Target**:
+The thing being enforced: a file or directory in the project, a file or package on the machine, or a GitHub repo.
+_Avoid_: destination, output
+
+**Compare rule**:
+A manifest-declared adjustment to how one project file is compared, such as keys left to the project.
+_Avoid_: compare config, override
+
+**Template**:
+A project upstream with placeholder slots that each project must fill with its own values; every other part must match.
+_Avoid_: parameterized file, scaffold
+
+**File structure**:
+Project-manifest entries that require a file or directory to exist without checking its content.
+_Avoid_: required docs, required dirs
+
+**Link**:
+A machine file enforced as a symlink to its upstream.
+_Avoid_: symlink entry, dotfile
+
+**Secrets template**:
+A machine file rendered from its upstream with values from the machine's encrypted secrets.
+_Avoid_: sops file
+
+**Extra**:
+A package installed on the machine that the machine manifest does not declare.
+_Avoid_: untracked package, orphan
+
+**Allowlist**:
+Machine-manifest package names that are never reported as extras.
+_Avoid_: ignore list
+
+**Strict**:
+A run that treats extras as drift instead of skipping them.
+_Avoid_: drift mode, switch
+
+### Results
+
+**Check result**:
+The outcome of one enforcement comparison for one target.
+_Avoid_: check, report item
+
+**Drift**:
+A non-skipped check result where reality does not match the desired state.
+_Avoid_: diff, failure, mismatch
+
+**Fixable**:
+Drift that carries a remedy the CLI can apply.
+_Avoid_: auto-fixable, resolvable
+
+**Manual**:
+Drift with no remedy the CLI can apply, only a hint for a human.
+_Avoid_: unfixable, unactionable
+
+**Hint**:
+The human-readable remedy attached to a check result.
+_Avoid_: message, help text
+
+**Skipped**:
+A check result that was not enforced; it is neither a pass nor drift.
+_Avoid_: ignored, passed
+
+**Internal error**:
+The single check result standing in for a scope whose run failed outright; it counts as drift.
+_Avoid_: system error, crash
+
+### Flow
+
+**Validate**:
+Checking a local checkout of a tech-stack repo for broken blueprints and missing sources, independent of any desired state.
+_Avoid_: verify
